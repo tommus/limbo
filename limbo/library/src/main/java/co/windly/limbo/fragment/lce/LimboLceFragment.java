@@ -13,16 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import butterknife.ButterKnife;
-import co.windly.limbo.activity.fragment.BaseFragmentActivityView;
-import co.windly.limbo.fragment.base.BaseFragmentView;
+import co.windly.limbo.activity.fragment.LimboFragmentActivityView;
+import co.windly.limbo.fragment.base.LimboFragmentView;
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceFragment;
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public abstract class BaseLceFragment<CV extends View, M, V extends BaseLceFragmentView<M>, P extends BaseLceFragmentPresenter<V>>
-  extends MvpLceFragment<CV, M, V, P> implements BaseLceFragmentView<M> {
+public abstract class LimboLceFragment<CV extends View, M, V extends LimboLceFragmentView<M>, P extends LimboLceFragmentPresenter<V>>
+  extends MvpLceFragment<CV, M, V, P> implements LimboLceFragmentView<M> {
 
   //region Ui
 
@@ -249,58 +249,58 @@ public abstract class BaseLceFragment<CV extends View, M, V extends BaseLceFragm
   //region Fragment
 
   @Override
-  public void loadRootFragment(int containerId, BaseFragmentView toFragment) {
+  public void loadRootFragment(int containerId, LimboFragmentView toFragment) {
     delegate.loadRootFragment(containerId, toFragment);
   }
 
   @Override
   public void loadRootFragment(
-    int containerId, BaseFragmentView toFragment, boolean addToBackStack, boolean allowAnimation) {
+    int containerId, LimboFragmentView toFragment, boolean addToBackStack, boolean allowAnimation) {
     delegate.loadRootFragment(containerId, toFragment, addToBackStack, allowAnimation);
   }
 
   @Override
-  public void loadMultipleRootFragment(int containerId, int showPosition, BaseFragmentView... toFragments) {
+  public void loadMultipleRootFragment(int containerId, int showPosition, LimboFragmentView... toFragments) {
     delegate.loadMultipleRootFragment(containerId, showPosition, toFragments);
   }
 
   @Override
-  public void start(BaseFragmentView toFragment) {
+  public void start(LimboFragmentView toFragment) {
     delegate.start(toFragment);
   }
 
   @Override
-  public void start(final BaseFragmentView toFragment, @LaunchMode int launchMode) {
+  public void start(final LimboFragmentView toFragment, @LaunchMode int launchMode) {
     delegate.start(toFragment, launchMode);
   }
 
   @Override
-  public void startForResult(BaseFragmentView toFragment, int requestCode) {
+  public void startForResult(LimboFragmentView toFragment, int requestCode) {
     delegate.startForResult(toFragment, requestCode);
   }
 
   @Override
-  public void startWithPop(BaseFragmentView toFragment) {
+  public void startWithPop(LimboFragmentView toFragment) {
     delegate.startWithPop(toFragment);
   }
 
   @Override
-  public void startWithPopTo(BaseFragmentView toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
+  public void startWithPopTo(LimboFragmentView toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
     delegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);
   }
 
   @Override
-  public void replaceFragment(BaseFragmentView toFragment, boolean addToBackStack) {
+  public void replaceFragment(LimboFragmentView toFragment, boolean addToBackStack) {
     delegate.replaceFragment(toFragment, addToBackStack);
   }
 
   @Override
-  public void showHideFragment(BaseFragmentView showFragment) {
+  public void showHideFragment(LimboFragmentView showFragment) {
     delegate.showHideFragment(showFragment);
   }
 
   @Override
-  public void showHideFragment(BaseFragmentView showFragment, BaseFragmentView hideFragment) {
+  public void showHideFragment(LimboFragmentView showFragment, LimboFragmentView hideFragment) {
     delegate.showHideFragment(showFragment, hideFragment);
   }
 
@@ -315,13 +315,13 @@ public abstract class BaseLceFragment<CV extends View, M, V extends BaseLceFragm
   }
 
   @Override
-  public <T extends BaseFragmentView> T findChildFragment(Class<T> fragmentClass) {
+  public <T extends LimboFragmentView> T findChildFragment(Class<T> fragmentClass) {
     return SupportHelper.findFragment(getChildFragmentManager(), fragmentClass);
   }
 
   @Override
   @SuppressWarnings("unchecked")
-  public <T extends BaseFragmentView> T getParentFragment(Class<T> fragmentClass) {
+  public <T extends LimboFragmentView> T getParentFragment(Class<T> fragmentClass) {
     final Fragment fragment = getParentFragment();
     if (fragment == null || !fragment.getClass().equals(fragmentClass)) {
       throw new IllegalArgumentException("Parent fragment at given class does not belong to back stack.");
@@ -335,7 +335,7 @@ public abstract class BaseLceFragment<CV extends View, M, V extends BaseLceFragm
 
   @Override
   @SuppressWarnings("unchecked")
-  public <T extends BaseFragmentActivityView> T getActivity(Class<T> activityClass) {
+  public <T extends LimboFragmentActivityView> T getActivity(Class<T> activityClass) {
     final Activity activity = getActivity();
     if (activity == null || !activity.getClass().equals(activityClass)) {
       throw new IllegalArgumentException("Activity at given class does not host current fragment.");

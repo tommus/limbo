@@ -5,7 +5,7 @@ import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 
-public abstract class BaseFragmentPresenter<V extends BaseFragmentView> extends MvpBasePresenter<V> {
+public abstract class LimboFragmentPresenter<V extends LimboFragmentView> extends MvpBasePresenter<V> {
 
   //region Threading
 

@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import butterknife.ButterKnife;
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 
-public abstract class BaseActivity<V extends BaseActivityView, P extends BaseActivityPresenter<V>> extends MvpActivity<V, P>
-  implements BaseActivityView {
+public abstract class LimboActivity<V extends LimboActivityView, P extends LimboActivityPresenter<V>> extends MvpActivity<V, P>
+  implements LimboActivityView {
 
   //region Ui
 
