@@ -1,0 +1,63 @@
+//region Startup Plugins
+
+apply plugin: "com.android.library"
+
+//endregion
+
+//region Android
+
+android {
+
+  //region Compile
+
+  compileSdkVersion deps.build_versions.compile_sdk
+
+  //endregion
+
+  //region Default Configuration
+
+  defaultConfig {
+    minSdkVersion deps.build_versions.min_sdk
+    targetSdkVersion deps.build_versions.target_sdk
+
+    versionCode FUNCTIONAL_VERSION_CODE
+    versionName FUNCTIONAL_VERSION
+  }
+
+  //endregion
+}
+
+//endregion
+
+//region Dependencies
+
+dependencies {
+
+  //region Architecture
+
+  api deps.mosby.mvp
+  api deps.mosby.mvp_lce
+  api deps.fragmentation.core
+
+  //endregion
+
+  //region Reactive extensions
+
+  api deps.rx.java
+
+  //endregion
+
+  //region Support
+
+  api deps.support.fragment
+
+  //endregion
+
+  //region View injections
+
+  api deps.ui.butter_knife
+
+  //endregion
+}
+
+//endregion

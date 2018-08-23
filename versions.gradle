@@ -1,0 +1,86 @@
+//region Dependencies
+
+def deps = [:]
+ext.deps = deps
+
+//region Versions
+
+def versions = [:]
+versions.butter_knife = "9.0.0-SNAPSHOT"
+versions.fragmentation = "1.3.5"
+versions.mosby = "3.1.0"
+versions.support = "28.0.0-rc01"
+versions.rx_java = "2.2.0"
+deps.versions = versions
+
+//endregion
+
+//region Build
+
+def build = [:]
+build.butterknife_plugin = "com.jakewharton:butterknife-gradle-plugin:$versions.butter_knife"
+deps.build = build
+
+def build_versions = [:]
+build_versions.compile_sdk = 28
+build_versions.min_sdk = 21
+build_versions.target_sdk = 28
+deps.build_versions = build_versions
+
+//endregion
+
+//region Fragmentation
+
+def fragmentation = [:]
+fragmentation.core = "me.yokeyword:fragmentation:$versions.fragmentation"
+deps.fragmentation = fragmentation
+
+//endregion
+
+//region Mosby
+
+def mosby = [:]
+mosby.mvp = "com.hannesdorfmann.mosby3:mvp:$versions.mosby"
+mosby.mvp_lce = "com.hannesdorfmann.mosby3:mvp-lce:$versions.mosby"
+deps.mosby = mosby
+
+//endregion
+
+//region Reactive extensions
+
+def rx = [:]
+rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
+deps.rx = rx
+
+//endregion
+
+//region Support
+
+def support = [:]
+support.fragment = "com.android.support:support-fragment:$versions.support"
+deps.support = support
+
+//endregion
+
+//region Ui
+
+def ui = [:]
+ui.butter_knife = "com.jakewharton:butterknife:$versions.butter_knife"
+ui.butter_knife_compiler = "com.jakewharton:butterknife-compiler:$versions.butter_knife"
+deps.ui = ui
+
+//endregion
+
+//endregion
+
+//region Repositories
+
+static def addRepos(RepositoryHandler handler) {
+  handler.google()
+  handler.jcenter()
+  handler.maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+ext.addRepos = this.&addRepos
+
+//endregion

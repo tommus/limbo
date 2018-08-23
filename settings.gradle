@@ -1,0 +1,11 @@
+//region Includes
+
+include ":library"
+
+//endregion
+
+//region Configuration
+
+project(":library").projectDir = new File(rootDir, "limbo/library")
+
+//endregion
