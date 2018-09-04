@@ -7,10 +7,10 @@ ext.deps = deps
 
 def versions = [:]
 versions.butter_knife = "9.0.0-SNAPSHOT"
-versions.fragmentation = "1.3.5"
+versions.fragmentation = "1.3.6"
 versions.mosby = "3.1.0"
-versions.support = "28.0.0-rc01"
-versions.rx_java = "2.2.0"
+versions.support = "28.0.0-rc02"
+versions.rx_java = "2.2.1"
 deps.versions = versions
 
 //endregion

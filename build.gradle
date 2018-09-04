@@ -4,8 +4,8 @@ buildscript {
 
   //region Versioning
 
-  ext.FUNCTIONAL_VERSION = "0.0.1"
-  ext.FUNCTIONAL_VERSION_CODE = 1
+  ext.FUNCTIONAL_VERSION = "0.0.2"
+  ext.FUNCTIONAL_VERSION_CODE = 2
 
   //endregion
 
