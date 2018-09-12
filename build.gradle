@@ -4,8 +4,8 @@ buildscript {
 
   //region Versioning
 
-  ext.FUNCTIONAL_VERSION = "0.0.2"
-  ext.FUNCTIONAL_VERSION_CODE = 2
+  ext.FUNCTIONAL_VERSION = "0.3.0"
+  ext.FUNCTIONAL_VERSION_CODE = 3
 
   //endregion
 
@@ -21,7 +21,7 @@ buildscript {
   //region Dependencies
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.1.4"
+    classpath deps.build.android_gradle_plugin
   }
 
   //endregion
