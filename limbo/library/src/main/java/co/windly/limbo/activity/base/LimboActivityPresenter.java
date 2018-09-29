@@ -23,7 +23,7 @@ public abstract class LimboActivityPresenter<View extends LimboActivityView> ext
 
   //region Clear
 
-  protected void clearDisposables() {
+  public void clearDisposables() {
     disposables.clear();
   }
 
