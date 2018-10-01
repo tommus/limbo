@@ -13,7 +13,7 @@ public abstract class LimboFragmentPresenter<V extends LimboFragmentView> extend
   protected CompositeDisposable disposables = new CompositeDisposable();
 
   public boolean addDisposable(@NonNull Disposable disposable) {
-    disposables.add(disposable);
+    return disposables.add(disposable);
   }
 
   public void clearDisposables() {
