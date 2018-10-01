@@ -4,6 +4,7 @@ import android.content.Context;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public abstract class LimboFragmentPresenter<V extends LimboFragmentView> extends MvpBasePresenter<V> {
 
@@ -11,20 +12,20 @@ public abstract class LimboFragmentPresenter<V extends LimboFragmentView> extend
 
   protected CompositeDisposable disposables = new CompositeDisposable();
 
+  public boolean addDisposable(@NonNull Disposable disposable) {
+    disposables.add(disposable);
+  }
+
+  public void clearDisposables() {
+    disposables.clear();
+  }
+
   //endregion
 
   //region Managers
 
   public void initializeManagers(@NonNull Context context) {
     // No-op.
-  }
-
-  //endregion
-
-  //region Detach
-
-  public void clearDisposables() {
-    disposables.clear();
   }
 
   //endregion
