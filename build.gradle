@@ -4,8 +4,8 @@ buildscript {
 
   //region Versioning
 
-  ext.LIMBO_VERSION = "0.5.3"
-  ext.LIMBO_VERSION_CODE = 8
+  ext.LIMBO_VERSION = "0.5.5"
+  ext.LIMBO_VERSION_CODE = 9
 
   //endregion
 
@@ -35,6 +35,15 @@ allprojects {
   repositories {
     addRepos(repositories)
   }
+}
+
+//endregion
+
+//region Sub Projects
+
+subprojects { project ->
+  group = GROUP
+  version = VERSION_NAME
 }
 
 //endregion

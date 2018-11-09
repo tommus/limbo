@@ -5,32 +5,10 @@ applications.
 
 ### Installation
 
-1. Add Jitpack repostiory to the project `build.gradle`:
-
-```groovy
-repositories {
-    /* (...) */
-    maven { url "https://jitpack.io" }
-}
-```
-
-2. Make sure that you have the `$limbo_version` defined in your gradle file at the project level:
-
-```groovy
-ext.limbo_version = "0.5.3"
-```
-
-3. Add dependencies:
+1. Add dependencies.
 
 ```groovy
 dependencies {
-    /* (...) */
-    implementation "com.github.tommus:limbo:0.5.3"
+    implementation "co.windly:limbo:0.5.5"
 }
-```
-
-### Build
-
-```sh
-./gradlew clean assemble
 ```

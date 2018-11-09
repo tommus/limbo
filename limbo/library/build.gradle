@@ -60,3 +60,9 @@ dependencies {
 }
 
 //endregion
+
+//region Publication
+
+apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+
+//endregion
