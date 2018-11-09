@@ -150,6 +150,7 @@ afterEvaluate { project ->
     task androidJavadocs(type: Javadoc) {
       source = android.sourceSets.main.java.source
       classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+      failOnError false
     }
 
     //endregion
@@ -249,8 +250,8 @@ afterEvaluate { project ->
   //region Artifacts
 
   artifacts {
-    if (project.getPlugins().hasPlugin("com.android.application") ||
-        project.getPlugins().hasPlugin("com.android.library")) {
+    if (project.getPlugins().hasPlugin("com.android.application") || project.getPlugins().
+        hasPlugin("com.android.library")) {
       archives androidSourcesJar
       archives androidJavadocsJar
     } else {
