@@ -6,7 +6,9 @@
 
   <!-- region Application -->
 
-  <string name="app_name">Limbo Sample</string>
+  <color name="colorPrimary">#008577</color>
+  <color name="colorPrimaryDark">#00574B</color>
+  <color name="colorAccent">#D81B60</color>
 
   <!-- endregion -->
 
