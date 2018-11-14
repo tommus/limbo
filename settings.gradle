@@ -1,11 +1,13 @@
 //region Includes
 
 include ":library"
+include ":java"
 
 //endregion
 
 //region Configuration
 
 project(":library").projectDir = new File(rootDir, "limbo/library")
+project(":java").projectDir = new File(rootDir, "samples/java")
 
 //endregion
