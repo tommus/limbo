@@ -10,6 +10,11 @@ android {
 
   //region Compile
 
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
   compileSdkVersion deps.build_versions.compile_sdk
 
   //endregion
@@ -61,6 +66,18 @@ dependencies {
 
   implementation deps.support.app_compat
   implementation deps.support.constraint_layout
+
+  //endregion
+
+  //region Debugging
+
+  implementation deps.misc.timber
+
+  //endregion
+
+  //region Reactive Extensions
+
+  implementation deps.rx.android
 
   //endregion
 }

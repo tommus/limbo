@@ -13,7 +13,9 @@ versions.fragmentation = "1.3.6"
 versions.kotlin = "1.3.10"
 versions.mosby = "3.1.0"
 versions.support = "28.0.0"
+versions.rx_android = "2.1.0"
 versions.rx_java = "2.2.3"
+versions.timber = "4.7.1"
 deps.versions = versions
 
 //endregion
@@ -50,6 +52,14 @@ deps.kotlin = kotlin
 
 //endregion
 
+//region Miscellaneous
+
+def misc = [:]
+misc.timber = "com.jakewharton.timber:timber:$versions.timber"
+deps.misc = misc
+
+//endregion
+
 //region Mosby
 
 def mosby = [:]
@@ -62,6 +72,7 @@ deps.mosby = mosby
 //region Reactive extensions
 
 def rx = [:]
+rx.android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
 rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
 deps.rx = rx
 

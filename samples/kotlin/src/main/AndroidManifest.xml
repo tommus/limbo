@@ -28,6 +28,10 @@
       </intent-filter>
     </activity>
 
+    <activity
+      android:name=".presentation.main.MainActivity"
+      android:screenOrientation="portrait"/>
+
     <!-- endregion -->
 
   </application>

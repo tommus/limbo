@@ -66,9 +66,21 @@ dependencies {
 
   //endregion
 
+  //region Debugging
+
+  implementation deps.misc.timber
+
+  //endregion
+
   //region Kotlin
 
   implementation deps.kotlin.stdlib_jdk7
+
+  //endregion
+
+  //region Reactive Extensions
+
+  implementation deps.rx.android
 
   //endregion
 }
