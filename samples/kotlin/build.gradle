@@ -53,9 +53,22 @@ dependencies {
 
   //endregion
 
+  //region Application Modules
+
+  implementation project(":library")
+
+  //endregion
+
   //region Android Support
 
-  implementation "com.android.support:appcompat-v7:28.0.0"
+  implementation deps.support.app_compat
+  implementation deps.support.constraint_layout
+
+  //endregion
+
+  //region Kotlin
+
+  implementation deps.kotlin.stdlib_jdk7
 
   //endregion
 }
