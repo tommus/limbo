@@ -6,13 +6,12 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <!-- region Under Construction -->
+  <!-- region Fragment Container -->
 
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="TODO:\nMain View"
-    android:textAlignment="center"
+  <FrameLayout
+    android:id="@+id/fragmentContainer"
+    android:layout_width="@dimen/size_auto"
+    android:layout_height="@dimen/size_auto"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"

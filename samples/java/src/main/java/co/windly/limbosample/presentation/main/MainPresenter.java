@@ -1,7 +1,7 @@
 package co.windly.limbosample.presentation.main;
 
-import co.windly.limbo.activity.base.LimboActivityPresenter;
+import co.windly.limbo.activity.fragment.LimboFragmentActivityPresenter;
 
-class MainPresenter extends LimboActivityPresenter<MainView> {
+class MainPresenter extends LimboFragmentActivityPresenter<MainView> {
   // No-op.
 }
