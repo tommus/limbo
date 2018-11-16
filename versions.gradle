@@ -83,6 +83,7 @@ deps.rx = rx
 def support = [:]
 support.app_compat = "com.android.support:appcompat-v7:$versions.support"
 support.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+support.design = "com.android.support:design:$versions.support"
 support.fragment = "com.android.support:support-fragment:$versions.support"
 deps.support = support
 

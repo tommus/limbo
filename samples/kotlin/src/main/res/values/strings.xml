@@ -10,4 +10,11 @@
 
   <!-- endregion -->
 
+  <!-- region Main -->
+
+  <string name="main_bottom_nav_home">Home</string>
+  <string name="main_bottom_nav_settings">Settings</string>
+
+  <!-- endregion -->
+
 </resources>

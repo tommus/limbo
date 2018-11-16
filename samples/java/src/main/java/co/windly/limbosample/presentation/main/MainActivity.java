@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
+import butterknife.BindView;
 import co.windly.limbo.activity.fragment.LimboFragmentActivity;
 import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
 import co.windly.limbosample.presentation.main.home.HomeFragment;
+import co.windly.limbosample.presentation.main.settings.SettingsFragment;
 
 public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter> implements MainView {
 
@@ -27,6 +30,14 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
     return R.layout.activity_main;
   }
 
+  @Override
+  protected void initializeViews() {
+    super.initializeViews();
+
+    // Initialize bottom navigation.
+    initializeBottomNavigation();
+  }
+
   //endregion
 
   //region Presenter
@@ -35,6 +46,57 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
   @Override
   public MainPresenter createPresenter() {
     return new MainPresenter();
+  }
+
+  //endregion
+
+  //region Navigation
+
+  @BindView(R.id.bottomNavigation)
+  BottomNavigationView bottomNavigationView;
+
+  private void initializeBottomNavigation() {
+
+    // Configure listener.
+    bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
+      // Retrieve item id.
+      final int itemId = item.getItemId();
+
+      // Navigate to selected item.
+      switch (itemId) {
+        case R.id.action_home:
+          navigateToHomeView();
+          break;
+        case R.id.action_settings:
+          navigateToSettingsView();
+          break;
+      }
+
+      return false;
+    });
+  }
+
+  @Override
+  public void navigateToHomeView() {
+
+    // Prepare fragment.
+    final LimboFragment fragment = HomeFragment.createInstance();
+
+    // Replace current fragment.
+    getSupportDelegate()
+      .replaceFragment(fragment, false);
+  }
+
+  @Override
+  public void navigateToSettingsView() {
+
+    // Prepare fragment.
+    final LimboFragment fragment = SettingsFragment.createInstance();
+
+    // Replace current fragment.
+    getSupportDelegate()
+      .replaceFragment(fragment, false);
   }
 
   //endregion

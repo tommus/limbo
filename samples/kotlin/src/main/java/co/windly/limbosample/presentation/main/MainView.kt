@@ -3,5 +3,12 @@ package co.windly.limbosample.presentation.main
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
 
 interface MainView : LimboFragmentActivityView {
-  // No-op.
+
+  //region Navigation
+
+  fun navigateToHomeView()
+
+  fun navigateToSettingsView()
+
+  //endregion
 }

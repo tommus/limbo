@@ -12,10 +12,24 @@
     android:id="@+id/fragmentContainer"
     android:layout_width="@dimen/size_auto"
     android:layout_height="@dimen/size_auto"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
+
+  <!-- endregion -->
+
+  <!-- region Bottom Navigation -->
+
+  <android.support.design.widget.BottomNavigationView
+    android:id="@+id/bottomNavigation"
+    android:layout_width="@dimen/size_auto"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/fragmentContainer"
+    app:menu="@menu/bottom_nav_main"/>
 
   <!-- endregion -->
 

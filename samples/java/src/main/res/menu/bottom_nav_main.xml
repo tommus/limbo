@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <!-- region Home -->
+
+  <item
+    android:id="@+id/action_home"
+    android:icon="@drawable/ic_home_white_24dp"
+    android:title="@string/main_bottom_nav_home"
+    app:showAsAction="ifRoom"/>
+
+  <!-- endregion -->
+
+  <!-- region Settings -->
+
+  <item
+    android:id="@+id/action_settings"
+    android:icon="@drawable/ic_settings_white_24dp"
+    android:title="@string/main_bottom_nav_settings"
+    app:showAsAction="ifRoom"/>
+
+  <!-- endregion -->
+
+</menu>
