@@ -1,6 +1,6 @@
 package co.windly.limbo.activity.fragment;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import co.windly.limbo.activity.base.LimboActivityView;
 import co.windly.limbo.fragment.base.LimboFragmentView;
 import me.yokeyword.fragmentation.ISupportActivity;

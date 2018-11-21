@@ -1,6 +1,6 @@
 package co.windly.limbosample.presentation.splash;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import co.windly.limbo.activity.base.LimboActivityPresenter;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

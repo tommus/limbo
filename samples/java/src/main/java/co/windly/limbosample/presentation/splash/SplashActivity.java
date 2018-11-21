@@ -2,8 +2,8 @@ package co.windly.limbosample.presentation.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import co.windly.limbo.activity.base.LimboActivity;
 import co.windly.limbosample.R;
 import co.windly.limbosample.presentation.main.MainActivity;

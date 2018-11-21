@@ -1,6 +1,6 @@
 package co.windly.limbosample.presentation.main.home;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
 

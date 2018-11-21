@@ -1,8 +1,8 @@
 package co.windly.limbo.activity.base;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 

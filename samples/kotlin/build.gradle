@@ -59,11 +59,10 @@ dependencies {
 
   //endregion
 
-  //region Android Support
+  //region AndroidX
 
-  implementation deps.support.app_compat
-  implementation deps.support.constraint_layout
-  implementation deps.support.design
+  implementation deps.androidx.appcompat
+  implementation deps.androidx.constraintlayout
 
   //endregion
 
@@ -82,6 +81,12 @@ dependencies {
   //region Reactive Extensions
 
   implementation deps.rx.android
+
+  //endregion
+
+  //region Ui
+
+  implementation deps.ui.material
 
   //endregion
 }

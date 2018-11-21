@@ -3,15 +3,15 @@ package co.windly.limbosample.presentation.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import co.windly.limbo.activity.fragment.LimboFragmentActivity;
 import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
 import co.windly.limbosample.presentation.main.home.HomeFragment;
 import co.windly.limbosample.presentation.main.settings.SettingsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter> implements MainView {
 
