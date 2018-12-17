@@ -8,14 +8,15 @@ ext.deps = deps
 def versions = [:]
 versions.android_gradle_plugin = "3.2.1"
 versions.androidx = "1.0.0"
-versions.butter_knife = "9.0.0-rc1"
+versions.butter_knife = "9.0.0-rc2"
 versions.constraintlayout = "1.1.3"
 versions.fragmentation = "1.3.6"
-versions.kotlin = "1.3.10"
+versions.kotlin = "1.3.11"
 versions.material = "1.0.0"
-versions.mosby = "3.1.1-SNAPSHOT"
+versions.mosby = "3.1.1"
 versions.rx_android = "2.1.0"
-versions.rx_java = "2.2.3"
+versions.rx_java = "2.2.4"
+versions.rx_kotlin = "2.3.0"
 versions.timber = "4.7.1"
 deps.versions = versions
 
@@ -75,6 +76,7 @@ deps.mosby = mosby
 def rx = [:]
 rx.android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
 rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
+rx.kotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rx_kotlin"
 deps.rx = rx
 
 //endregion
@@ -107,7 +109,6 @@ static def addRepos(RepositoryHandler handler) {
   handler.google()
   handler.jcenter()
   handler.mavenCentral()
-  handler.maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 ext.addRepos = this.&addRepos

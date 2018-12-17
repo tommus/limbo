@@ -9,6 +9,6 @@ applications.
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo:0.5.5"
+    implementation "co.windly:limbo:0.5.7"
 }
 ```

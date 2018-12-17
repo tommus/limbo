@@ -4,7 +4,7 @@ buildscript {
 
   //region Versioning
 
-  ext.LIMBO_VERSION = "0.5.5-SNAPSHOT"
+  ext.LIMBO_VERSION = "0.5.7"
   ext.LIMBO_VERSION_CODE = 10
 
   //endregion

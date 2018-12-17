@@ -3,6 +3,7 @@ package co.windly.limbosample.presentation.splash
 import co.windly.limbo.activity.base.LimboActivityPresenter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit.MILLISECONDS
@@ -18,13 +19,13 @@ class SplashPresenter : LimboActivityPresenter<SplashView>() {
   fun observeAutomaticContinue() {
 
     Observable.timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
-      .subscribeOn(Schedulers.computation())
-      .observeOn(AndroidSchedulers.mainThread())
-      .subscribe(
-        { this.handleObserveAutomaticContinueSuccess(it) },
-        { this.handleObserveAutomaticContinueError(it) }
-      )
-      ?.let { addDisposable(it) }
+        .subscribeOn(Schedulers.computation())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(
+            { this.handleObserveAutomaticContinueSuccess(it) },
+            { this.handleObserveAutomaticContinueError(it) }
+        )
+        .addTo(disposables)
   }
 
   private fun handleObserveAutomaticContinueSuccess(delay: Long) {

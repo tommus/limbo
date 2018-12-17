@@ -81,6 +81,7 @@ dependencies {
   //region Reactive Extensions
 
   implementation deps.rx.android
+  implementation deps.rx.kotlin
 
   //endregion
 
