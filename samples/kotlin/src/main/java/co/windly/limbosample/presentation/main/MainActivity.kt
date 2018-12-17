@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import co.windly.limbo.activity.fragment.LimboFragmentActivity
 import co.windly.limbosample.R
+import co.windly.limbosample.R.id.bottomNavigation
 import co.windly.limbosample.presentation.main.home.HomeFragment
 import co.windly.limbosample.presentation.main.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
