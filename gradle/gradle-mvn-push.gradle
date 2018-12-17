@@ -10,8 +10,9 @@ group = GROUP
 
 //region Helpers
 
+@SuppressWarnings("GrMethodMayBeStatic")
 def isReleaseBuild() {
-  return VERSION_NAME.contains("SNAPSHOT") == false
+  return !VERSION_NAME.contains("SNAPSHOT")
 }
 
 def getReleaseRepositoryUrl() {
