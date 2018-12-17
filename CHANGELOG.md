@@ -2,7 +2,6 @@
 
 ### Limbo 0.5.7 *(2018-12-17)*
 
-  * Update ButterKnife (9.0.0-rc2);
   * Update Kotlin (1.3.11) for Kotlin sample;
   * Update Mosby (3.1.1);
   * Update RxJava (2.2.4);
