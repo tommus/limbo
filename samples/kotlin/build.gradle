@@ -59,7 +59,7 @@ dependencies {
 
   //endregion
 
-  //region AndroidX
+  //region Androidx
 
   implementation deps.androidx.appcompat
   implementation deps.androidx.constraintlayout
@@ -74,7 +74,7 @@ dependencies {
 
   //region Kotlin
 
-  implementation deps.kotlin.stdlib_jdk7
+  implementation deps.kotlin.stdlib_jdk8
 
   //endregion
 

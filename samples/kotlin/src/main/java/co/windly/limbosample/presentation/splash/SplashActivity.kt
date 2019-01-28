@@ -9,13 +9,16 @@ class SplashActivity : LimboActivity<SplashView, SplashPresenter>(), SplashView 
 
   //region Ui
 
-  override fun getLayout() = R.layout.activity_splash
+  override fun getLayout(): Int =
+      R.layout.activity_splash
 
   //endregion
 
   //region Presenter
 
-  override fun createPresenter() = SplashPresenter()
+  // TODO: Inject presenter. Eg. using Dagger.
+  override fun createPresenter(): SplashPresenter =
+      SplashPresenter()
 
   //endregion
 

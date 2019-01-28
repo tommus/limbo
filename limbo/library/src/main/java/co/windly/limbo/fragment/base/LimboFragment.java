@@ -7,12 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import androidx.annotation.CallSuper;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import butterknife.ButterKnife;
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView;
 import com.hannesdorfmann.mosby3.mvp.MvpFragment;
 import me.yokeyword.fragmentation.ExtraTransaction;
@@ -27,11 +25,6 @@ public abstract class LimboFragment<V extends LimboFragmentView, P extends Limbo
 
   @LayoutRes
   protected abstract int getLayout();
-
-  @CallSuper
-  protected void initializeView(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    ButterKnife.bind(this, view);
-  }
 
   //endregion
 
@@ -53,9 +46,7 @@ public abstract class LimboFragment<V extends LimboFragmentView, P extends Limbo
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
     @Nullable Bundle savedInstanceState) {
-    final View view = inflater.inflate(getLayout(), container, false);
-    initializeView(view, savedInstanceState);
-    return view;
+    return inflater.inflate(getLayout(), container, false);
   }
 
   @Override
@@ -284,7 +275,8 @@ public abstract class LimboFragment<V extends LimboFragmentView, P extends Limbo
   }
 
   @Override
-  public void startWithPopTo(LimboFragmentView toFragment, Class<?> targetFragmentClass, boolean includeTargetFragment) {
+  public void startWithPopTo(LimboFragmentView toFragment, Class<?> targetFragmentClass,
+    boolean includeTargetFragment) {
     delegate.startWithPopTo(toFragment, targetFragmentClass, includeTargetFragment);
   }
 

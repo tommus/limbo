@@ -6,16 +6,16 @@ ext.deps = deps
 //region Versions
 
 def versions = [:]
-versions.android_gradle_plugin = "3.2.1"
+versions.android_gradle_plugin = "3.3.0"
 versions.androidx = "1.0.0"
-versions.butter_knife = "9.0.0-rc1"
-versions.constraintlayout = "1.1.3"
+versions.butter_knife = "10.0.0"
+versions.constraint_layout = "1.1.3"
 versions.fragmentation = "1.3.6"
 versions.kotlin = "1.3.11"
 versions.material = "1.0.0"
 versions.mosby = "3.1.1"
 versions.rx_android = "2.1.0"
-versions.rx_java = "2.2.4"
+versions.rx_java = "2.2.6"
 versions.rx_kotlin = "2.3.0"
 versions.timber = "4.7.1"
 deps.versions = versions
@@ -26,7 +26,7 @@ deps.versions = versions
 
 def build = [:]
 build.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-build.butterknife_plugin = "com.jakewharton:butterknife-gradle-plugin:$versions.butter_knife"
+build.butter_knife_plugin = "com.jakewharton:butterknife-gradle-plugin:$versions.butter_knife"
 build.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.build = build
 
@@ -49,7 +49,7 @@ deps.fragmentation = fragmentation
 //region Kotlin
 
 def kotlin = [:]
-kotlin.stdlib_jdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
 deps.kotlin = kotlin
 
 //endregion
@@ -81,11 +81,11 @@ deps.rx = rx
 
 //endregion
 
-//region Support
+//region Androidx / Support
 
 def androidx = [:]
 androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx"
-androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 androidx.fragment = "androidx.fragment:fragment:$versions.androidx"
 deps.androidx = androidx
 

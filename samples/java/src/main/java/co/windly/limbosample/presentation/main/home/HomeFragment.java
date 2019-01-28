@@ -28,6 +28,8 @@ public class HomeFragment extends LimboFragment<HomeView, HomePresenter> impleme
   @NonNull
   @Override
   public HomePresenter createPresenter() {
+
+    // TODO: Inject presenter. Eg. using Dagger.
     return new HomePresenter();
   }
 

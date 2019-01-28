@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import co.windly.limbo.activity.fragment.LimboFragmentActivity
 import co.windly.limbosample.R
-import co.windly.limbosample.R.id.bottomNavigation
 import co.windly.limbosample.presentation.main.home.HomeFragment
 import co.windly.limbosample.presentation.main.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
@@ -23,20 +22,16 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
   //region Ui
 
-  override fun getLayout() = R.layout.activity_main
-
-  override fun initializeViews() {
-    super.initializeViews()
-
-    // Initialize bottom navigation.
-    initializeBottomNavigation()
-  }
+  override fun getLayout(): Int =
+      R.layout.activity_main
 
   //endregion
 
   //region Presenter
 
-  override fun createPresenter() = MainPresenter()
+  // TODO: Inject presenter. Eg. using Dagger.
+  override fun createPresenter(): MainPresenter =
+      MainPresenter()
 
   //endregion
 
@@ -64,7 +59,7 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
     // Replace current fragment.
     supportDelegate
-      .replaceFragment(fragment, false)
+        .replaceFragment(fragment, false)
   }
 
   override fun navigateToSettingsView() {
@@ -74,7 +69,7 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
     // Replace current fragment.
     supportDelegate
-      .replaceFragment(fragment, false)
+        .replaceFragment(fragment, false)
   }
 
   //endregion
@@ -83,6 +78,9 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    // Initialize bottom navigation.
+    initializeBottomNavigation()
 
     // Load fragment.
     loadHomeFragment()

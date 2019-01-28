@@ -32,12 +32,6 @@ android {
 
 dependencies {
 
-  //region AndroidX
-
-  implementation deps.androidx.fragment
-
-  //endregion
-
   //region Architecture
 
   api deps.mosby.mvp
@@ -49,6 +43,13 @@ dependencies {
   //region Reactive extensions
 
   api deps.rx.java
+
+  //endregion
+
+  //region Support
+
+  implementation deps.support.fragment
+  implementation deps.support.app_compat
 
   //endregion
 }

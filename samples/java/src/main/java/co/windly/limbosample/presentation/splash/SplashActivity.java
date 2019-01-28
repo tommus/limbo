@@ -24,6 +24,8 @@ public class SplashActivity extends LimboActivity<SplashView, SplashPresenter> i
   @NonNull
   @Override
   public SplashPresenter createPresenter() {
+
+    // TODO: Inject presenter. Eg. using Dagger.
     return new SplashPresenter();
   }
 

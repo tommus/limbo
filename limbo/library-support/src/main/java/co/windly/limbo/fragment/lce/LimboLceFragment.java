@@ -1,45 +1,26 @@
-package co.windly.limbo.fragment.dialog;
+package co.windly.limbo.fragment.lce;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView;
 import co.windly.limbo.fragment.base.LimboFragmentView;
-import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate;
-import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegateImpl;
-import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback;
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceFragment;
 import me.yokeyword.fragmentation.ExtraTransaction;
-import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public abstract class LimboDialogFragment<V extends LimboDialogFragmentView, P extends LimboDialogFragmentPresenter<V>>
-  extends DialogFragment implements MvpDelegateCallback<V, P>, LimboDialogFragmentView {
-
-  //region Delegate
-
-  protected FragmentMvpDelegate<V, P> mvpDelegate;
-
-  @NonNull
-  protected FragmentMvpDelegate<V, P> getMvpDelegate() {
-    if (mvpDelegate == null) {
-      mvpDelegate = new FragmentMvpDelegateImpl<>(this, this, true, true);
-    }
-
-    return mvpDelegate;
-  }
-
-  //endregion
+public abstract class LimboLceFragment<CV extends View, M, V extends LimboLceFragmentView<M>, P extends LimboLceFragmentPresenter<V>>
+  extends MvpLceFragment<CV, M, V, P> implements LimboLceFragmentView<M> {
 
   //region Ui
 
@@ -48,35 +29,19 @@ public abstract class LimboDialogFragment<V extends LimboDialogFragmentView, P e
 
   //endregion
 
-  //region Presenter
-
-  protected P presenter;
-
-  @NonNull
-  public abstract P createPresenter();
-
-  @Override
-  public P getPresenter() {
-    return presenter;
-  }
-
-  @Override
-  public void setPresenter(P presenter) {
-    this.presenter = presenter;
-  }
-
-  //endregion
-
-  //region View
-
-  @Override
-  public V getMvpView() {
-    return (V) this;
-  }
-
-  //endregion
-
   //region Lifecycle
+
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    delegate.onAttach((Activity) context);
+  }
+
+  @Override
+  public void onAttach(Activity activity) {
+    super.onAttach(activity);
+    delegate.onAttach(activity);
+  }
 
   @Nullable
   @Override
@@ -86,23 +51,14 @@ public abstract class LimboDialogFragment<V extends LimboDialogFragmentView, P e
   }
 
   @Override
-  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    getMvpDelegate().onViewCreated(view, savedInstanceState);
     getPresenter().initializeManagers(requireContext());
   }
 
   @Override
-  public void onDestroyView() {
-    super.onDestroyView();
-    getMvpDelegate().onDestroyView();
-    delegate.onDestroyView();
-  }
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getMvpDelegate().onCreate(savedInstanceState);
     delegate.onCreate(savedInstanceState);
   }
 
@@ -112,71 +68,45 @@ public abstract class LimboDialogFragment<V extends LimboDialogFragmentView, P e
   }
 
   @Override
-  public void onDestroy() {
-    super.onDestroy();
-    getMvpDelegate().onDestroy();
-    delegate.onDestroy();
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    delegate.onActivityCreated(savedInstanceState);
   }
 
   @Override
-  public void onPause() {
-    super.onPause();
-    getMvpDelegate().onPause();
-    delegate.onPause();
+  public void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    delegate.onSaveInstanceState(outState);
   }
 
   @Override
   public void onResume() {
     super.onResume();
-    getMvpDelegate().onResume();
     delegate.onResume();
   }
 
   @Override
-  public void onStart() {
-    super.onStart();
-    getMvpDelegate().onStart();
+  public void onPause() {
+    super.onPause();
+    delegate.onPause();
   }
 
   @Override
-  public void onStop() {
-    super.onStop();
-    getMvpDelegate().onStop();
+  public void onDestroy() {
+    super.onDestroy();
+    delegate.onDestroy();
   }
 
   @Override
-  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    getMvpDelegate().onActivityCreated(savedInstanceState);
-    delegate.onActivityCreated(savedInstanceState);
-  }
-
-  @Override
-  public void onAttach(Context context) {
-    super.onAttach(context);
-    getMvpDelegate().onAttach((Activity) context);
-    delegate.onAttach((Activity) context);
-  }
-
-  @Override
-  public void onAttach(Activity activity) {
-    super.onAttach(activity);
-    getMvpDelegate().onAttach(activity);
-    delegate.onAttach(activity);
+  public void onDestroyView() {
+    super.onDestroyView();
+    delegate.onDestroyView();
   }
 
   @Override
   public void onDetach() {
     getPresenter().clearDisposables();
     super.onDetach();
-    getMvpDelegate().onDetach();
-  }
-
-  @Override
-  public void onSaveInstanceState(@NonNull Bundle outState) {
-    super.onSaveInstanceState(outState);
-    getMvpDelegate().onSaveInstanceState(outState);
-    delegate.onSaveInstanceState(outState);
   }
 
   @Override
@@ -331,7 +261,7 @@ public abstract class LimboDialogFragment<V extends LimboDialogFragmentView, P e
   }
 
   @Override
-  public void start(final LimboFragmentView toFragment, @ISupportFragment.LaunchMode int launchMode) {
+  public void start(final LimboFragmentView toFragment, @LaunchMode int launchMode) {
     delegate.start(toFragment, launchMode);
   }
 

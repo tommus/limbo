@@ -28,6 +28,8 @@ public class SettingsFragment extends LimboFragment<SettingsView, SettingsPresen
   @NonNull
   @Override
   public SettingsPresenter createPresenter() {
+
+    // TODO: Inject presenter. Eg. using Dagger.
     return new SettingsPresenter();
   }
 

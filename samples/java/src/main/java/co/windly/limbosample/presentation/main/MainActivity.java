@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import co.windly.limbo.activity.fragment.LimboFragmentActivity;
 import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
@@ -30,14 +31,6 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
     return R.layout.activity_main;
   }
 
-  @Override
-  protected void initializeViews() {
-    super.initializeViews();
-
-    // Initialize bottom navigation.
-    initializeBottomNavigation();
-  }
-
   //endregion
 
   //region Presenter
@@ -45,6 +38,8 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
   @NonNull
   @Override
   public MainPresenter createPresenter() {
+
+    // TODO: Inject presenter. Eg. using Dagger.
     return new MainPresenter();
   }
 
@@ -106,6 +101,12 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    // Bind views.
+    ButterKnife.bind(this);
+
+    // Initialize bottom navigation.
+    initializeBottomNavigation();
 
     // Load fragment.
     loadHomeFragment();

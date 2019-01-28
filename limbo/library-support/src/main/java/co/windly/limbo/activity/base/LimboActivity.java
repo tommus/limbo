@@ -1,11 +1,12 @@
 package co.windly.limbo.activity.base;
 
 import android.os.Bundle;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
 
-public abstract class LimboActivity<V extends LimboActivityView, P extends LimboActivityPresenter<V>> extends MvpActivity<V, P>
+public abstract class LimboActivity<V extends LimboActivityView, P extends LimboActivityPresenter<V>>
+  extends MvpActivity<V, P>
   implements LimboActivityView {
 
   //region Ui

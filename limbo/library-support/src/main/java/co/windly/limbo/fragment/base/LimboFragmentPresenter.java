@@ -1,12 +1,12 @@
-package co.windly.limbo.activity.base;
+package co.windly.limbo.fragment.base;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public abstract class LimboActivityPresenter<View extends LimboActivityView> extends MvpBasePresenter<View> {
+public abstract class LimboFragmentPresenter<V extends LimboFragmentView> extends MvpBasePresenter<V> {
 
   //region Threading
 
@@ -24,7 +24,7 @@ public abstract class LimboActivityPresenter<View extends LimboActivityView> ext
 
   //region Managers
 
-  protected void initializeManagers(@NonNull Context context) {
+  public void initializeManagers(@NonNull Context context) {
     // No-op.
   }
 

@@ -51,6 +51,12 @@ android {
 
 dependencies {
 
+  //region Annotation Processors
+
+  annotationProcessor deps.ui.butter_knife_compiler
+
+  //endregion
+
   //region Application Files
 
   implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
@@ -82,10 +88,15 @@ dependencies {
 
   //endregion
 
+  //region Ui
+
+  implementation deps.ui.material
+
+  //endregion
+
   //region View injections
 
-  annotationProcessor deps.ui.butter_knife_compiler
-  implementation deps.ui.material
+  implementation deps.ui.butter_knife
 
   //endregion
 }
