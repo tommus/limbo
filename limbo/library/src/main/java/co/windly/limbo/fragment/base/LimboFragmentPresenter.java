@@ -1,8 +1,8 @@
 package co.windly.limbo.fragment.base;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
