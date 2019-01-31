@@ -10,15 +10,16 @@ class HomeFragment : LimboFragment<HomeView, HomePresenter>(), HomeView {
   companion object {
 
     fun createInstance(): HomeFragment =
-        HomeFragment()
+      HomeFragment()
   }
 
   //endregion
 
   //region Ui
 
-  override fun getLayout(): Int =
-      R.layout.fragment_home
+
+  override val layout: Int
+    get() = R.layout.fragment_home
 
   //endregion
 
@@ -26,7 +27,7 @@ class HomeFragment : LimboFragment<HomeView, HomePresenter>(), HomeView {
 
   // TODO: Inject presenter. Eg. using Dagger.
   override fun createPresenter(): HomePresenter =
-      HomePresenter()
+    HomePresenter()
 
   //endregion
 }

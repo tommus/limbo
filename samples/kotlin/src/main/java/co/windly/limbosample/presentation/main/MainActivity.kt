@@ -22,8 +22,8 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
   //region Ui
 
-  override fun getLayout(): Int =
-      R.layout.activity_main
+  override val layout: Int
+    get() = R.layout.activity_main
 
   //endregion
 

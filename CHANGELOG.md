@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 0.7.0 *(2019-02-01)*
+
+  * Reimplement library to Kotlin.
+
 ### Limbo 0.6.0 *(2019-01-26)*
 
   * Update Android Gradle Plugin (3.3.0);

@@ -1,6 +1,7 @@
 //region Startup Plugins
 
 apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
 //endregion
 
@@ -43,6 +44,12 @@ dependencies {
   api deps.mosby.mvp
   api deps.mosby.mvp_lce
   api deps.fragmentation.core
+
+  //endregion
+
+  //region Kotlin
+
+  implementation deps.kotlin.stdlib_jdk8
 
   //endregion
 

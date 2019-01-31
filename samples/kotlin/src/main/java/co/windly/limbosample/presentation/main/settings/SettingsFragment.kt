@@ -10,15 +10,15 @@ class SettingsFragment : LimboFragment<SettingsView, SettingsPresenter>(), Setti
   companion object {
 
     fun createInstance(): SettingsFragment =
-        SettingsFragment()
+      SettingsFragment()
   }
 
   //endregion
 
   //region Ui
 
-  override fun getLayout(): Int =
-      R.layout.fragment_settings
+  override val layout: Int
+    get() = R.layout.fragment_settings
 
   //endregion
 
@@ -26,7 +26,7 @@ class SettingsFragment : LimboFragment<SettingsView, SettingsPresenter>(), Setti
 
   // TODO: Inject presenter. Eg. using Dagger.
   override fun createPresenter(): SettingsPresenter =
-      SettingsPresenter()
+    SettingsPresenter()
 
   //endregion
 }
