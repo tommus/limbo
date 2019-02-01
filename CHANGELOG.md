@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 0.8.0 *(2019-02-01)*
+
+  * Open limbo dialog fragment presenter.
+
 ### Limbo 0.7.0 *(2019-02-01)*
 
   * Reimplement library to Kotlin.

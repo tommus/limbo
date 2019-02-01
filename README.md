@@ -10,7 +10,7 @@ Add dependencies to Java or Kotlin-based project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo:0.7.0"
+    implementation "co.windly:limbo:0.8.0"
 }
 ```
 
