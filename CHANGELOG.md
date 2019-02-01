@@ -4,6 +4,10 @@
 
   * Open limbo dialog fragment presenter.
 
+### Limbo 0.8.1 *(2019-02-01)*
+
+  * Correct limbo fragment presenter property methods.
+
 ### Limbo 0.7.0 *(2019-02-01)*
 
   * Reimplement library to Kotlin.
