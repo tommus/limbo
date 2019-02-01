@@ -38,8 +38,15 @@ abstract class LimboDialogFragment<V : LimboDialogFragmentView, P : LimboDialogF
 
   //region Presenter
 
-  protected val presenter: P
-    by lazy { createPresenter() }
+  protected var mvpPresenter: P? =
+    null
+
+  override fun getPresenter(): P =
+    requireNotNull(mvpPresenter)
+
+  override fun setPresenter(presenter: P) {
+    mvpPresenter = presenter
+  }
 
   abstract override fun createPresenter(): P
 
@@ -179,7 +186,6 @@ abstract class LimboDialogFragment<V : LimboDialogFragmentView, P : LimboDialogF
   override fun extraTransaction(): ExtraTransaction =
     delegate.extraTransaction()
 
-  @Deprecated("")
   override fun enqueueAction(runnable: Runnable) {
     delegate.enqueueAction(runnable)
   }
