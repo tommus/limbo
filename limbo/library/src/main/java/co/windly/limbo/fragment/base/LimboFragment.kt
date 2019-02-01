@@ -240,7 +240,7 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V
     fragmentDelegate.popTo(targetFragmentClass, includeTargetFragment)
   }
 
-  override fun <T : LimboFragmentView> findChildFragment(fragmentClass: Class<T>): T =
+  override fun <T : LimboFragmentView> findChildFragment(fragmentClass: Class<T>): T? =
     SupportHelper.findFragment(childFragmentManager, fragmentClass)
 
   override fun <T : LimboFragmentView> getParentFragment(fragmentClass: Class<T>): T {

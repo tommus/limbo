@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 0.8.2 *(2019-02-01)*
+
+  * Allow method `findFragment()` in `LimboFragment` to return nullable value. 
+
 ### Limbo 0.8.0 *(2019-02-01)*
 
   * Open limbo dialog fragment presenter.
