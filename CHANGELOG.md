@@ -1,5 +1,13 @@
 ### Change Log
 
+### Limbo 0.8.3 *(2019-02-22)*
+
+  * Update Android Gradle Plugin (3.3.1);
+  * Update AndroidX App Compat (1.0.2);
+  * Update Butter Knife (10.1.0) for Java sample;
+  * Update Kotlin JDK8 (1.3.21);
+  * Update RxKotlin (2.1.1).
+
 ### Limbo 0.8.2 *(2019-02-01)*
 
   * Allow method `findFragment()` in `LimboFragment` to return nullable value. 
