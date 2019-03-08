@@ -7,9 +7,9 @@ import me.yokeyword.fragmentation.ISupportFragment.LaunchMode
 
 interface LimboFragmentActivityView : LimboActivityView, ISupportActivity {
 
-  val topFragment: LimboFragmentView
-
   //region Fragment
+
+  val topFragment: LimboFragmentView
 
   fun loadRootFragment(containerId: Int, toFragment: LimboFragmentView)
 
