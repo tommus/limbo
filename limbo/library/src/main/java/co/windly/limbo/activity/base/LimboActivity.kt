@@ -23,21 +23,27 @@ abstract class LimboActivity<V : LimboActivityView, P : LimboActivityPresenter<V
   }
 
   override fun onDestroy() {
+
+    // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
+
+    // Clear view-bound disposables.
+    clearDisposables()
+
     super.onDestroy()
   }
 
   //endregion
 
-  //region Threading
+  //region Reactive
 
-  protected val disposables: CompositeDisposable
-      by lazy { CompositeDisposable() }
+  override val disposables: CompositeDisposable
+    by lazy { CompositeDisposable() }
 
-  fun addDisposable(disposable: Disposable): Boolean =
-      disposables.add(disposable)
+  override fun addDisposable(disposable: Disposable): Boolean =
+    disposables.add(disposable)
 
-  fun clearDisposables() {
+  override fun clearDisposables() {
     disposables.clear()
   }
 

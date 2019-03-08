@@ -20,6 +20,20 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator
 
 abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V>> : MvpFragment<V, P>(), LimboFragmentView {
 
+  //region Reactive
+
+  override val disposables: CompositeDisposable
+    by lazy { CompositeDisposable() }
+
+  override fun addDisposable(disposable: Disposable): Boolean =
+    disposables.add(disposable)
+
+  override fun clearDisposables() {
+    disposables.clear()
+  }
+
+  //endregion
+
   //region Ui
 
   @get:LayoutRes
@@ -88,7 +102,13 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V
   }
 
   override fun onDetach() {
+
+    // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
+
+    // Clear view-bound disposables.
+    clearDisposables()
+
     super.onDetach()
   }
 
@@ -100,20 +120,6 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V
   override fun setUserVisibleHint(isVisibleToUser: Boolean) {
     super.setUserVisibleHint(isVisibleToUser)
     fragmentDelegate.setUserVisibleHint(isVisibleToUser)
-  }
-
-  //endregion
-
-  //region Reactive
-
-  protected val disposables: CompositeDisposable
-      by lazy { CompositeDisposable() }
-
-  fun addDisposable(disposable: Disposable): Boolean =
-      disposables.add(disposable)
-
-  fun clearDisposables() {
-    disposables.clear()
   }
 
   //endregion

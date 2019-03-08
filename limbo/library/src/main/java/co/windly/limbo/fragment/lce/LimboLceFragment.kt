@@ -21,6 +21,20 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator
 
 abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : LimboLceFragmentPresenter<V>> : MvpLceFragment<CV, M, V, P>(), LimboLceFragmentView<M> {
 
+  //region Reactive
+
+  override val disposables: CompositeDisposable
+    by lazy { CompositeDisposable() }
+
+  override fun addDisposable(disposable: Disposable): Boolean =
+    disposables.add(disposable)
+
+  override fun clearDisposables() {
+    disposables.clear()
+  }
+
+  //endregion
+
   //region Ui
 
   @get:LayoutRes
@@ -89,7 +103,13 @@ abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : L
   }
 
   override fun onDetach() {
+
+    // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
+
+    // Clear view-bound disposables.
+    clearDisposables()
+
     super.onDetach()
   }
 
@@ -101,20 +121,6 @@ abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : L
   override fun setUserVisibleHint(isVisibleToUser: Boolean) {
     super.setUserVisibleHint(isVisibleToUser)
     delegate.setUserVisibleHint(isVisibleToUser)
-  }
-
-  //endregion
-
-  //region Reactive
-
-  protected val disposables: CompositeDisposable
-      by lazy { CompositeDisposable() }
-
-  fun addDisposable(disposable: Disposable): Boolean =
-      disposables.add(disposable)
-
-  fun clearDisposables() {
-    disposables.clear()
   }
 
   //endregion
