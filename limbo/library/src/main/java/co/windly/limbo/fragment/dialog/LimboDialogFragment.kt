@@ -14,6 +14,8 @@ import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegateImpl
 import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation.ExtraTransaction
 import me.yokeyword.fragmentation.ISupportFragment
 import me.yokeyword.fragmentation.SupportFragmentDelegate
@@ -157,6 +159,20 @@ abstract class LimboDialogFragment<V : LimboDialogFragmentView, P : LimboDialogF
   override fun setUserVisibleHint(isVisibleToUser: Boolean) {
     super.setUserVisibleHint(isVisibleToUser)
     delegate.setUserVisibleHint(isVisibleToUser)
+  }
+
+  //endregion
+
+  //region Reactive
+
+  protected val disposables: CompositeDisposable
+      by lazy { CompositeDisposable() }
+
+  fun addDisposable(disposable: Disposable): Boolean =
+      disposables.add(disposable)
+
+  fun clearDisposables() {
+    disposables.clear()
   }
 
   //endregion

@@ -10,6 +10,8 @@ import android.view.animation.Animation
 import androidx.annotation.LayoutRes
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
 import com.hannesdorfmann.mosby3.mvp.MvpFragment
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation.ExtraTransaction
 import me.yokeyword.fragmentation.ISupportFragment.LaunchMode
 import me.yokeyword.fragmentation.SupportFragmentDelegate
@@ -98,6 +100,20 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V
   override fun setUserVisibleHint(isVisibleToUser: Boolean) {
     super.setUserVisibleHint(isVisibleToUser)
     fragmentDelegate.setUserVisibleHint(isVisibleToUser)
+  }
+
+  //endregion
+
+  //region Reactive
+
+  protected val disposables: CompositeDisposable
+      by lazy { CompositeDisposable() }
+
+  fun addDisposable(disposable: Disposable): Boolean =
+      disposables.add(disposable)
+
+  fun clearDisposables() {
+    disposables.clear()
   }
 
   //endregion
