@@ -29,7 +29,7 @@ abstract class LimboFragmentActivity<V : LimboFragmentActivityView, P : LimboFra
     by lazy { SupportActivityDelegate(this) }
 
   override val topFragment: LimboFragmentView
-    get() = SupportHelper.getTopFragment(supportFragmentManager)
+    get() = SupportHelper.getTopFragment(supportFragmentManager) as LimboFragment<*, *>
 
   //endregion
 
