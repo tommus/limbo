@@ -1,10 +1,11 @@
 # Limbo
+[![Maven Central][mavenbadge-svg]][mavencentral] [![Travis (.org) branch][travisci-svg]][travisci] [![API][apibadge-svg]][apioverview] [![GitHub][license-svg]][license]
 
 This library composes Fragmentation and Mosby to simplify creation of MVP and fragment-based Android application.
 
 ### Usage
 
-1. Add dependencies.
+### Add dependencies
 
 Add dependencies to Java or Kotlin-based project:
 
@@ -14,7 +15,7 @@ dependencies {
 }
 ```
 
-2. Use based classes to accomplish MVP driven architecture.
+### Use based classes to accomplish MVP driven architecture
 
 Example view for activity:
 
@@ -122,6 +123,31 @@ class SplashActivity : LimboActivity<SplashView, SplashPresenter>(), SplashView 
 }
 ```
 
-### Samples
+## Samples
 
 Please do not hesitate to check `samples` directory for simple examples how to use `Limbo` in Java and Kotlin projects.
+
+## License
+
+    Copyright 2019 Tomasz Dzieniak
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+[apibadge-svg]: https://img.shields.io/badge/API-21%2B-brightgreen.svg?color=97ca00
+[apioverview]: https://developer.android.com/about/versions/android-5.0
+[license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
+[license]: http://www.apache.org/licenses/LICENSE-2.0
+[mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo.svg?color=97ca00
+[mavencentral]: https://search.maven.org/artifact/co.windly/limbo
+[travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
+[travisci]: https://travis-ci.org/tommus/limbo
