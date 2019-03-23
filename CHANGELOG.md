@@ -1,5 +1,10 @@
 ### Change Log
 
+### Limbo 0.9.0 *(2019-03-23)*
+
+  * Update Android Gradle Plugin (3.3.2);
+  * Update Gradle Wrapper (5.3).
+
 ### Limbo 0.8.5 *(2019-03-07)*
 
   * Add view-bound composite disposables.
