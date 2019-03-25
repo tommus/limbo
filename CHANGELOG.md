@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 0.9.1 *(2019-03-25)*
+
+  * Make `LimboLceFragmentPresenter` an abstract class.
+
 ### Limbo 0.9.0 *(2019-03-23)*
 
   * Update Android Gradle Plugin (3.3.2);
