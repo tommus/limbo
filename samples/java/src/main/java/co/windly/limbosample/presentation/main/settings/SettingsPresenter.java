@@ -1,7 +1,7 @@
 package co.windly.limbosample.presentation.main.settings;
 
-import co.windly.limbo.fragment.base.LimboFragmentPresenter;
+import co.windly.limbo.presenter.iffy.LimboIffyPresenter;
 
-class SettingsPresenter extends LimboFragmentPresenter<SettingsView> {
+class SettingsPresenter extends LimboIffyPresenter<SettingsView> {
   // No-op.
 }

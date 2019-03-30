@@ -3,6 +3,7 @@ package co.windly.limbo.activity.fragment
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.annotation.IdRes
+import co.windly.limbo.LimboPresenter
 import co.windly.limbo.R
 import co.windly.limbo.activity.base.LimboActivity
 import co.windly.limbo.fragment.base.LimboFragment
@@ -13,7 +14,7 @@ import me.yokeyword.fragmentation.SupportActivityDelegate
 import me.yokeyword.fragmentation.SupportHelper
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 
-abstract class LimboFragmentActivity<V : LimboFragmentActivityView, P : LimboFragmentActivityPresenter<V>> : LimboActivity<V, P>(), LimboFragmentActivityView {
+abstract class LimboFragmentActivity<V : LimboFragmentActivityView, P : LimboPresenter<V>> : LimboActivity<V, P>(), LimboFragmentActivityView {
 
   //region Ui
 

@@ -1,8 +1,8 @@
 package co.windly.limbosample.presentation.splash;
 
-import co.windly.limbo.activity.base.LimboActivityView;
+import co.windly.limbo.LimboView;
 
-interface SplashView extends LimboActivityView {
+interface SplashView extends LimboView {
 
   //region Navigation
 

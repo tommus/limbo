@@ -2,24 +2,12 @@ package co.windly.limbo.fragment.base
 
 import android.os.Bundle
 import android.view.View
+import co.windly.limbo.LimboView
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
-import com.hannesdorfmann.mosby3.mvp.MvpView
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation.ISupportFragment
 import me.yokeyword.fragmentation.ISupportFragment.LaunchMode
 
-interface LimboFragmentView : MvpView, ISupportFragment {
-
-  //region Reactive
-
-  val disposables: CompositeDisposable
-
-  fun addDisposable(disposable: Disposable): Boolean
-
-  fun clearDisposables()
-
-  //endregion
+interface LimboFragmentView : LimboView, ISupportFragment {
 
   //region Soft Input
 

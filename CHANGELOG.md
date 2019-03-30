@@ -1,5 +1,15 @@
 ### Change Log
 
+### Limbo 1.0.0 *(2019-03-30)*
+
+  * Reorganize packages;
+  * Add queueing type of presenter;
+  * Rename base presenter as iffy;
+  * Drop useless classes;
+  * Implement LCE pattern implementation for activities;
+  * Update RxJava (2.2.8);
+  * Update samples.
+
 ### Limbo 0.9.1 *(2019-03-25)*
 
   * Make `LimboLceFragmentPresenter` an abstract class.

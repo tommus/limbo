@@ -1,21 +1,34 @@
 package co.windly.limbosample.presentation.splash;
 
 import androidx.annotation.NonNull;
-import co.windly.limbo.activity.base.LimboActivityPresenter;
+import co.windly.limbo.presenter.queue.LimboQueuePresenter;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import java.util.concurrent.TimeUnit;
+import org.jetbrains.annotations.NotNull;
 import timber.log.Timber;
 
-class SplashPresenter extends LimboActivityPresenter<SplashView> {
+class SplashPresenter extends LimboQueuePresenter<SplashView> {
+
+  //region Lifecycle
+
+  @Override
+  public void attachView(@NotNull SplashView view) {
+    super.attachView(view);
+
+    // Observe automatic continue.
+    observeAutomaticContinue();
+  }
+
+  //endregion
 
   //region Automatic Continue
 
-  public static Long AUTO_CONTINUE_DELAY = 3_000L;
+  @SuppressWarnings("FieldCanBeLocal")
+  private static Long AUTO_CONTINUE_DELAY = 3_000L;
 
-  void observeAutomaticContinue() {
-
+  private void observeAutomaticContinue() {
     addDisposable(
       Observable.timer(AUTO_CONTINUE_DELAY, TimeUnit.MILLISECONDS)
         .subscribeOn(Schedulers.computation())
@@ -32,7 +45,7 @@ class SplashPresenter extends LimboActivityPresenter<SplashView> {
     Timber.v("Navigating to main view.");
 
     // Navigate to main view.
-    ifViewAttached(SplashView::navigateToMainView);
+    onceViewAttached(SplashView::navigateToMainView);
   }
 
   private void handleObserveAutomaticContinueError(@NonNull Throwable throwable) {
@@ -42,7 +55,7 @@ class SplashPresenter extends LimboActivityPresenter<SplashView> {
     Timber.e(throwable);
 
     // Navigate to main view anyway.
-    ifViewAttached(SplashView::navigateToMainView);
+    onceViewAttached(SplashView::navigateToMainView);
   }
 
   //endregion

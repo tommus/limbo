@@ -43,6 +43,7 @@ dependencies {
 
   api deps.mosby.mvp
   api deps.mosby.mvp_lce
+  api deps.mosby.mvp_queueing
   api deps.fragmentation.core
 
   //endregion

@@ -1,9 +1,7 @@
 package co.windly.limbosample.presentation.splash;
 
 import android.content.Intent;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import co.windly.limbo.activity.base.LimboActivity;
 import co.windly.limbosample.R;
 import co.windly.limbosample.presentation.main.MainActivity;
@@ -41,18 +39,6 @@ public class SplashActivity extends LimboActivity<SplashView, SplashPresenter> i
 
     // Start activity.
     startActivity(intent);
-  }
-
-  //endregion
-
-  //region Lifecycle
-
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Start counting the automatic timer.
-    getPresenter().observeAutomaticContinue();
   }
 
   //endregion
