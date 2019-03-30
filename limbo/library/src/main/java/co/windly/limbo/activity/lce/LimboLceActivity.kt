@@ -1,14 +1,14 @@
-package co.windly.limbo.activity.base
+package co.windly.limbo.activity.lce
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import co.windly.limbo.LimboPresenter
-import co.windly.limbo.LimboView
-import com.hannesdorfmann.mosby3.mvp.MvpActivity
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class LimboActivity<V : LimboView, P : LimboPresenter<V>> : MvpActivity<V, P>(), LimboView {
+abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : LimboPresenter<V>> : MvpLceActivity<CV, M, V, P>(), LimboLceActivityView<M> {
 
   //region Reactive
 

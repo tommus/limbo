@@ -1,11 +1,11 @@
 package co.windly.limbo.activity.fragment
 
-import co.windly.limbo.activity.base.LimboActivityView
+import co.windly.limbo.LimboView
 import co.windly.limbo.fragment.base.LimboFragmentView
 import me.yokeyword.fragmentation.ISupportActivity
 import me.yokeyword.fragmentation.ISupportFragment.LaunchMode
 
-interface LimboFragmentActivityView : LimboActivityView, ISupportActivity {
+interface LimboFragmentActivityView : LimboView, ISupportActivity {
 
   //region Fragment
 

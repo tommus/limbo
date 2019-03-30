@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.annotation.LayoutRes
+import co.windly.limbo.LimboPresenter
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
 import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceFragment
@@ -19,7 +20,7 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate
 import me.yokeyword.fragmentation.SupportHelper
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 
-abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : LimboLceFragmentPresenter<V>> : MvpLceFragment<CV, M, V, P>(), LimboLceFragmentView<M> {
+abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : LimboPresenter<V>> : MvpLceFragment<CV, M, V, P>(), LimboLceFragmentView<M> {
 
   //region Reactive
 

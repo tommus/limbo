@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
+import co.windly.limbo.LimboPresenter
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
 import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate
@@ -22,7 +23,7 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate
 import me.yokeyword.fragmentation.SupportHelper
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 
-abstract class LimboDialogFragment<V : LimboDialogFragmentView, P : LimboDialogFragmentPresenter<V>> : DialogFragment(), MvpDelegateCallback<V, P>, LimboDialogFragmentView {
+abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>> : DialogFragment(), MvpDelegateCallback<V, P>, LimboFragmentView {
 
   //region Reactive
 

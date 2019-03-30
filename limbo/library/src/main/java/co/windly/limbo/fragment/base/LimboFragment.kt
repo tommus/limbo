@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.annotation.LayoutRes
+import co.windly.limbo.LimboPresenter
 import co.windly.limbo.activity.fragment.LimboFragmentActivityView
 import com.hannesdorfmann.mosby3.mvp.MvpFragment
 import io.reactivex.disposables.CompositeDisposable
@@ -18,7 +19,7 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate
 import me.yokeyword.fragmentation.SupportHelper
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 
-abstract class LimboFragment<V : LimboFragmentView, P : LimboFragmentPresenter<V>> : MvpFragment<V, P>(), LimboFragmentView {
+abstract class LimboFragment<V : LimboFragmentView, P : LimboPresenter<V>> : MvpFragment<V, P>(), LimboFragmentView {
 
   //region Reactive
 
