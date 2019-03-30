@@ -20,7 +20,7 @@ dependencies {
 Example view for activity:
 
 ```kotlin
-interface SplashView : LimboActivityView {
+interface SplashView : LimboView {
 
   //region Navigation
 
@@ -33,7 +33,18 @@ interface SplashView : LimboActivityView {
 Example presenter for activity:
 
 ```kotlin
-class SplashPresenter : LimboActivityPresenter<SplashView>() {
+class SplashPresenter : LimboQueuePresenter<SplashView>() {
+
+  //region Lifecycle
+
+  override fun attachView(view: SplashView) {
+    super.attachView(view)
+
+    // Observe automatic continue.
+    observeAutomaticContinue()
+  }
+
+  //endregion
 
   //region Automatic Continue
 
@@ -41,7 +52,7 @@ class SplashPresenter : LimboActivityPresenter<SplashView>() {
     const val AUTO_CONTINUE_DELAY = 3_000L
   }
 
-  fun observeAutomaticContinue() {
+  private fun observeAutomaticContinue() {
 
     Observable.timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
         .subscribeOn(Schedulers.computation())
@@ -53,24 +64,24 @@ class SplashPresenter : LimboActivityPresenter<SplashView>() {
         .addTo(disposables)
   }
 
-  private fun handleObserveAutomaticContinueSuccess(delay: Long) {
+  private fun handleObserveAutomaticContinueSuccess(delay: Long) = onceViewAttached {
 
     // Log the fact.
     Timber.v("Automatic continue time passed: %d", delay)
     Timber.v("Navigating to main view.")
 
     // Navigate to main view.
-    ifViewAttached { it.navigateToMainView() }
+    it.navigateToMainView()
   }
 
-  private fun handleObserveAutomaticContinueError(throwable: Throwable) {
+  private fun handleObserveAutomaticContinueError(throwable: Throwable) = onceViewAttached {
 
     // Log an error.
     Timber.e("An error occurred while processing the automatic continue delay.")
     Timber.e(throwable)
 
     // Navigate to main view anyway.
-    ifViewAttached { it.navigateToMainView() }
+    it.navigateToMainView()
   }
 
   //endregion
@@ -106,17 +117,6 @@ class SplashActivity : LimboActivity<SplashView, SplashPresenter>(), SplashView 
 
     // Start activity.
     startActivity(intent)
-  }
-
-  //endregion
-
-  //region Lifecycle
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-    // Start counting the automatic continue timer.
-    getPresenter().observeAutomaticContinue()
   }
 
   //endregion

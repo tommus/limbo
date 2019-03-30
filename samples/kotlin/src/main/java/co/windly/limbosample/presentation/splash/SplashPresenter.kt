@@ -10,13 +10,24 @@ import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class SplashPresenter : LimboQueuePresenter<SplashView>() {
 
+  //region Lifecycle
+
+  override fun attachView(view: SplashView) {
+    super.attachView(view)
+
+    // Observe automatic continue.
+    observeAutomaticContinue()
+  }
+
+  //endregion
+
   //region Automatic Continue
 
   companion object {
     const val AUTO_CONTINUE_DELAY = 3_000L
   }
 
-  fun observeAutomaticContinue() {
+  private fun observeAutomaticContinue() {
     Observable
       .timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
       .subscribeOn(Schedulers.computation())
