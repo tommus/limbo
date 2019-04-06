@@ -7,8 +7,9 @@ import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit.MILLISECONDS
+import javax.inject.Inject
 
-class SplashPresenter : LimboQueuePresenter<SplashView>() {
+class SplashPresenter @Inject constructor() : LimboQueuePresenter<SplashView>() {
 
   //region Lifecycle
 

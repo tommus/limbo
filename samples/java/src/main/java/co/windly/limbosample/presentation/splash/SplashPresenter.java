@@ -6,10 +6,20 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
 import org.jetbrains.annotations.NotNull;
 import timber.log.Timber;
 
 class SplashPresenter extends LimboQueuePresenter<SplashView> {
+
+  //region Constructor
+
+  @Inject
+  public SplashPresenter() {
+    // No-op.
+  }
+
+  //endregion
 
   //region Lifecycle
 

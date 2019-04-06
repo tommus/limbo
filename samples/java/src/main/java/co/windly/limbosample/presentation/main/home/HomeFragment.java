@@ -1,10 +1,11 @@
 package co.windly.limbosample.presentation.main.home;
 
 import androidx.annotation.NonNull;
-import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
+import co.windly.limbosample.presentation.base.fragment.base.BaseFragment;
+import javax.inject.Inject;
 
-public class HomeFragment extends LimboFragment<HomeView, HomePresenter> implements HomeView {
+public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implements HomeView {
 
   //region Fragment
 
@@ -25,12 +26,14 @@ public class HomeFragment extends LimboFragment<HomeView, HomePresenter> impleme
 
   //region Presenter
 
+  @Inject
+  @SuppressWarnings("WeakerAccess")
+  protected HomePresenter homePresenter;
+
   @NonNull
   @Override
   public HomePresenter createPresenter() {
-
-    // TODO: Inject presenter. Eg. using Dagger.
-    return new HomePresenter();
+    return homePresenter;
   }
 
   //endregion

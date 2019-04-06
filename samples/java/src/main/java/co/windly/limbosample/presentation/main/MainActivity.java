@@ -7,14 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import co.windly.limbo.activity.fragment.LimboFragmentActivity;
 import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
+import co.windly.limbosample.presentation.base.activity.fragment.BaseFragmentActivity;
 import co.windly.limbosample.presentation.main.home.HomeFragment;
 import co.windly.limbosample.presentation.main.settings.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import javax.inject.Inject;
 
-public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter> implements MainView {
+public class MainActivity extends BaseFragmentActivity<MainView, MainPresenter> implements MainView {
 
   //region Intent
 
@@ -35,12 +36,13 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
 
   //region Presenter
 
+  @Inject
+  protected MainPresenter mainPresenter;
+
   @NonNull
   @Override
   public MainPresenter createPresenter() {
-
-    // TODO: Inject presenter. Eg. using Dagger.
-    return new MainPresenter();
+    return mainPresenter;
   }
 
   //endregion
@@ -68,7 +70,7 @@ public class MainActivity extends LimboFragmentActivity<MainView, MainPresenter>
           break;
       }
 
-      return false;
+      return true;
     });
   }
 

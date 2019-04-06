@@ -1,9 +1,10 @@
 package co.windly.limbosample.presentation.main.settings
 
-import co.windly.limbo.fragment.base.LimboFragment
 import co.windly.limbosample.R
+import co.windly.limbosample.presentation.base.fragment.base.BaseFragment
+import javax.inject.Inject
 
-class SettingsFragment : LimboFragment<SettingsView, SettingsPresenter>(), SettingsView {
+class SettingsFragment : BaseFragment<SettingsView, SettingsPresenter>(), SettingsView {
 
   //region Fragment
 
@@ -24,9 +25,11 @@ class SettingsFragment : LimboFragment<SettingsView, SettingsPresenter>(), Setti
 
   //region Presenter
 
-  // TODO: Inject presenter. Eg. using Dagger.
+  @Inject
+  lateinit var settingsPresenter: SettingsPresenter
+
   override fun createPresenter(): SettingsPresenter =
-    SettingsPresenter()
+    settingsPresenter
 
   //endregion
 }

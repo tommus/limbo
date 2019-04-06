@@ -54,7 +54,7 @@ dependencies {
 
   //endregion
 
-  //region Reactive extensions
+  //region Reactive Extensions
 
   api deps.rx.java
 

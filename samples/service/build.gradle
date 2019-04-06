@@ -1,0 +1,118 @@
+//region Startup Plugins
+
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+
+//endregion
+
+//region Android
+
+android {
+
+  //region Compile
+
+  compileSdkVersion deps.build_versions.compile_sdk
+
+  //endregion
+
+  //region Default Configuration
+
+  defaultConfig {
+    applicationId "co.windly.limbosample"
+    minSdkVersion deps.build_versions.min_sdk
+    targetSdkVersion deps.build_versions.target_sdk
+    versionCode LIMBO_VERSION_CODE
+    versionName LIMBO_VERSION
+  }
+
+  //endregion
+
+  //region Build Types
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile("proguard-android.txt"),
+          "proguard-rules.pro"
+    }
+  }
+
+  //endregion
+}
+
+//endregion
+
+//region Dependencies
+
+dependencies {
+
+  //region Annotation Processors
+
+  kapt deps.dagger.compiler
+  kapt deps.dagger.android_processor
+  kapt deps.permissions.dispatcher_processor
+
+  //endregion
+
+  //region Application Files
+
+  implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+  //endregion
+
+  //region Application Modules
+
+  implementation project(":library")
+
+  //endregion
+
+  //region Androidx
+
+  implementation deps.androidx.appcompat
+  implementation deps.androidx.constraintlayout
+
+  //endregion
+
+  //region Debugging
+
+  implementation deps.misc.timber
+
+  //endregion
+
+  //region Dependency Injection
+
+  implementation deps.dagger.android
+  implementation deps.dagger.android_support
+  compileOnly deps.dagger.annotation
+
+  //endregion
+
+  //region Kotlin
+
+  implementation deps.kotlin.stdlib_jdk8
+
+  //endregion
+
+  //region Permissions
+
+  implementation deps.permissions.dispatcher
+
+  //endregion
+
+  //region Reactive Extensions
+
+  implementation deps.rx.android
+  implementation deps.rx.kotlin
+
+  //endregion
+
+  //region Ui
+
+  implementation deps.ui.material
+
+  //endregion
+}
+
+//endregion

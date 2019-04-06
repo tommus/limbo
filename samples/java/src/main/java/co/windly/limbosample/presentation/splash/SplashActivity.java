@@ -2,11 +2,12 @@ package co.windly.limbosample.presentation.splash;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
-import co.windly.limbo.activity.base.LimboActivity;
 import co.windly.limbosample.R;
+import co.windly.limbosample.presentation.base.activity.base.BaseActivity;
 import co.windly.limbosample.presentation.main.MainActivity;
+import javax.inject.Inject;
 
-public class SplashActivity extends LimboActivity<SplashView, SplashPresenter> implements SplashView {
+public class SplashActivity extends BaseActivity<SplashView, SplashPresenter> implements SplashView {
 
   //region Ui
 
@@ -19,12 +20,13 @@ public class SplashActivity extends LimboActivity<SplashView, SplashPresenter> i
 
   //region Presenter
 
+  @Inject
+  protected SplashPresenter splashPresenter;
+
   @NonNull
   @Override
   public SplashPresenter createPresenter() {
-
-    // TODO: Inject presenter. Eg. using Dagger.
-    return new SplashPresenter();
+    return splashPresenter;
   }
 
   //endregion

@@ -53,6 +53,13 @@ dependencies {
 
   //region Annotation Processors
 
+  annotationProcessor deps.dagger.compiler
+  annotationProcessor deps.dagger.android_processor
+
+  //endregion
+
+  //region Annotation Processors
+
   annotationProcessor deps.ui.butter_knife_compiler
 
   //endregion
@@ -82,6 +89,14 @@ dependencies {
 
   //endregion
 
+  //region Dependency Injection
+
+  implementation deps.dagger.android
+  implementation deps.dagger.android_support
+  compileOnly deps.dagger.annotation
+
+  //endregion
+
   //region Reactive Extensions
 
   implementation deps.rx.android
@@ -94,7 +109,7 @@ dependencies {
 
   //endregion
 
-  //region View injections
+  //region View Injection
 
   implementation deps.ui.butter_knife
 

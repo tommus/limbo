@@ -3,6 +3,7 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
 
 //endregion
 
@@ -47,6 +48,13 @@ android {
 
 dependencies {
 
+  //region Annotation Processors
+
+  kapt deps.dagger.compiler
+  kapt deps.dagger.android_processor
+
+  //endregion
+
   //region Application Files
 
   implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
@@ -69,6 +77,14 @@ dependencies {
   //region Debugging
 
   implementation deps.misc.timber
+
+  //endregion
+
+  //region Dependency Injection
+
+  implementation deps.dagger.android
+  implementation deps.dagger.android_support
+  compileOnly deps.dagger.annotation
 
   //endregion
 
