@@ -1,7 +1,8 @@
 package co.windly.limbosample.presentation.main.settings
 
-import co.windly.limbo.presenter.iffy.LimboIffyPresenter
+import co.windly.limbo.presenter.queue.LimboQueuePresenter
+import javax.inject.Inject
 
-class SettingsPresenter : LimboIffyPresenter<SettingsView>() {
+class SettingsPresenter @Inject constructor() : LimboQueuePresenter<SettingsView>() {
   // No-op.
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="co.windly.limbosample">
+
+  <!-- region Persmissions -->
+
+  <uses-permission
+    android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+  <!-- endregion -->
+
+  <!-- region Application -->
+
+  <application
+    android:name=".application.LimboSample"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/LimboTheme"
+    tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+    <!-- region Activities -->
+
+    <activity
+      android:name=".presentation.splash.SplashActivity"
+      android:noHistory="true"
+      android:screenOrientation="portrait">
+      <intent-filter>
+        <category android:name="android.intent.category.LAUNCHER"/>
+        <action android:name="android.intent.action.MAIN"/>
+      </intent-filter>
+    </activity>
+
+    <!-- endregion -->
+
+    <!-- region Services -->
+
+    <service
+      android:name=".service.ViewBoundService"
+      android:enabled="true"/>
+
+    <!-- endregion -->
+
+  </application>
+
+  <!-- endregion -->
+
+</manifest>

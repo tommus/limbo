@@ -3,13 +3,15 @@ package co.windly.limbosample.presentation.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import co.windly.limbo.activity.fragment.LimboFragmentActivity
 import co.windly.limbosample.R
+import co.windly.limbosample.presentation.base.activity.fragment.BaseFragmentActivity
 import co.windly.limbosample.presentation.main.home.HomeFragment
 import co.windly.limbosample.presentation.main.settings.SettingsFragment
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
+import javax.inject.Inject
 
-class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView {
+class MainActivity : BaseFragmentActivity<MainView, MainPresenter>(), MainView, HasSupportFragmentInjector {
 
   //region Activity
 
@@ -29,9 +31,11 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
   //region Presenter
 
-  // TODO: Inject presenter. Eg. using Dagger.
+  @Inject
+  lateinit var mainPresenter: MainPresenter
+
   override fun createPresenter(): MainPresenter =
-      MainPresenter()
+    mainPresenter
 
   //endregion
 
@@ -48,7 +52,7 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
         R.id.action_settings -> navigateToSettingsView()
       }
 
-      false
+      true
     }
   }
 
@@ -59,7 +63,7 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
     // Replace current fragment.
     supportDelegate
-        .replaceFragment(fragment, false)
+      .replaceFragment(fragment, false)
   }
 
   override fun navigateToSettingsView() {
@@ -69,7 +73,7 @@ class MainActivity : LimboFragmentActivity<MainView, MainPresenter>(), MainView 
 
     // Replace current fragment.
     supportDelegate
-        .replaceFragment(fragment, false)
+      .replaceFragment(fragment, false)
   }
 
   //endregion

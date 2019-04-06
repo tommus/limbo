@@ -1,10 +1,11 @@
 package co.windly.limbosample.presentation.splash
 
-import co.windly.limbo.activity.base.LimboActivity
 import co.windly.limbosample.R
+import co.windly.limbosample.presentation.base.activity.base.BaseActivity
 import co.windly.limbosample.presentation.main.MainActivity
+import javax.inject.Inject
 
-class SplashActivity : LimboActivity<SplashView, SplashPresenter>(), SplashView {
+class SplashActivity : BaseActivity<SplashView, SplashPresenter>(), SplashView {
 
   //region Ui
 
@@ -15,9 +16,11 @@ class SplashActivity : LimboActivity<SplashView, SplashPresenter>(), SplashView 
 
   //region Presenter
 
-  // TODO: Inject presenter. Eg. using Dagger.
+  @Inject
+  lateinit var splashPresenter: SplashPresenter
+
   override fun createPresenter(): SplashPresenter =
-    SplashPresenter()
+    splashPresenter
 
   //endregion
 

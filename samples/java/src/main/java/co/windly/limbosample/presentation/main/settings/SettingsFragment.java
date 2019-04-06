@@ -1,10 +1,11 @@
 package co.windly.limbosample.presentation.main.settings;
 
 import androidx.annotation.NonNull;
-import co.windly.limbo.fragment.base.LimboFragment;
 import co.windly.limbosample.R;
+import co.windly.limbosample.presentation.base.fragment.base.BaseFragment;
+import javax.inject.Inject;
 
-public class SettingsFragment extends LimboFragment<SettingsView, SettingsPresenter> implements SettingsView {
+public class SettingsFragment extends BaseFragment<SettingsView, SettingsPresenter> implements SettingsView {
 
   //region Fragment
 
@@ -25,12 +26,14 @@ public class SettingsFragment extends LimboFragment<SettingsView, SettingsPresen
 
   //region Presenter
 
+  @Inject
+  @SuppressWarnings("WeakerAccess")
+  protected SettingsPresenter settingsPresenter;
+
   @NonNull
   @Override
   public SettingsPresenter createPresenter() {
-
-    // TODO: Inject presenter. Eg. using Dagger.
-    return new SettingsPresenter();
+    return settingsPresenter;
   }
 
   //endregion

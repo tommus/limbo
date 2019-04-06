@@ -1,9 +1,10 @@
 package co.windly.limbosample.presentation.main.home
 
-import co.windly.limbo.fragment.base.LimboFragment
 import co.windly.limbosample.R
+import co.windly.limbosample.presentation.base.fragment.base.BaseFragment
+import javax.inject.Inject
 
-class HomeFragment : LimboFragment<HomeView, HomePresenter>(), HomeView {
+class HomeFragment : BaseFragment<HomeView, HomePresenter>(), HomeView {
 
   //region Fragment
 
@@ -25,9 +26,11 @@ class HomeFragment : LimboFragment<HomeView, HomePresenter>(), HomeView {
 
   //region Presenter
 
-  // TODO: Inject presenter. Eg. using Dagger.
+  @Inject
+  lateinit var homePresenter: HomePresenter
+
   override fun createPresenter(): HomePresenter =
-    HomePresenter()
+    homePresenter
 
   //endregion
 }
