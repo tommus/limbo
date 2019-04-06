@@ -32,12 +32,6 @@ class ViewBoundService : LimboService<ViewBoundServiceView>(), ViewBoundComponen
     super.onCreate()
   }
 
-  override fun onDestroy() {
-    super.onDestroy()
-
-
-  }
-
   //endregion
 
   //region Dependency Injection
