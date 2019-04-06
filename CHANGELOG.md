@@ -1,5 +1,13 @@
 ### Change Log
 
+### Limbo 1.1.0 *(2019-04-06)*
+
+  * Implement base classes for view-bound MVP service;
+  * Add view-bound service sample usage;
+  * Update Gradle Wrapper (5.3.1);
+  * Update samples;
+  * Use Dagger for samples dependency injection.
+
 ### Limbo 1.0.0 *(2019-03-30)*
 
   * Reorganize packages;
