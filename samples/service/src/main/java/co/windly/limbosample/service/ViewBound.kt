@@ -108,16 +108,6 @@ class ViewBound @Inject constructor(
     windowManager.removeView(rootView)
   }
 
-  private fun refreshRootSize(width: Int, height: Int) {
-
-    // Prepare window params.
-    val params =
-      provideRootLayoutParams(width, height)
-
-    // Update root view.
-    windowManager.updateViewLayout(rootView, params)
-  }
-
   //endregion
 
   //region Floating Action
