@@ -1,5 +1,10 @@
 ### Change Log
 
+### Limbo 1.1.1 *(2019-04-19)*
+
+  * Update Kotlin JDK8 (1.3.30);
+  * Update Gradle Wrapper (5.4).
+
 ### Limbo 1.1.0 *(2019-04-06)*
 
   * Implement base classes for view-bound MVP service;
