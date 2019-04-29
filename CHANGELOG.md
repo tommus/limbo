@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 1.1.2 *(2019-04-29)*
+
+  * Update Kotlin JDK8 (1.3.31);
+
 ### Limbo 1.1.1 *(2019-04-19)*
 
   * Update Kotlin JDK8 (1.3.30);
