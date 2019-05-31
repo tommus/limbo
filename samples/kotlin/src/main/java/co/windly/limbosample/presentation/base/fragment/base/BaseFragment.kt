@@ -10,7 +10,7 @@ abstract class BaseFragment<V : LimboFragmentView, P : LimboQueuePresenter<V>> :
 
   //region Lifecycle
 
-  override fun onAttach(context: Context?) {
+  override fun onAttach(context: Context) {
 
     // Inject dependencies.
     AndroidSupportInjection.inject(this)

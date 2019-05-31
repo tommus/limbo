@@ -51,12 +51,12 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboPresenter<V>> : Mvp
 
   //region Lifecycle
 
-  override fun onAttach(context: Context?) {
+  override fun onAttach(context: Context) {
     super.onAttach(context)
     fragmentDelegate.onAttach(context as Activity)
   }
 
-  override fun onAttach(activity: Activity?) {
+  override fun onAttach(activity: Activity) {
     super.onAttach(activity)
     fragmentDelegate.onAttach(activity)
   }
