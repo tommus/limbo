@@ -142,16 +142,16 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
     delegate.onActivityCreated(savedInstanceState)
   }
 
-  override fun onAttach(context: Context?) {
+  override fun onAttach(context: Context) {
     super.onAttach(context)
     mvpDelegate.onAttach(context as Activity?)
-    delegate.onAttach(context!!)
+    delegate.onAttach(context)
   }
 
-  override fun onAttach(activity: Activity?) {
+  override fun onAttach(activity: Activity) {
     super.onAttach(activity)
     mvpDelegate.onAttach(activity)
-    delegate.onAttach(activity!!)
+    delegate.onAttach(activity)
   }
 
   override fun onDetach() {
