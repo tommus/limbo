@@ -1,8 +1,8 @@
 package co.windly.limbosample.presentation.main;
 
-import co.windly.limbo.activity.fragment.LimboFragmentActivityView;
+import co.windly.limbo.LimboView;
 
-interface MainView extends LimboFragmentActivityView {
+interface MainView extends LimboView {
 
   //region Navigation
 

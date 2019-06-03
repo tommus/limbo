@@ -2,8 +2,8 @@ package co.windly.limbosample.presentation.base.activity.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import co.windly.limbo.activity.fragment.LimboFragmentActivity
-import co.windly.limbo.activity.fragment.LimboFragmentActivityView
+import co.windly.limbo.LimboView
+import co.windly.limbo.activity.base.LimboActivity
 import co.windly.limbo.presenter.queue.LimboQueuePresenter
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -11,8 +11,8 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-abstract class BaseFragmentActivity<V : LimboFragmentActivityView, P : LimboQueuePresenter<V>> :
-  LimboFragmentActivity<V, P>(), LimboFragmentActivityView, HasSupportFragmentInjector {
+abstract class BaseFragmentActivity<V : LimboView, P : LimboQueuePresenter<V>> :
+  LimboActivity<V, P>(), LimboView, HasSupportFragmentInjector {
 
   //region Fragment Injector
 
