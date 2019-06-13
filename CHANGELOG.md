@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 1.2.0 *(2019-06-13)*
+
+  * Correct onAttach() context nullability in LimboLceFragment;
+
 ### Limbo 1.1.4 *(2019-06-01)*
 
   * Correct onAttach() context nullability in LimboDialogFragment;
