@@ -14,11 +14,6 @@ import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import me.yokeyword.fragmentation.ExtraTransaction
-import me.yokeyword.fragmentation.ISupportFragment.LaunchMode
-import me.yokeyword.fragmentation.SupportFragmentDelegate
-import me.yokeyword.fragmentation.SupportHelper
-import me.yokeyword.fragmentation.anim.FragmentAnimator
 
 abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : LimboPresenter<V>> : MvpLceFragment<CV, M, V, P>(), LimboLceFragmentView<M> {
 
@@ -57,9 +52,9 @@ abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : L
     delegate.onAttach(context as Activity)
   }
 
-  override fun onAttach(activity: Activity?) {
+  override fun onAttach(activity: Activity) {
     super.onAttach(activity)
-    delegate.onAttach(activity!!)
+    delegate.onAttach(activity)
   }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
