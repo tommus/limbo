@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 1.4.0 *(2019-06-13)*
+
+  * Switch Fragmentation (1.3.7) to FragmentationX (1.0.0) which fully supports AndroidX.
+
 ### Limbo 1.3.1 *(2019-06-13)*
 
   * Update Fragmentation (1.3.7).
