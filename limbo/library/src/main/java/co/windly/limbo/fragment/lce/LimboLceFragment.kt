@@ -52,9 +52,9 @@ abstract class LimboLceFragment<CV : View, M, V : LimboLceFragmentView<M>, P : L
 
   //region Lifecycle
 
-  override fun onAttach(context: Context?) {
+  override fun onAttach(context: Context) {
     super.onAttach(context)
-    delegate.onAttach((context as Activity?)!!)
+    delegate.onAttach(context as Activity)
   }
 
   override fun onAttach(activity: Activity?) {
