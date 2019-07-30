@@ -63,8 +63,8 @@ class SplashPresenter : LimboQueuePresenter<SplashView>() {
   private fun observeAutomaticContinue() {
 
     Observable.timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
-        .subscribeOn(Schedulers.computation())
-        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOnComputation()
+        .observeOnUi()
         .subscribe(
             { this.handleObserveAutomaticContinueSuccess(it) },
             { this.handleObserveAutomaticContinueError(it) }
