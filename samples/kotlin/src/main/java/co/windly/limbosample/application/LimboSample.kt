@@ -1,21 +1,20 @@
 package co.windly.limbosample.application
 
-import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class LimboSample : Application(), ApplicationComponent.ComponentProvider, HasActivityInjector {
+class LimboSample : Application(), ApplicationComponent.ComponentProvider, HasAndroidInjector {
 
   //region Activity Injector
 
   @Inject
-  lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+  lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
-  override fun activityInjector(): AndroidInjector<Activity> =
-    activityInjector
+  override fun androidInjector(): AndroidInjector<Any> =
+    androidInjector
 
   //endregion
 

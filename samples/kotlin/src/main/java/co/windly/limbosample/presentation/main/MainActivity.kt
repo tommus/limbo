@@ -7,11 +7,10 @@ import co.windly.limbosample.R
 import co.windly.limbosample.presentation.base.activity.fragment.BaseFragmentActivity
 import co.windly.limbosample.presentation.main.home.HomeFragment
 import co.windly.limbosample.presentation.main.settings.SettingsFragment
-import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
 import javax.inject.Inject
 
-class MainActivity : BaseFragmentActivity<MainView, MainPresenter>(), MainView, HasSupportFragmentInjector {
+class MainActivity : BaseFragmentActivity<MainView, MainPresenter>(), MainView {
 
   //region Activity
 

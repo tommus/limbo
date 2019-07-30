@@ -13,8 +13,8 @@ public interface MainComponent extends AndroidInjector<MainActivity> {
 
   //region Builder
 
-  @Subcomponent.Builder
-  abstract class Builder extends AndroidInjector.Builder<MainActivity> {
+  @Subcomponent.Factory
+  interface Factory extends AndroidInjector.Factory<MainActivity> {
     // No-op.
   }
 
