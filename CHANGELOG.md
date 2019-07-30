@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 1.4.2 *(2019-07-30)*
+
+  * Add common colors and dimens to utility;
+
 ### Limbo 1.4.1 *(2019-07-30)*
 
   * Update Kotlin JDK8 (1.3.41);
