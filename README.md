@@ -15,6 +15,14 @@ dependencies {
 }
 ```
 
+Optionally, you can add utility package to your project:
+
+```groovy
+dependencies {
+    implementation "co.windly:limbo-utility:1.4.1"
+}
+```
+
 ### Use based classes to accomplish MVP driven architecture
 
 Example view for activity:
