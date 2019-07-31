@@ -14,6 +14,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.Subject
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeUnit.MILLISECONDS
 
 //region Completable
@@ -337,14 +339,25 @@ fun <T : Any> Flowable<T>.observeOnComputation(): Flowable<T> =
 
 //endregion
 
+//region Subject
+
+/**
+ * Throttles subject emissions using provided window duration and unit.
+ */
+fun <T : Any> Subject<T>.throttled(windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<T> =
+  this
+    .throttleFirst(windowDuration, unit)
+
+//endregion
+
 //region View
 
 /**
- * Throttles clicks on given view with provided window duration.
+ * Throttles clicks on given view using provided window duration and unit.
  */
-fun View.throttledClicks(windowDuration: Long = 500): Observable<Unit> =
+fun View.throttledClicks(windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<Unit> =
   this
     .clicks()
-    .throttleFirst(windowDuration, MILLISECONDS)
+    .throttleFirst(windowDuration, unit)
 
 //endregion
