@@ -19,22 +19,13 @@ public class MainActivity extends BaseFragmentActivity<MainView, MainPresenter> 
 
   //region Intent
 
-  @Inject
-  protected MainPresenter mainPresenter;
+  public static Intent createIntent(@NonNull Context context) {
+    return new Intent(context, MainActivity.class);
+  }
 
   //endregion
 
   //region Ui
-  @BindView(R.id.bottomNavigation)
-  BottomNavigationView bottomNavigationView;
-
-  //endregion
-
-  //region Presenter
-
-  public static Intent createIntent(@NonNull Context context) {
-    return new Intent(context, MainActivity.class);
-  }
 
   @Override
   protected int getLayout() {
@@ -43,13 +34,23 @@ public class MainActivity extends BaseFragmentActivity<MainView, MainPresenter> 
 
   //endregion
 
-  //region Navigation
+  //region Presenter
+
+  @Inject
+  protected MainPresenter mainPresenter;
 
   @NonNull
   @Override
   public MainPresenter createPresenter() {
     return mainPresenter;
   }
+
+  //endregion
+
+  //region Navigation
+
+  @BindView(R.id.bottomNavigation)
+  BottomNavigationView bottomNavigationView;
 
   private void initializeBottomNavigation() {
 

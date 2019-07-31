@@ -9,26 +9,26 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
 
   //region Fragment
 
-  @Inject
-  @SuppressWarnings("WeakerAccess")
-  protected HomePresenter homePresenter;
-
-  //endregion
-
-  //region Ui
-
   public static HomeFragment createInstance() {
     return new HomeFragment();
   }
 
   //endregion
 
-  //region Presenter
+  //region Ui
 
   @Override
   protected int getLayout() {
     return R.layout.fragment_home;
   }
+
+  //endregion
+
+  //region Presenter
+
+  @Inject
+  @SuppressWarnings("WeakerAccess")
+  protected HomePresenter homePresenter;
 
   @NonNull
   @Override

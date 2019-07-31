@@ -94,8 +94,7 @@ deps.mosby = mosby
 
 def permissions = [:]
 permissions.dispatcher = "org.permissionsdispatcher:permissionsdispatcher:$versions.permissionsdispatcher"
-permissions.dispatcher_processor =
-    "org.permissionsdispatcher:permissionsdispatcher-processor:$versions.permissionsdispatcher"
+permissions.dispatcher_processor = "org.permissionsdispatcher:permissionsdispatcher-processor:$versions.permissionsdispatcher"
 deps.permissions = permissions
 
 //endregion

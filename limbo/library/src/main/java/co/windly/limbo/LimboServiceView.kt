@@ -1,5 +1,7 @@
 package co.windly.limbo
 
+import co.windly.limbo.LimboView
+
 interface LimboServiceView : LimboView {
 
   //region Lifecycle
