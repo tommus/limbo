@@ -12,17 +12,16 @@ public class LimboSample extends Application implements ApplicationComponent.Com
 
   @Inject
   protected DispatchingAndroidInjector<Object> androidInjector;
-
-  @Override
-  public AndroidInjector<Object> androidInjector() {
-    return androidInjector;
-  }
+  private ApplicationComponent applicationComponent;
 
   //endregion
 
   //region Component
 
-  private ApplicationComponent applicationComponent;
+  @Override
+  public AndroidInjector<Object> androidInjector() {
+    return androidInjector;
+  }
 
   @Override
   public ApplicationComponent getApplicationComponent() {

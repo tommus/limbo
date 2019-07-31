@@ -14,6 +14,13 @@ class SplashPresenter extends LimboQueuePresenter<SplashView> {
 
   //region Constructor
 
+  @SuppressWarnings("FieldCanBeLocal")
+  private static Long AUTO_CONTINUE_DELAY = 3_000L;
+
+  //endregion
+
+  //region Lifecycle
+
   @Inject
   public SplashPresenter() {
     // No-op.
@@ -21,7 +28,7 @@ class SplashPresenter extends LimboQueuePresenter<SplashView> {
 
   //endregion
 
-  //region Lifecycle
+  //region Automatic Continue
 
   @Override
   public void attachView(@NotNull SplashView view) {
@@ -30,13 +37,6 @@ class SplashPresenter extends LimboQueuePresenter<SplashView> {
     // Observe automatic continue.
     observeAutomaticContinue();
   }
-
-  //endregion
-
-  //region Automatic Continue
-
-  @SuppressWarnings("FieldCanBeLocal")
-  private static Long AUTO_CONTINUE_DELAY = 3_000L;
 
   private void observeAutomaticContinue() {
     addDisposable(

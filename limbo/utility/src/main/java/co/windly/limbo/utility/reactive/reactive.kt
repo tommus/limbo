@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package co.windly.limbo.utility.reactive
 
 import android.view.View
@@ -20,86 +22,86 @@ import java.util.concurrent.TimeUnit.MILLISECONDS
  * Calls given lambda on io-bound thread.
  */
 fun io(lambda: () -> Unit): Completable =
-    Completable
-        .fromAction { lambda() }
-        .subscribeOn(Schedulers.io())
+  Completable
+    .fromAction { lambda() }
+    .subscribeOn(Schedulers.io())
 
 /**
  * Calls given lambda on computation-bound thread.
  */
 fun computation(lambda: () -> Unit): Completable =
-    Completable
-        .fromAction { lambda() }
-        .subscribeOn(Schedulers.computation())
+  Completable
+    .fromAction { lambda() }
+    .subscribeOn(Schedulers.computation())
 
 /**
  * Calls given lambda on FIFO manner queued thread.
  */
 fun trampoline(lambda: () -> Unit): Completable =
-    Completable
-        .fromAction { lambda() }
-        .subscribeOn(Schedulers.trampoline())
+  Completable
+    .fromAction { lambda() }
+    .subscribeOn(Schedulers.trampoline())
 
 /**
  * Calls a given lambda on thread from which caller method has been invoked.
  */
 fun immediate(lambda: () -> Unit): Completable =
-    Completable
-        .fromAction { lambda() }
+  Completable
+    .fromAction { lambda() }
 
 /**
  * Immediately subscribes completable and adds to a CompositeDisposable.
  * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
  */
 fun Completable.addImmediatelyTo(composite: CompositeDisposable): Disposable =
-    this
-        .subscribe()
-        .addTo(composite)
+  this
+    .subscribe()
+    .addTo(composite)
 
 /**
  * Immediately subscribes completable and adds to a CompositeDisposable.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
 fun Completable.addSuccessTo(composite: CompositeDisposable, lambda: () -> Unit): Disposable =
-    this
-        .subscribe(lambda, { /* Mute. */ })
-        .addTo(composite)
+  this
+    .subscribe(lambda, { /* Mute. */ })
+    .addTo(composite)
 
 /**
  * Switches this stream to subscribe on UI thread.
  */
-fun Completable.subscribeOnUi() =
-    this.subscribeOn(AndroidSchedulers.mainThread())
+fun Completable.subscribeOnUi(): Completable =
+  this.subscribeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to subscribe on IO thread.
  */
-fun Completable.subscribeOnIo() =
-    this.subscribeOn(Schedulers.io())
+fun Completable.subscribeOnIo(): Completable =
+  this.subscribeOn(Schedulers.io())
 
 /**
  * Switches this stream to subscribe on computation thread.
  */
-fun Completable.subscribeOnComputation() =
-    this.subscribeOn(Schedulers.computation())
+fun Completable.subscribeOnComputation(): Completable =
+  this.subscribeOn(Schedulers.computation())
 
 /**
  * Switches this stream to observe on UI thread.
  */
-fun Completable.observeOnUi() =
-    this.observeOn(AndroidSchedulers.mainThread())
+fun Completable.observeOnUi(): Completable =
+  this.observeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to observe on IO thread.
  */
-fun Completable.observeOnIo() =
-    this.observeOn(Schedulers.io())
+fun Completable.observeOnIo(): Completable =
+  this.observeOn(Schedulers.io())
 
 /**
  * Switches this stream to observe on computation thread.
  */
-fun Completable.observeOnComputation() =
-    this.observeOn(Schedulers.computation())
+fun Completable.observeOnComputation(): Completable =
+  this.observeOn(Schedulers.computation())
 
 //endregion
 
@@ -110,54 +112,54 @@ fun Completable.observeOnComputation() =
  * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
  */
 fun <T : Any> Maybe<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
-    this
-        .subscribe()
-        .addTo(composite)
+  this
+    .subscribe()
+    .addTo(composite)
 
 /**
  * Immediately subscribes maybe and adds to a CompositeDisposable.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
 fun <T : Any> Maybe<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
-    this
-        .subscribe(lambda, { /* Mute. */ })
-        .addTo(composite)
+  this
+    .subscribe(lambda, { /* Mute. */ })
+    .addTo(composite)
 
 /**
  * Switches this stream to subscribe on UI thread.
  */
-fun <T : Any> Maybe<T>.subscribeOnUi() =
-    this.subscribeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Maybe<T>.subscribeOnUi(): Maybe<T> =
+  this.subscribeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to subscribe on IO thread.
  */
-fun <T : Any> Maybe<T>.subscribeOnIo() =
-    this.subscribeOn(Schedulers.io())
+fun <T : Any> Maybe<T>.subscribeOnIo(): Maybe<T> =
+  this.subscribeOn(Schedulers.io())
 
 /**
  * Switches this stream to subscribe on computation thread.
  */
-fun <T : Any> Maybe<T>.subscribeOnComputation() =
-    this.subscribeOn(Schedulers.computation())
+fun <T : Any> Maybe<T>.subscribeOnComputation(): Maybe<T> =
+  this.subscribeOn(Schedulers.computation())
 
 /**
  * Switches this stream to observe on UI thread.
  */
-fun <T : Any> Maybe<T>.observeOnUi() =
-    this.observeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Maybe<T>.observeOnUi(): Maybe<T> =
+  this.observeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to observe on IO thread.
  */
-fun <T : Any> Maybe<T>.observeOnIo() =
-    this.observeOn(Schedulers.io())
+fun <T : Any> Maybe<T>.observeOnIo(): Maybe<T> =
+  this.observeOn(Schedulers.io())
 
 /**
  * Switches this stream to observe on computation thread.
  */
-fun <T : Any> Maybe<T>.observeOnComputation() =
-    this.observeOn(Schedulers.computation())
+fun <T : Any> Maybe<T>.observeOnComputation(): Maybe<T> =
+  this.observeOn(Schedulers.computation())
 
 //endregion
 
@@ -168,54 +170,54 @@ fun <T : Any> Maybe<T>.observeOnComputation() =
  * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
  */
 fun <T : Any> Single<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
-    this
-        .subscribe()
-        .addTo(composite)
+  this
+    .subscribe()
+    .addTo(composite)
 
 /**
  * Immediately subscribes single and adds to a CompositeDisposable.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
 fun <T : Any> Single<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
-    this
-        .subscribe(lambda, { /* Mute. */ })
-        .addTo(composite)
+  this
+    .subscribe(lambda, { /* Mute. */ })
+    .addTo(composite)
 
 /**
  * Switches this stream to subscribe on UI thread.
  */
-fun <T : Any> Single<T>.subscribeOnUi() =
-    this.subscribeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Single<T>.subscribeOnUi(): Single<T> =
+  this.subscribeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to subscribe on IO thread.
  */
-fun <T : Any> Single<T>.subscribeOnIo() =
-    this.subscribeOn(Schedulers.io())
+fun <T : Any> Single<T>.subscribeOnIo(): Single<T> =
+  this.subscribeOn(Schedulers.io())
 
 /**
  * Switches this stream to subscribe on computation thread.
  */
-fun <T : Any> Single<T>.subscribeOnComputation() =
-    this.subscribeOn(Schedulers.computation())
+fun <T : Any> Single<T>.subscribeOnComputation(): Single<T> =
+  this.subscribeOn(Schedulers.computation())
 
 /**
  * Switches this stream to observe on UI thread.
  */
-fun <T : Any> Single<T>.observeOnUi() =
-    this.observeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Single<T>.observeOnUi(): Single<T> =
+  this.observeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to observe on IO thread.
  */
-fun <T : Any> Single<T>.observeOnIo() =
-    this.observeOn(Schedulers.io())
+fun <T : Any> Single<T>.observeOnIo(): Single<T> =
+  this.observeOn(Schedulers.io())
 
 /**
  * Switches this stream to observe on computation thread.
  */
-fun <T : Any> Single<T>.observeOnComputation() =
-    this.observeOn(Schedulers.computation())
+fun <T : Any> Single<T>.observeOnComputation(): Single<T> =
+  this.observeOn(Schedulers.computation())
 
 //endregion
 
@@ -226,54 +228,54 @@ fun <T : Any> Single<T>.observeOnComputation() =
  * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
  */
 fun <T : Any> Observable<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
-    this
-        .subscribe()
-        .addTo(composite)
+  this
+    .subscribe()
+    .addTo(composite)
 
 /**
  * Immediately subscribes observable and adds to a CompositeDisposable.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
 fun <T : Any> Observable<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
-    this
-        .subscribe(lambda, { /* Mute. */ })
-        .addTo(composite)
+  this
+    .subscribe(lambda, { /* Mute. */ })
+    .addTo(composite)
 
 /**
  * Switches this stream to subscribe on UI thread.
  */
-fun <T : Any> Observable<T>.subscribeOnUi() =
-    this.subscribeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Observable<T>.subscribeOnUi(): Observable<T> =
+  this.subscribeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to subscribe on IO thread.
  */
-fun <T : Any> Observable<T>.subscribeOnIo() =
-    this.subscribeOn(Schedulers.io())
+fun <T : Any> Observable<T>.subscribeOnIo(): Observable<T> =
+  this.subscribeOn(Schedulers.io())
 
 /**
  * Switches this stream to subscribe on computation thread.
  */
-fun <T : Any> Observable<T>.subscribeOnComputation() =
-    this.subscribeOn(Schedulers.computation())
+fun <T : Any> Observable<T>.subscribeOnComputation(): Observable<T> =
+  this.subscribeOn(Schedulers.computation())
 
 /**
  * Switches this stream to observe on UI thread.
  */
-fun <T : Any> Observable<T>.observeOnUi() =
-    this.observeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Observable<T>.observeOnUi(): Observable<T> =
+  this.observeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to observe on IO thread.
  */
-fun <T : Any> Observable<T>.observeOnIo() =
-    this.observeOn(Schedulers.io())
+fun <T : Any> Observable<T>.observeOnIo(): Observable<T> =
+  this.observeOn(Schedulers.io())
 
 /**
  * Switches this stream to observe on computation thread.
  */
-fun <T : Any> Observable<T>.observeOnComputation() =
-    this.observeOn(Schedulers.computation())
+fun <T : Any> Observable<T>.observeOnComputation(): Observable<T> =
+  this.observeOn(Schedulers.computation())
 
 //endregion
 
@@ -284,54 +286,54 @@ fun <T : Any> Observable<T>.observeOnComputation() =
  * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
  */
 fun <T : Any> Flowable<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
-    this
-        .subscribe()
-        .addTo(composite)
+  this
+    .subscribe()
+    .addTo(composite)
 
 /**
  * Immediately subscribes flowable and adds to a CompositeDisposable.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
 fun <T : Any> Flowable<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
-    this
-        .subscribe(lambda, { /* Mute. */ })
-        .addTo(composite)
+  this
+    .subscribe(lambda, { /* Mute. */ })
+    .addTo(composite)
 
 /**
  * Switches this stream to subscribe on UI thread.
  */
-fun <T : Any> Flowable<T>.subscribeOnUi() =
-    this.subscribeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Flowable<T>.subscribeOnUi(): Flowable<T> =
+  this.subscribeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to subscribe on IO thread.
  */
-fun <T : Any> Flowable<T>.subscribeOnIo() =
-    this.subscribeOn(Schedulers.io())
+fun <T : Any> Flowable<T>.subscribeOnIo(): Flowable<T> =
+  this.subscribeOn(Schedulers.io())
 
 /**
  * Switches this stream to subscribe on computation thread.
  */
-fun <T : Any> Flowable<T>.subscribeOnComputation() =
-    this.subscribeOn(Schedulers.computation())
+fun <T : Any> Flowable<T>.subscribeOnComputation(): Flowable<T> =
+  this.subscribeOn(Schedulers.computation())
 
 /**
  * Switches this stream to observe on UI thread.
  */
-fun <T : Any> Flowable<T>.observeOnUi() =
-    this.observeOn(AndroidSchedulers.mainThread())
+fun <T : Any> Flowable<T>.observeOnUi(): Flowable<T> =
+  this.observeOn(AndroidSchedulers.mainThread())
 
 /**
  * Switches this stream to observe on IO thread.
  */
-fun <T : Any> Flowable<T>.observeOnIo() =
-    this.observeOn(Schedulers.io())
+fun <T : Any> Flowable<T>.observeOnIo(): Flowable<T> =
+  this.observeOn(Schedulers.io())
 
 /**
  * Switches this stream to observe on computation thread.
  */
-fun <T : Any> Flowable<T>.observeOnComputation() =
-    this.observeOn(Schedulers.computation())
+fun <T : Any> Flowable<T>.observeOnComputation(): Flowable<T> =
+  this.observeOn(Schedulers.computation())
 
 //endregion
 
@@ -341,8 +343,8 @@ fun <T : Any> Flowable<T>.observeOnComputation() =
  * Throttles clicks on given view with provided window duration.
  */
 fun View.throttledClicks(windowDuration: Long = 500): Observable<Unit> =
-    this
-        .clicks()
-        .throttleFirst(windowDuration, MILLISECONDS)
+  this
+    .clicks()
+    .throttleFirst(windowDuration, MILLISECONDS)
 
 //endregion

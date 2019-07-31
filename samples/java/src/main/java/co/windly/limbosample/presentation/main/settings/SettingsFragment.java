@@ -9,26 +9,26 @@ public class SettingsFragment extends BaseFragment<SettingsView, SettingsPresent
 
   //region Fragment
 
+  @Inject
+  @SuppressWarnings("WeakerAccess")
+  protected SettingsPresenter settingsPresenter;
+
+  //endregion
+
+  //region Ui
+
   public static SettingsFragment createInstance() {
     return new SettingsFragment();
   }
 
   //endregion
 
-  //region Ui
+  //region Presenter
 
   @Override
   protected int getLayout() {
     return R.layout.fragment_settings;
   }
-
-  //endregion
-
-  //region Presenter
-
-  @Inject
-  @SuppressWarnings("WeakerAccess")
-  protected SettingsPresenter settingsPresenter;
 
   @NonNull
   @Override

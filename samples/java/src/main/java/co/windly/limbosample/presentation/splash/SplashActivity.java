@@ -11,17 +11,17 @@ public class SplashActivity extends BaseActivity<SplashView, SplashPresenter> im
 
   //region Ui
 
-  @Override
-  protected int getLayout() {
-    return R.layout.activity_splash;
-  }
+  @Inject
+  protected SplashPresenter splashPresenter;
 
   //endregion
 
   //region Presenter
 
-  @Inject
-  protected SplashPresenter splashPresenter;
+  @Override
+  protected int getLayout() {
+    return R.layout.activity_splash;
+  }
 
   @NonNull
   @Override
