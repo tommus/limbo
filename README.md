@@ -15,6 +15,14 @@ dependencies {
 }
 ```
 
+Optionally, you can add utility package to your project:
+
+```groovy
+dependencies {
+    implementation "co.windly:limbo-utility:2.0.0-SNAPSHOT"
+}
+```
+
 ### Use based classes to accomplish MVP driven architecture
 
 Example view for activity:
@@ -55,8 +63,8 @@ class SplashPresenter : LimboQueuePresenter<SplashView>() {
   private fun observeAutomaticContinue() {
 
     Observable.timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
-        .subscribeOn(Schedulers.computation())
-        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOnComputation()
+        .observeOnUi()
         .subscribe(
             { this.handleObserveAutomaticContinueSuccess(it) },
             { this.handleObserveAutomaticContinueError(it) }

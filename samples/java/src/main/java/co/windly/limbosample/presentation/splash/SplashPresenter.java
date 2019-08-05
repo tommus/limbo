@@ -15,7 +15,7 @@ class SplashPresenter extends LimboQueuePresenter<SplashView> {
   //region Constructor
 
   @Inject
-  public SplashPresenter() {
+  SplashPresenter() {
     // No-op.
   }
 

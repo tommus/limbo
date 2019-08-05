@@ -4,14 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import co.windly.limbosample.R
-import co.windly.limbosample.presentation.base.activity.fragment.BaseFragmentActivity
+import co.windly.limbosample.presentation.base.activity.base.BaseActivity
 import co.windly.limbosample.presentation.main.home.HomeFragment
 import co.windly.limbosample.presentation.main.settings.SettingsFragment
-import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
-import javax.inject.Inject
 
-class MainActivity : BaseFragmentActivity<MainView, MainPresenter>(), MainView, HasSupportFragmentInjector {
+class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
   //region Activity
 
@@ -26,16 +24,6 @@ class MainActivity : BaseFragmentActivity<MainView, MainPresenter>(), MainView, 
 
   override val layout: Int
     get() = R.layout.activity_main
-
-  //endregion
-
-  //region Presenter
-
-  @Inject
-  lateinit var mainPresenter: MainPresenter
-
-  override fun createPresenter(): MainPresenter =
-    mainPresenter
 
   //endregion
 

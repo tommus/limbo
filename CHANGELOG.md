@@ -1,20 +1,44 @@
 ### Change Log
 
+### Limbo 1.4.2 *(2019-07-30)*
+
+  * Add common colors and dimens to utility;
+
+### Limbo 1.4.1 *(2019-07-30)*
+
+  * Update Kotlin JDK8 (1.3.41);
+  * Update Gradle Wrapper (5.5.1);
+  * Update Android Gradle Plugin (3.4.2);
+  * Update Dagger (2.2.4);
+  * Reimplement dependency injection in samples to no longer use deprecated builders;
+  * Update Fragmentation (1.0.1);
+  * Update Permissions Dispatcher (4.5.0);
+  * Update RxBinding (3.0.0);
+  * Update RxJava (2.2.10);
+
+### Limbo 1.4.0 *(2019-06-13)*
+
+  * Switch Fragmentation (1.3.7) to FragmentationX (1.0.0) which fully supports AndroidX.
+
+### Limbo 1.3.1 *(2019-06-13)*
+
+  * Update Fragmentation (1.3.7).
+
 ### Limbo 1.3.0 *(2019-06-13)*
 
-  * Correct onAttach() context nullability in LimboLceFragment;
+  * Correct onAttach() context nullability in LimboLceFragment.
 
 ### Limbo 1.2.0 *(2019-06-13)*
 
-  * Correct onAttach() context nullability in LimboLceFragment;
+  * Correct onAttach() context nullability in LimboLceFragment.
 
 ### Limbo 1.1.4 *(2019-06-01)*
 
-  * Correct onAttach() context nullability in LimboDialogFragment;
+  * Correct onAttach() context nullability in LimboDialogFragment.
 
 ### Limbo 1.1.3 *(2019-06-01)*
 
-  * Correct onAttach() context nullability in LimboFragment;
+  * Correct onAttach() context nullability in LimboFragment.
 
 ### Limbo 1.1.2 *(2019-04-29)*
 

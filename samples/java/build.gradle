@@ -73,6 +73,7 @@ dependencies {
   //region Application Modules
 
   implementation project(":library")
+  implementation project(":utility")
 
   //endregion
 

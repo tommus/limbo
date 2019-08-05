@@ -17,7 +17,7 @@ interface ApplicationComponent {
   //region Component Builder
 
   @Component.Builder
-  interface Builer {
+  interface Builder {
 
     ApplicationComponent build();
   }

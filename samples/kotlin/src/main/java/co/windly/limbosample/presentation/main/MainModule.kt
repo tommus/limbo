@@ -14,7 +14,7 @@ abstract class MainModule {
   @Binds
   @IntoMap
   @ClassKey(MainActivity::class)
-  abstract fun bindAndroidInjectorFactory(builder: MainComponent.Builder): AndroidInjector.Factory<*>
+  abstract fun bindAndroidInjectorFactory(factory: MainComponent.Factory): AndroidInjector.Factory<*>
 
   //endregion
 }

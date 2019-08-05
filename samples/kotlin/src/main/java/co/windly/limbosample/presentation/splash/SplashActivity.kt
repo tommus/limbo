@@ -3,7 +3,6 @@ package co.windly.limbosample.presentation.splash
 import co.windly.limbosample.R
 import co.windly.limbosample.presentation.base.activity.base.BaseActivity
 import co.windly.limbosample.presentation.main.MainActivity
-import javax.inject.Inject
 
 class SplashActivity : BaseActivity<SplashView, SplashPresenter>(), SplashView {
 
@@ -11,16 +10,6 @@ class SplashActivity : BaseActivity<SplashView, SplashPresenter>(), SplashView {
 
   override val layout: Int
     get() = R.layout.activity_splash
-
-  //endregion
-
-  //region Presenter
-
-  @Inject
-  lateinit var splashPresenter: SplashPresenter
-
-  override fun createPresenter(): SplashPresenter =
-    splashPresenter
 
   //endregion
 

@@ -1,6 +1,8 @@
 package co.windly.limbosample.presentation.splash
 
 import co.windly.limbo.presenter.queue.LimboQueuePresenter
+import co.windly.limbo.utility.reactive.observeOnUi
+import co.windly.limbo.utility.reactive.subscribeOnComputation
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
@@ -31,8 +33,8 @@ class SplashPresenter @Inject constructor() : LimboQueuePresenter<SplashView>() 
   private fun observeAutomaticContinue() {
     Observable
       .timer(AUTO_CONTINUE_DELAY, MILLISECONDS)
-      .subscribeOn(Schedulers.computation())
-      .observeOn(AndroidSchedulers.mainThread())
+      .subscribeOnComputation()
+      .observeOnUi()
       .subscribe(
         ::handleObserveAutomaticContinueSuccess,
         ::handleObserveAutomaticContinueError

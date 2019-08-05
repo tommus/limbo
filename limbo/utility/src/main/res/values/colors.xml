@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment/>
+
+  <!-- region Black -->
+
+  <color name="black">#000000</color>
+  <color name="blackAlpha10">#1A000000</color>
+  <color name="blackAlpha20">#33000000</color>
+  <color name="blackAlpha30">#4D000000</color>
+  <color name="blackAlpha40">#66000000</color>
+  <color name="blackAlpha50">#80000000</color>
+  <color name="blackAlpha60">#99000000</color>
+  <color name="blackAlpha70">#B3000000</color>
+  <color name="blackAlpha80">#CC000000</color>
+  <color name="blackAlpha90">#E6000000</color>
+  <color name="blackTransparent">#00000000</color>
+
+  <!-- endregion -->
+
+  <!-- region White -->
+
+  <color name="white">#FFFFFF</color>
+  <color name="whiteAlpha10">#1AFFFFFF</color>
+  <color name="whiteAlpha20">#33FFFFFF</color>
+  <color name="whiteAlpha30">#4DFFFFFF</color>
+  <color name="whiteAlpha40">#66FFFFFF</color>
+  <color name="whiteAlpha50">#80FFFFFF</color>
+  <color name="whiteAlpha60">#99FFFFFF</color>
+  <color name="whiteAlpha70">#B3FFFFFF</color>
+  <color name="whiteAlpha80">#CCFFFFFF</color>
+  <color name="whiteAlpha90">#E6FFFFFF</color>
+  <color name="whiteTransparent">#00FFFFFF</color>
+
+  <!-- endregion -->
+
+</resources>

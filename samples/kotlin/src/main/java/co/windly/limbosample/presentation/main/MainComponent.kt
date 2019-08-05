@@ -13,8 +13,8 @@ interface MainComponent : AndroidInjector<MainActivity> {
 
   //region Builder
 
-  @Subcomponent.Builder
-  abstract class Builder : AndroidInjector.Builder<MainActivity>()
+  @Subcomponent.Factory
+  interface Factory : AndroidInjector.Factory<MainActivity>
 
   //endregion
 }
