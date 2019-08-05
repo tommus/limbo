@@ -1,17 +1,15 @@
 package co.windly.limbosample.presentation.main;
 
-import co.windly.limbosample.presentation.main.home.HomeModule;
-import co.windly.limbosample.presentation.main.settings.SettingsModule;
+import co.windly.limbosample.presentation.main.root.RootModule;
 import dagger.Subcomponent;
 import dagger.android.AndroidInjector;
 
 @Subcomponent(modules = {
-  HomeModule.class,
-  SettingsModule.class
+  RootModule.class
 })
 public interface MainComponent extends AndroidInjector<MainActivity> {
 
-  //region Builder
+  //region Factory
 
   @Subcomponent.Factory
   interface Factory extends AndroidInjector.Factory<MainActivity> {

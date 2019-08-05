@@ -1,14 +1,14 @@
-package co.windly.limbosample.presentation.main.home;
+package co.windly.limbosample.presentation.main.root.settings;
 
 import co.windly.limbo.presenter.queue.LimboQueuePresenter;
 import javax.inject.Inject;
 
-class HomePresenter extends LimboQueuePresenter<HomeView> {
+class SettingsPresenter extends LimboQueuePresenter<SettingsView> {
 
   //region Constructor
 
   @Inject
-  public HomePresenter() {
+  SettingsPresenter() {
     // No-op.
   }
 

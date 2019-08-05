@@ -1,4 +1,4 @@
-package co.windly.limbosample.presentation.main.settings
+package co.windly.limbosample.presentation.main.root.settings
 
 import co.windly.limbo.presenter.queue.LimboQueuePresenter
 import javax.inject.Inject

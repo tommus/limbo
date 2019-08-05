@@ -27,7 +27,7 @@
     <!-- region Activities -->
 
     <activity
-      android:name=".presentation.splash.SplashActivity"
+      android:name="co.windly.limbosample.presentation.splash.SplashActivity"
       android:noHistory="true"
       android:screenOrientation="portrait">
       <intent-filter>

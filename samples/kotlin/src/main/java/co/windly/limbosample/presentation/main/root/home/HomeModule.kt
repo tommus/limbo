@@ -1,15 +1,15 @@
-package co.windly.limbosample.presentation.main.settings
+package co.windly.limbosample.presentation.main.root.home
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class SettingsModule {
+abstract class HomeModule {
 
   //region Contribution
 
   @ContributesAndroidInjector
-  abstract fun contributeAndroidInjector(): SettingsFragment
+  abstract fun contributeAndroidInjector(): HomeFragment
 
   //endregion
 }

@@ -1,4 +1,4 @@
-package co.windly.limbosample.presentation.main.home;
+package co.windly.limbosample.presentation.main.root.home;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

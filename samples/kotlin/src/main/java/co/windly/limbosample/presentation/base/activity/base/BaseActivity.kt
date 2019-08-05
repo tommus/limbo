@@ -24,7 +24,6 @@ abstract class BaseActivity<V : LimboView, P : LimboQueuePresenter<V>> : LimboAc
 
   //endregion
 
-
   //region Presenter
 
   @Inject

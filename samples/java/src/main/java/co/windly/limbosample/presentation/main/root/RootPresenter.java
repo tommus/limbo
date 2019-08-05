@@ -1,14 +1,14 @@
-package co.windly.limbosample.presentation.main;
+package co.windly.limbosample.presentation.main.root;
 
 import co.windly.limbo.presenter.queue.LimboQueuePresenter;
 import javax.inject.Inject;
 
-class MainPresenter extends LimboQueuePresenter<MainView> {
+class RootPresenter extends LimboQueuePresenter<RootView> {
 
   //region Constructor
 
   @Inject
-  MainPresenter() {
+  RootPresenter() {
     // No-op.
   }
 

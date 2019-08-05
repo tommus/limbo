@@ -1,4 +1,4 @@
-package co.windly.limbosample.presentation.main.home
+package co.windly.limbosample.presentation.main.root.home
 
 import co.windly.limbosample.R
 import co.windly.limbosample.presentation.base.fragment.base.BaseFragment

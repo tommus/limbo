@@ -4,9 +4,7 @@ import co.windly.limbo.presenter.queue.LimboQueuePresenter
 import co.windly.limbo.utility.reactive.observeOnUi
 import co.windly.limbo.utility.reactive.subscribeOnComputation
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
-import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import javax.inject.Inject

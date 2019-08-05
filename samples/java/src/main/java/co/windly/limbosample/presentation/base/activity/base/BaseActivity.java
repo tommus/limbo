@@ -2,6 +2,7 @@ package co.windly.limbosample.presentation.base.activity.base;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import butterknife.ButterKnife;
 import co.windly.limbo.LimboView;
 import co.windly.limbo.activity.base.LimboActivity;
 import co.windly.limbo.presenter.queue.LimboQueuePresenter;
@@ -49,6 +50,10 @@ public abstract class BaseActivity<V extends LimboView, P extends LimboQueuePres
     // Inject dependencies.
     AndroidInjection.inject(this);
 
+    // Bind views.
+    ButterKnife.bind(this);
+
+    // Call super.
     super.onCreate(savedInstanceState);
   }
 

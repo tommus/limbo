@@ -95,6 +95,13 @@ dependencies {
 
   //endregion
 
+  //region Navigation
+
+  implementation deps.androidx.navigation_fragment_ktx
+  implementation deps.androidx.navigation_ui_ktx
+
+  //endregion
+
   //region Reactive Extensions
 
   implementation deps.rx.android
