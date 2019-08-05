@@ -8,7 +8,7 @@ class MainPresenter extends LimboQueuePresenter<MainView> {
   //region Constructor
 
   @Inject
-  public MainPresenter() {
+  MainPresenter() {
     // No-op.
   }
 

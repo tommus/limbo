@@ -1,7 +1,7 @@
 # Limbo
 [![Maven Central][mavenbadge-svg]][mavencentral] [![Travis (.org) branch][travisci-svg]][travisci] [![API][apibadge-svg]][apioverview] [![GitHub][license-svg]][license]
 
-This library composes Fragmentation and Mosby to simplify creation of MVP and fragment-based Android application.
+This library composes Android Navigation Component and Mosby to simplify creation of MVP and fragment-based Android application.
 
 ### Usage
 
@@ -11,7 +11,7 @@ Add dependencies to Java or Kotlin-based project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo:1.4.2"
+    implementation "co.windly:limbo:2.0.0-SNAPSHOT"
 }
 ```
 
@@ -19,7 +19,7 @@ Optionally, you can add utility package to your project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-utility:1.4.2"
+    implementation "co.windly:limbo-utility:2.0.0-SNAPSHOT"
 }
 ```
 
