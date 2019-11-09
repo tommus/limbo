@@ -6,24 +6,45 @@ ext.deps = deps
 //region Versions
 
 def versions = [:]
-versions.android_gradle_plugin = "3.4.2"
-versions.androidx = "1.0.0"
-versions.androidx_appcompat = "1.0.2"
+versions.android_gradle_plugin = "3.5.2"
+versions.androidx_appcompat = "1.1.0"
 versions.androidx_constraintlayout = "1.1.3"
-versions.androidx_navigation = "2.1.0-beta02"
-versions.butter_knife = "10.1.0"
-versions.dagger = "2.24"
-versions.jsr_annotation = "1.0"
-versions.kotlin = "1.3.41"
+versions.androidx_core = "1.1.0"
+versions.androidx_fragment = "1.1.0"
+versions.androidx_navigation = "2.1.0"
+versions.butter_knife = "10.2.0"
+versions.dagger = "2.25.2"
+versions.javax = "1"
+versions.kotlin = "1.3.50"
 versions.material = "1.0.0"
 versions.mosby = "3.1.1"
-versions.permissionsdispatcher = "4.5.0"
+versions.permissionsdispatcher = "4.6.0"
 versions.rx_android = "2.1.1"
 versions.rx_binding = "3.0.0"
-versions.rx_java = "2.2.10"
-versions.rx_kotlin = "2.3.0"
+versions.rx_java = "2.2.14"
+versions.rx_kotlin = "2.4.0"
 versions.timber = "4.7.1"
 deps.versions = versions
+
+//endregion
+
+//region Androidx
+
+def androidx = [:]
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+androidx.constraintlayout =
+    "androidx.constraintlayout:constraintlayout:$versions.androidx_constraintlayout"
+androidx.core = "androidx.core:core:$versions.androidx_core"
+androidx.fragment = "androidx.fragment:fragment:$versions.androidx_fragment"
+androidx.navigation_fragment =
+    "androidx.navigation:navigation-fragment:$versions.androidx_navigation"
+androidx.navigation_fragment_ktx =
+    "androidx.navigation:navigation-fragment-ktx:$versions.androidx_navigation"
+androidx.navigation_ui = "androidx.navigation:navigation-ui:$versions.androidx_navigation"
+androidx.navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.androidx_navigation"
+androidx.safe_args =
+    "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.androidx_navigation"
+deps.androidx = androidx
 
 //endregion
 
@@ -49,7 +70,7 @@ def dagger = [:]
 dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
 dagger.android_processor = "com.google.dagger:dagger-android-processor:$versions.dagger"
 dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
-dagger.annotation = "javax.annotation:jsr250-api:$versions.jsr_annotation"
+dagger.annotation = "javax.inject:javax.inject:$versions.javax"
 dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
 dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
 deps.dagger = dagger
@@ -85,7 +106,8 @@ deps.mosby = mosby
 //region Permissions
 
 def permissions = [:]
-permissions.dispatcher = "org.permissionsdispatcher:permissionsdispatcher:$versions.permissionsdispatcher"
+permissions.dispatcher =
+    "org.permissionsdispatcher:permissionsdispatcher:$versions.permissionsdispatcher"
 permissions.dispatcher_processor =
     "org.permissionsdispatcher:permissionsdispatcher-processor:$versions.permissionsdispatcher"
 deps.permissions = permissions
@@ -100,25 +122,6 @@ rx.binding = "com.jakewharton.rxbinding3:rxbinding:$versions.rx_binding"
 rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
 rx.kotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rx_kotlin"
 deps.rx = rx
-
-//endregion
-
-//region Androidx / Support
-
-// Note that duplicated dependencies for navigation component are present here. It's not a mistake.
-// They are here for samples which are written in either Java and Kotlin.
-
-def androidx = [:]
-androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx_appcompat"
-androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.androidx_constraintlayout"
-androidx.core = "androidx.core:core:$versions.androidx"
-androidx.fragment = "androidx.fragment:fragment:$versions.androidx"
-androidx.navigation_fragment = "androidx.navigation:navigation-fragment:$versions.androidx_navigation"
-androidx.navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$versions.androidx_navigation"
-androidx.navigation_ui = "androidx.navigation:navigation-ui:$versions.androidx_navigation"
-androidx.navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.androidx_navigation"
-androidx.safe_args = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.androidx_navigation"
-deps.androidx = androidx
 
 //endregion
 
