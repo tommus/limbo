@@ -11,7 +11,7 @@ Add dependencies to Java or Kotlin-based project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo:2.0.0-SNAPSHOT"
+    implementation "co.windly:limbo:2.0.0"
 }
 ```
 
@@ -19,7 +19,7 @@ Optionally, you can add utility package to your project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-utility:2.0.0-SNAPSHOT"
+    implementation "co.windly:limbo-utility:2.0.0"
 }
 ```
 
