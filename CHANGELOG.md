@@ -1,5 +1,19 @@
 ### Change Log
 
+### Limbo 2.0.0 *(2019-11-09)*
+
+  * Drop Fragmentation in favor of Android Navigation Component;
+  * Update Gradle Wrapper (6.0);
+  * Update Android Gradle Plugin (3.5.2);
+  * Update AndroidX App Compat (1.1.0);
+  * Update AndroidX Core (1.1.0);
+  * Update AndroidX Fragment (1.1.0);
+  * Update AndroidX Navigation (2.1.0);
+  * Update Butter Knife (10.2.0) for Java sample;
+  * Update Dagger (2.25.2);
+  * Update Permissions Dispatcher (4.6.0);
+  * Update RxJava (2.2.14);
+
 ### Limbo 1.4.2 *(2019-07-30)*
 
   * Add common colors and dimens to utility;
