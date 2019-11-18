@@ -38,6 +38,12 @@ dependencies {
   implementation deps.androidx.recyclerview
 
   //endregion
+
+  //region Kotlin
+
+  implementation deps.kotlin.stdlib_jdk8
+
+  //endregion
 }
 
 //endregion
