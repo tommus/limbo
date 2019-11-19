@@ -1,8 +1,12 @@
 ### Change Log
 
+### Limbo 2.0.2 *(XXXX-XX-XX)*
+
+  * (limbo) add more popular dimen resources including video resolutions.
+
 ### Limbo 2.0.1 *(2019-11-15)*
 
-  * Add common RecyclerView item decorations to limbo-recyclerview; 
+  * (limbo-recyclerview) add common RecyclerView item decorations. 
 
 ### Limbo 2.0.0 *(2019-11-09)*
 
