@@ -1,8 +1,9 @@
 ### Change Log
 
-### Limbo 2.0.2 *(XXXX-XX-XX)*
+### Limbo 2.0.2 *(2019-11-19)*
 
-  * (limbo) add more popular dimen resources including video resolutions.
+  * (limbo) add more popular dimen resources including video resolutions;
+  * Downgrade minimum SDK requirement.
 
 ### Limbo 2.0.1 *(2019-11-15)*
 
@@ -20,11 +21,11 @@
   * Update Butter Knife (10.2.0) for Java sample;
   * Update Dagger (2.25.2);
   * Update Permissions Dispatcher (4.6.0);
-  * Update RxJava (2.2.14);
+  * Update RxJava (2.2.14).
 
 ### Limbo 1.4.2 *(2019-07-30)*
 
-  * Add common colors and dimens to limbo-utility;
+  * Add common colors and dimens to limbo-utility.
 
 ### Limbo 1.4.1 *(2019-07-30)*
 
@@ -36,7 +37,7 @@
   * Update Fragmentation (1.0.1);
   * Update Permissions Dispatcher (4.5.0);
   * Update RxBinding (3.0.0);
-  * Update RxJava (2.2.10);
+  * Update RxJava (2.2.10).
 
 ### Limbo 1.4.0 *(2019-06-13)*
 
