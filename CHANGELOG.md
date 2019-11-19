@@ -1,5 +1,13 @@
 ### Change Log
 
+### Limbo 2.0.2 *(XXXX-XX-XX)*
+
+  * (limbo) add more popular dimen resources including video resolutions.
+
+### Limbo 2.0.1 *(2019-11-15)*
+
+  * (limbo-recyclerview) add common RecyclerView item decorations. 
+
 ### Limbo 2.0.0 *(2019-11-09)*
 
   * Drop Fragmentation in favor of Android Navigation Component;
@@ -16,7 +24,7 @@
 
 ### Limbo 1.4.2 *(2019-07-30)*
 
-  * Add common colors and dimens to utility;
+  * Add common colors and dimens to limbo-utility;
 
 ### Limbo 1.4.1 *(2019-07-30)*
 

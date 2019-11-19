@@ -3,6 +3,7 @@
 include ":library"
 include ":java"
 include ":kotlin"
+include ":recyclerview"
 include ":service"
 include ":utility"
 
@@ -13,6 +14,7 @@ include ":utility"
 project(":library").projectDir = new File(rootDir, "limbo/library")
 project(":java").projectDir = new File(rootDir, "samples/java")
 project(":kotlin").projectDir = new File(rootDir, "samples/kotlin")
+project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
 project(":service").projectDir = new File(rootDir, "samples/service")
 project(":utility").projectDir = new File(rootDir, "limbo/utility")
 
