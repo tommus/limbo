@@ -60,7 +60,7 @@ deps.build = build
 
 def build_versions = [:]
 build_versions.compile_sdk = 29
-build_versions.min_sdk = 21
+build_versions.min_sdk = 19
 build_versions.target_sdk = 29
 deps.build_versions = build_versions
 
