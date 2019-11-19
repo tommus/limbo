@@ -1,111 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-  <eat-comment/>
+  <eat-comment />
 
-  <!-- region Positive -->
+  <!-- region Auto -->
 
-  <dimen name="size_p1">1dp</dimen>
-  <dimen name="size_p2">2dp</dimen>
-  <dimen name="size_p4">4dp</dimen>
-  <dimen name="size_p6">6dp</dimen>
-  <dimen name="size_p8">8dp</dimen>
-  <dimen name="size_p10">10dp</dimen>
-  <dimen name="size_p12">12dp</dimen>
-  <dimen name="size_p14">14dp</dimen>
-  <dimen name="size_p16">16dp</dimen>
-  <dimen name="size_p18">18dp</dimen>
-  <dimen name="size_p20">20dp</dimen>
-  <dimen name="size_p22">22dp</dimen>
-  <dimen name="size_p24">24dp</dimen>
-  <dimen name="size_p26">26dp</dimen>
-  <dimen name="size_p28">28dp</dimen>
-  <dimen name="size_p30">30dp</dimen>
-  <dimen name="size_p32">32dp</dimen>
-  <dimen name="size_p34">34dp</dimen>
-  <dimen name="size_p36">36dp</dimen>
-  <dimen name="size_p38">38dp</dimen>
-  <dimen name="size_p40">40dp</dimen>
-  <dimen name="size_p42">42dp</dimen>
-  <dimen name="size_p44">44dp</dimen>
-  <dimen name="size_p46">46dp</dimen>
-  <dimen name="size_p48">48dp</dimen>
-  <dimen name="size_p50">50dp</dimen>
-  <dimen name="size_p52">52dp</dimen>
-  <dimen name="size_p54">54dp</dimen>
-  <dimen name="size_p56">56dp</dimen>
-  <dimen name="size_p58">58dp</dimen>
-  <dimen name="size_p60">60dp</dimen>
-  <dimen name="size_p62">62dp</dimen>
-  <dimen name="size_p64">64dp</dimen>
-  <dimen name="size_p66">66dp</dimen>
-  <dimen name="size_p68">68dp</dimen>
-  <dimen name="size_p70">70dp</dimen>
-  <dimen name="size_p72">72dp</dimen>
-  <dimen name="size_p80">80dp</dimen>
-  <dimen name="size_p88">88dp</dimen>
-  <dimen name="size_p96">96dp</dimen>
-  <dimen name="size_p100">100dp</dimen>
-  <dimen name="size_p120">120dp</dimen>
-  <dimen name="size_p136">136dp</dimen>
-  <dimen name="size_p140">140dp</dimen>
-  <dimen name="size_p160">160dp</dimen>
-  <dimen name="size_p176">176dp</dimen>
-  <dimen name="size_p192">192dp</dimen>
-  <dimen name="size_p224">224dp</dimen>
-  <dimen name="size_p256">256dp</dimen>
-  <dimen name="size_p288">288dp</dimen>
-  <dimen name="size_p296">296dp</dimen>
-  <dimen name="size_p376">376dp</dimen>
-  <dimen name="size_p424">424dp</dimen>
-  <dimen name="size_p512">512dp</dimen>
-
-  <!-- endregion -->
-
-  <!-- region None and Auto -->
-
+  <dimen name="match_constraint">0dp</dimen>
   <dimen name="size_none">0dp</dimen>
   <dimen name="size_auto">0dp</dimen>
 
   <!-- endregion -->
 
-  <!-- region Negative -->
+  <!-- region Divider -->
 
-  <dimen name="size_m1">-1dp</dimen>
-  <dimen name="size_m2">-2dp</dimen>
-  <dimen name="size_m4">-4dp</dimen>
-  <dimen name="size_m6">-6dp</dimen>
-  <dimen name="size_m8">-8dp</dimen>
-  <dimen name="size_m10">-10dp</dimen>
-  <dimen name="size_m12">-12dp</dimen>
-  <dimen name="size_m14">-14dp</dimen>
-  <dimen name="size_m16">-16dp</dimen>
-  <dimen name="size_m18">-18dp</dimen>
-  <dimen name="size_m20">-20dp</dimen>
-  <dimen name="size_m22">-22dp</dimen>
-  <dimen name="size_m24">-24dp</dimen>
-  <dimen name="size_m26">-26dp</dimen>
-  <dimen name="size_m28">-28dp</dimen>
-  <dimen name="size_m30">-30dp</dimen>
-  <dimen name="size_m32">-32dp</dimen>
-  <dimen name="size_m34">-34dp</dimen>
-  <dimen name="size_m36">-36dp</dimen>
-  <dimen name="size_m38">-38dp</dimen>
-  <dimen name="size_m40">-40dp</dimen>
-  <dimen name="size_m42">-42dp</dimen>
-  <dimen name="size_m44">-44dp</dimen>
-  <dimen name="size_m46">-46dp</dimen>
-  <dimen name="size_m48">-48dp</dimen>
-  <dimen name="size_m50">-50dp</dimen>
-  <dimen name="size_m52">-52dp</dimen>
-  <dimen name="size_m54">-54dp</dimen>
-  <dimen name="size_m56">-56dp</dimen>
+  <dimen name="divider_1">1dp</dimen>
+  <dimen name="divider_2">2dp</dimen>
+  <dimen name="divider_3">3dp</dimen>
+  <dimen name="divider_4">4dp</dimen>
+
+  <!-- endregion -->
+
+  <!-- region Elevation -->
+
+  <dimen name="elevation_none">0dp</dimen>
+  <dimen name="elevation_1">1dp</dimen>
+  <dimen name="elevation_2">2dp</dimen>
+  <dimen name="elevation_4">4dp</dimen>
+  <dimen name="elevation_8">8dp</dimen>
+  <dimen name="elevation_16">16dp</dimen>
 
   <!-- endregion -->
 
   <!-- region Font -->
 
+  <dimen name="font_1">1sp</dimen>
+  <dimen name="font_2">2sp</dimen>
+  <dimen name="font_3">3sp</dimen>
+  <dimen name="font_4">4sp</dimen>
+  <dimen name="font_5">5sp</dimen>
   <dimen name="font_6">6sp</dimen>
   <dimen name="font_7">7sp</dimen>
   <dimen name="font_8">8sp</dimen>
@@ -149,23 +82,149 @@
 
   <!-- endregion -->
 
-  <!-- region Divider -->
+  <!-- region Negative -->
 
-  <dimen name="divider_1">1dp</dimen>
-  <dimen name="divider_2">2dp</dimen>
-  <dimen name="divider_3">3dp</dimen>
-  <dimen name="divider_4">4dp</dimen>
+  <dimen name="size_m1">-1dp</dimen>
+  <dimen name="size_m2">-2dp</dimen>
+  <dimen name="size_m3">-3dp</dimen>
+  <dimen name="size_m4">-4dp</dimen>
+  <dimen name="size_m5">-5dp</dimen>
+  <dimen name="size_m6">-6dp</dimen>
+  <dimen name="size_m7">-7dp</dimen>
+  <dimen name="size_m8">-8dp</dimen>
+  <dimen name="size_m9">-9dp</dimen>
+  <dimen name="size_m10">-10dp</dimen>
+  <dimen name="size_m12">-12dp</dimen>
+  <dimen name="size_m14">-14dp</dimen>
+  <dimen name="size_m16">-16dp</dimen>
+  <dimen name="size_m18">-18dp</dimen>
+  <dimen name="size_m20">-20dp</dimen>
+  <dimen name="size_m22">-22dp</dimen>
+  <dimen name="size_m24">-24dp</dimen>
+  <dimen name="size_m26">-26dp</dimen>
+  <dimen name="size_m28">-28dp</dimen>
+  <dimen name="size_m30">-30dp</dimen>
+  <dimen name="size_m32">-32dp</dimen>
+  <dimen name="size_m34">-34dp</dimen>
+  <dimen name="size_m36">-36dp</dimen>
+  <dimen name="size_m38">-38dp</dimen>
+  <dimen name="size_m40">-40dp</dimen>
+  <dimen name="size_m42">-42dp</dimen>
+  <dimen name="size_m44">-44dp</dimen>
+  <dimen name="size_m46">-46dp</dimen>
+  <dimen name="size_m48">-48dp</dimen>
+  <dimen name="size_m50">-50dp</dimen>
+  <dimen name="size_m52">-52dp</dimen>
+  <dimen name="size_m54">-54dp</dimen>
+  <dimen name="size_m56">-56dp</dimen>
 
   <!-- endregion -->
 
-  <!-- region Elevation -->
+  <!-- region Positive -->
 
-  <dimen name="elevation_none">0dp</dimen>
-  <dimen name="elevation_1">1dp</dimen>
-  <dimen name="elevation_2">2dp</dimen>
-  <dimen name="elevation_4">4dp</dimen>
-  <dimen name="elevation_8">8dp</dimen>
-  <dimen name="elevation_16">16dp</dimen>
+  <dimen name="size_p1">1dp</dimen>
+  <dimen name="size_p2">2dp</dimen>
+  <dimen name="size_p3">3dp</dimen>
+  <dimen name="size_p4">4dp</dimen>
+  <dimen name="size_p5">5dp</dimen>
+  <dimen name="size_p6">6dp</dimen>
+  <dimen name="size_p7">7dp</dimen>
+  <dimen name="size_p8">8dp</dimen>
+  <dimen name="size_p9">9dp</dimen>
+  <dimen name="size_p10">10dp</dimen>
+  <dimen name="size_p11">11dp</dimen>
+  <dimen name="size_p12">12dp</dimen>
+  <dimen name="size_p13">13dp</dimen>
+  <dimen name="size_p14">14dp</dimen>
+  <dimen name="size_p15">15dp</dimen>
+  <dimen name="size_p16">16dp</dimen>
+  <dimen name="size_p18">18dp</dimen>
+  <dimen name="size_p20">20dp</dimen>
+  <dimen name="size_p22">22dp</dimen>
+  <dimen name="size_p24">24dp</dimen>
+  <dimen name="size_p26">26dp</dimen>
+  <dimen name="size_p28">28dp</dimen>
+  <dimen name="size_p30">30dp</dimen>
+  <dimen name="size_p32">32dp</dimen>
+  <dimen name="size_p34">34dp</dimen>
+  <dimen name="size_p36">36dp</dimen>
+  <dimen name="size_p38">38dp</dimen>
+  <dimen name="size_p40">40dp</dimen>
+  <dimen name="size_p42">42dp</dimen>
+  <dimen name="size_p44">44dp</dimen>
+  <dimen name="size_p46">46dp</dimen>
+  <dimen name="size_p48">48dp</dimen>
+  <dimen name="size_p50">50dp</dimen>
+  <dimen name="size_p52">52dp</dimen>
+  <dimen name="size_p54">54dp</dimen>
+  <dimen name="size_p56">56dp</dimen>
+  <dimen name="size_p58">58dp</dimen>
+  <dimen name="size_p60">60dp</dimen>
+  <dimen name="size_p62">62dp</dimen>
+  <dimen name="size_p64">64dp</dimen>
+  <dimen name="size_p66">66dp</dimen>
+  <dimen name="size_p68">68dp</dimen>
+  <dimen name="size_p70">70dp</dimen>
+  <dimen name="size_p72">72dp</dimen>
+  <dimen name="size_p80">80dp</dimen>
+  <dimen name="size_p88">88dp</dimen>
+  <dimen name="size_p96">96dp</dimen>
+  <dimen name="size_p100">100dp</dimen>
+  <dimen name="size_p120">120dp</dimen>
+  <dimen name="size_p136">136dp</dimen>
+  <dimen name="size_p140">140dp</dimen>
+  <dimen name="size_p160">160dp</dimen>
+  <dimen name="size_p176">176dp</dimen>
+  <dimen name="size_p192">192dp</dimen>
+  <dimen name="size_p216">216dp</dimen>
+  <dimen name="size_p224">224dp</dimen>
+  <dimen name="size_p240">240dp</dimen>
+  <dimen name="size_p256">256dp</dimen>
+  <dimen name="size_p288">288dp</dimen>
+  <dimen name="size_p296">296dp</dimen>
+  <dimen name="size_p344">344dp</dimen>
+  <dimen name="size_p376">376dp</dimen>
+  <dimen name="size_p410">410dp</dimen>
+  <dimen name="size_p424">424dp</dimen>
+  <dimen name="size_p512">512dp</dimen>
+
+  <!-- endregion -->
+
+  <!-- region Video -->
+
+  <dimen name="video_480" tools:ignore="PxUsage">480px</dimen>
+  <dimen name="video_600" tools:ignore="PxUsage">600px</dimen>
+  <dimen name="video_576" tools:ignore="PxUsage">576px</dimen>
+  <dimen name="video_640" tools:ignore="PxUsage">640px</dimen>
+  <dimen name="video_648" tools:ignore="PxUsage">648px</dimen>
+  <dimen name="video_720" tools:ignore="PxUsage">720px</dimen>
+  <dimen name="video_768" tools:ignore="PxUsage">768px</dimen>
+  <dimen name="video_800" tools:ignore="PxUsage">800px</dimen>
+  <dimen name="video_900" tools:ignore="PxUsage">900px</dimen>
+  <dimen name="video_960" tools:ignore="PxUsage">960px</dimen>
+  <dimen name="video_1024" tools:ignore="PxUsage">1024px</dimen>
+  <dimen name="video_1050" tools:ignore="PxUsage">1050px</dimen>
+  <dimen name="video_1080" tools:ignore="PxUsage">1080px</dimen>
+  <dimen name="video_1152" tools:ignore="PxUsage">1152px</dimen>
+  <dimen name="video_1200" tools:ignore="PxUsage">1200px</dimen>
+  <dimen name="video_1280" tools:ignore="PxUsage">1280px</dimen>
+  <dimen name="video_1366" tools:ignore="PxUsage">1366px</dimen>
+  <dimen name="video_1392" tools:ignore="PxUsage">1392px</dimen>
+  <dimen name="video_1400" tools:ignore="PxUsage">1400px</dimen>
+  <dimen name="video_1440" tools:ignore="PxUsage">1440px</dimen>
+  <dimen name="video_1536" tools:ignore="PxUsage">1536px</dimen>
+  <dimen name="video_1600" tools:ignore="PxUsage">1600px</dimen>
+  <dimen name="video_1680" tools:ignore="PxUsage">1680px</dimen>
+  <dimen name="video_1856" tools:ignore="PxUsage">1856px</dimen>
+  <dimen name="video_1900" tools:ignore="PxUsage">1900px</dimen>
+  <dimen name="video_1920" tools:ignore="PxUsage">1920px</dimen>
+  <dimen name="video_2048" tools:ignore="PxUsage">2048px</dimen>
+  <dimen name="video_2560" tools:ignore="PxUsage">2560px</dimen>
+  <dimen name="video_3840" tools:ignore="PxUsage">3840px</dimen>
+  <dimen name="video_4320" tools:ignore="PxUsage">4320px</dimen>
+  <dimen name="video_7680" tools:ignore="PxUsage">7680px</dimen>
+  <dimen name="video_8640" tools:ignore="PxUsage">8640px</dimen>
+  <dimen name="video_15360" tools:ignore="PxUsage">15360px</dimen>
 
   <!-- endregion -->
 
