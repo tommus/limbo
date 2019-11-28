@@ -1,30 +1,26 @@
 package co.windly.limbo.disposable
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Lifecycle.Event
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
+import android.view.View
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
 
 /**
- * A composite disposable that observes the lifecycle of a lifecycle owner and disposes
- * a reactive streams when a certain lifecycle event state is reached.
+ * A composite disposable that observes the view state changes and disposes
+ * a reactive streams when view is detached from window.
  */
-class LifecycleCompositeDisposable(
-  private val lifecycle: Lifecycle,
-  private val disposeOn: Event,
+class ViewCompositeDisposable(
+  private val view: View,
   private val composite: CompositeDisposable = CompositeDisposable()
-) : Disposable by composite, DisposableContainer by composite, LifecycleEventObserver {
+) : Disposable by composite, DisposableContainer by composite, View.OnAttachStateChangeListener {
 
   //region Initialization
 
   init {
 
-    // Add a lifecycle observer for (at least) initialized lifecycle owner.
-    if (lifecycle.currentState >= Lifecycle.State.INITIALIZED) {
-      lifecycle.addObserver(this)
+    // Add a lifecycle observer for a view attached to the window.
+    if (view.isAttachedToWindow || view.windowToken != null) {
+      view.addOnAttachStateChangeListener(this)
     }
   }
 
@@ -65,8 +61,8 @@ class LifecycleCompositeDisposable(
    */
   override fun dispose() {
 
-    // Remove observer.
-    lifecycle.removeObserver(this)
+    // Remove view state change listener.
+    view.removeOnAttachStateChangeListener(this)
 
     // Dispose composite container.
     composite.dispose()
@@ -97,18 +93,18 @@ class LifecycleCompositeDisposable(
   //region State
 
   /**
-   * Called when a state transition event happens.
-   *
-   * It tracks whether an event that the lifecycle owner is transitioned to
-   * is the one that should trigger streams disposal.
+   * Called when the view is attached to a window.
    */
-  override fun onStateChanged(source: LifecycleOwner, event: Event) {
+  override fun onViewAttachedToWindow(view: View?) =
+    Unit
 
-    // Call dispose on dispose event.
-    if (disposeOn == event) {
-      dispose()
-    }
-  }
+  /**
+   * Called when the view is detached from a window.
+   *
+   * It disposes all the previously contained disposables.
+   */
+  override fun onViewDetachedFromWindow(view: View?) =
+    dispose()
 
   //endregion
 }
