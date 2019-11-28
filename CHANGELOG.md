@@ -1,5 +1,11 @@
 ### Change Log
 
+### Limbo 2.1.0 *(2019-11-29)*
+
+  * (limbo-disposable) new library added;
+  * (limbo) update lifecycle owners to use lifecycle composite disposable from (limbo-disposable);
+  * remove view-bound service sample.
+
 ### Limbo 2.0.2 *(2019-11-19)*
 
   * (limbo) add more popular dimen resources including video resolutions;

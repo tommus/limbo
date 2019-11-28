@@ -11,7 +11,7 @@ Add dependencies to Java or Kotlin-based project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo:2.0.2"
+    implementation "co.windly:limbo:2.1.0"
 }
 ```
 
@@ -19,8 +19,9 @@ Optionally, you can add one of utility packages to your project:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-recyclerview:2.0.2"
-    implementation "co.windly:limbo-utility:2.0.2"
+    implementation "co.windly:limbo-disposable:2.1.0"
+    implementation "co.windly:limbo-utility:2.1.0"
+    implementation "co.windly:limbo-utility:2.1.0"
 }
 ```
 
