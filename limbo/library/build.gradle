@@ -53,9 +53,9 @@ dependencies {
 
   //endregion
 
-  //region Reactive Extensions
+  //region Modules
 
-  api deps.rx.java
+  implementation project(":disposable")
 
   //endregion
 }

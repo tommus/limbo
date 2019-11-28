@@ -6,16 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import co.windly.limbo.LimboPresenter
+import co.windly.limbo.disposable.LifecycleCompositeDisposable
+import co.windly.limbo.disposable.lifecycleDestroyCompositeDisposable
 import com.hannesdorfmann.mosby3.mvp.MvpFragment
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class LimboFragment<V : LimboFragmentView, P : LimboPresenter<V>> : MvpFragment<V, P>(), LimboFragmentView {
 
   //region Reactive
 
-  override val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
+  override val disposables: LifecycleCompositeDisposable
+    by lifecycleDestroyCompositeDisposable()
 
   override fun addDisposable(disposable: Disposable): Boolean =
     disposables.add(disposable)
@@ -35,18 +36,17 @@ abstract class LimboFragment<V : LimboFragmentView, P : LimboPresenter<V>> : Mvp
 
   //region Lifecycle
 
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
     inflater.inflate(layout, container, false)
 
-  override fun onDetach() {
+  override fun onDestroy() {
 
     // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
 
-    // Clear view-bound disposables.
-    clearDisposables()
-
-    super.onDetach()
+    // Continue destroy'ing fragment.
+    super.onDestroy()
   }
 
   //endregion

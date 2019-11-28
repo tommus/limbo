@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import co.windly.limbo.LimboPresenter
+import co.windly.limbo.disposable.LifecycleCompositeDisposable
+import co.windly.limbo.disposable.lifecycleDestroyCompositeDisposable
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceActivity
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : LimboPresenter<V>> : MvpLceActivity<CV, M, V, P>(), LimboLceActivityView<M> {
+abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : LimboPresenter<V>> :
+  MvpLceActivity<CV, M, V, P>(), LimboLceActivityView<M> {
 
   //region Reactive
 
-  override val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
+  override val disposables: LifecycleCompositeDisposable
+    by lifecycleDestroyCompositeDisposable()
 
   override fun addDisposable(disposable: Disposable): Boolean =
     disposables.add(disposable)
@@ -35,6 +37,8 @@ abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : L
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    // Define content view.
     setContentView(layout)
   }
 
@@ -43,9 +47,7 @@ abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : L
     // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
 
-    // Clear view-bound disposables.
-    clearDisposables()
-
+    // Continue destroy'ing activity.
     super.onDestroy()
   }
 
