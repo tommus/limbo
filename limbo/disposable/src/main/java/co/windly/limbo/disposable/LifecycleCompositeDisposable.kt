@@ -15,7 +15,7 @@ import io.reactivex.internal.disposables.DisposableContainer
 class LifecycleCompositeDisposable(
   private val lifecycle: Lifecycle,
   private val disposeOn: Event,
-  private val composite: CompositeDisposable
+  private val composite: CompositeDisposable = CompositeDisposable()
 ) : Disposable by composite, DisposableContainer by composite, LifecycleEventObserver {
 
   //region Initialization
