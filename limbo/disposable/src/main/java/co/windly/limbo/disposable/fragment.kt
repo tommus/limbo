@@ -7,7 +7,7 @@ import androidx.lifecycle.Lifecycle
 
 /**
  * Lazily creates a lifecycle composite disposable that calls dispose method
- * on lifecycle owner's destroy event.
+ * on fragment's destroy event.
  */
 fun Fragment.lifecycleDestroyCompositeDisposable(): Lazy<LifecycleCompositeDisposable> =
   lazy {
@@ -23,7 +23,7 @@ fun Fragment.lifecycleDestroyCompositeDisposable(): Lazy<LifecycleCompositeDispo
 
 /**
  * Lazily creates a lifecycle composite disposable that calls dispose method
- * on lifecycle owner's pause event.
+ * on fragment's pause event.
  */
 fun Fragment.lifecyclePauseCompositeDisposable(): Lazy<LifecycleCompositeDisposable> =
   lazy {
@@ -39,7 +39,7 @@ fun Fragment.lifecyclePauseCompositeDisposable(): Lazy<LifecycleCompositeDisposa
 
 /**
  * Lazily creates a lifecycle composite disposable that calls dispose method
- * on lifecycle owner's stop event.
+ * on fragment's stop event.
  */
 fun Fragment.lifecycleStopCompositeDisposable(): Lazy<LifecycleCompositeDisposable> =
   lazy {
