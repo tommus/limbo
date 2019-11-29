@@ -35,15 +35,7 @@ dependencies {
 
   //region AndroidX
 
-  implementation deps.androidx.fragment
-
-  //endregion
-
-  //region Architecture
-
-  api deps.mosby.mvp
-  api deps.mosby.mvp_lce
-  api deps.mosby.mvp_queueing
+  implementation deps.androidx.lifecycle_extensions
 
   //endregion
 
@@ -53,9 +45,9 @@ dependencies {
 
   //endregion
 
-  //region Modules
+  //region Reactive Extensions
 
-  implementation project(":disposable")
+  api deps.rx.java
 
   //endregion
 }

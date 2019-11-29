@@ -9,19 +9,21 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
 import co.windly.limbo.LimboPresenter
+import co.windly.limbo.disposable.LifecycleCompositeDisposable
+import co.windly.limbo.disposable.lifecycleDestroyCompositeDisposable
 import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegateImpl
 import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>> : DialogFragment(), MvpDelegateCallback<V, P>, LimboFragmentView {
+abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>> :
+  DialogFragment(), MvpDelegateCallback<V, P>, LimboFragmentView {
 
   //region Reactive
 
-  override val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
+  override val disposables: LifecycleCompositeDisposable
+    by lifecycleDestroyCompositeDisposable()
 
   override fun addDisposable(disposable: Disposable): Boolean =
     disposables.add(disposable)
@@ -35,7 +37,9 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   //region Delegate
 
   val mvpDelegate: FragmentMvpDelegate<V, P>
-    by lazy { FragmentMvpDelegateImpl(this, this, true, true) }
+    by lazy {
+      FragmentMvpDelegateImpl(this, this, true, true)
+    }
 
   //endregion
 
@@ -71,7 +75,8 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
 
   //region Lifecycle
 
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?): View? =
     inflater.inflate(layout, container, false)
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,8 +85,8 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   }
 
   override fun onDestroyView() {
-    super.onDestroyView()
     mvpDelegate.onDestroyView()
+    super.onDestroyView()
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,8 +95,15 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   }
 
   override fun onDestroy() {
-    super.onDestroy()
+
+    // Clear presenter-bound disposables.
+    presenter.clearDisposables()
+
+    // Inform delegate that fragment is being destroy'ed.
     mvpDelegate.onDestroy()
+
+    // Continue destroy'ing fragment.
+    super.onDestroy()
   }
 
   override fun onPause() {
@@ -130,16 +142,8 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   }
 
   override fun onDetach() {
-
-    // Clear presenter-bound disposables.
-    presenter.clearDisposables()
-
-    //Clear view-bound disposables.
-    clearDisposables()
-
-    super.onDetach()
-
     mvpDelegate.onDetach()
+    super.onDetach()
   }
 
   override fun onSaveInstanceState(outState: Bundle) {
