@@ -7,7 +7,7 @@ package co.windly.limbo.utility.mapping
  * network to persistence layer taking into account pagination-powered
  * network methods.
  */
-abstract class TwoLayerPaginationMapper<Dto, Entity, Page : PageDto<Dto>, Metadata : PageMetadata> :
+abstract class TwoLayerPaginationMapper<Dto, Entity, Page : LimboPageDto<Dto>, Metadata : LimboPageMetadata> :
   DtoToEntityPageMapper<Page, Dto, Entity>(),
   PageMetadataMapper<Metadata, Dto>
 
@@ -24,7 +24,7 @@ interface CleanCodeMapper<Dto, Entity, Model> :
  * network to persistence to domain layer taking into account pagination-powered
  * network methods.
  */
-abstract class CleanCodePaginationMapper<Dto, Entity, Model, Page : PageDto<Dto>, Metadata : PageMetadata> :
+abstract class CleanCodePaginationMapper<Dto, Entity, Model, Page : LimboPageDto<Dto>, Metadata : LimboPageMetadata> :
   DtoToEntityPageMapper<Page, Dto, Entity>(),
   EntityToModelMapper<Entity, Model>,
   PageMetadataMapper<Metadata, Dto>
@@ -43,7 +43,7 @@ interface ExtendedMapper<Dto, Entity, Model> :
  * network to persistence, network to domain, persistence to domain layer
  * taking into account pagination-powered network methods.
  */
-abstract class ExtendedPaginationMapper<Dto, Entity, Model, Page : PageDto<Dto>, Metadata : PageMetadata> :
+abstract class ExtendedPaginationMapper<Dto, Entity, Model, Page : LimboPageDto<Dto>, Metadata : LimboPageMetadata> :
   DtoToEntityPageMapper<Page, Dto, Entity>(),
   DtoToModelMapper<Dto, Model>,
   EntityToModelMapper<Entity, Model>,
@@ -114,18 +114,18 @@ interface EntityToModelMapper<Entity, Model> {
 
 //region Pagination
 
-abstract class PageDto<Dto> {
+abstract class LimboPageDto<Dto> {
 
   abstract fun retrieveContent(): List<Dto>
 }
 
-abstract class PageMetadata
+abstract class LimboPageMetadata
 
 /**
  * Mixin that enables mapper to conform pagination-powered models
  * mapping between network and persistence layers.
  */
-abstract class DtoToEntityPageMapper<Page : PageDto<Dto>, Dto, Entity> :
+abstract class DtoToEntityPageMapper<Page : LimboPageDto<Dto>, Dto, Entity> :
   DtoToEntityMapper<Dto, Entity> {
 
   fun mapPageListDtoToEntityList(dto: Page): List<Entity> =
@@ -135,9 +135,9 @@ abstract class DtoToEntityPageMapper<Page : PageDto<Dto>, Dto, Entity> :
 /**
  * Mixin that enables mapper to extract pagination metadata from network dto.
  */
-interface PageMetadataMapper<Metadata : PageMetadata, Dto> {
+interface PageMetadataMapper<Metadata : LimboPageMetadata, Dto> {
 
-  fun mapPageListDtoToMetadata(dto: PageDto<Dto>): Metadata
+  fun mapPageListDtoToMetadata(dto: LimboPageDto<Dto>): Metadata
 }
 
 //endregion
