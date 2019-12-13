@@ -10,9 +10,8 @@ import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.reactivex.rxkotlin.addTo
+import io.reactivex.internal.disposables.DisposableContainer
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.Subject
 import java.util.concurrent.TimeUnit
@@ -52,22 +51,23 @@ fun immediate(lambda: () -> Unit): Completable =
     .fromAction { lambda() }
 
 /**
- * Immediately subscribes completable and adds to a CompositeDisposable.
- * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
+ * Immediately subscribes completable and adds to a DisposableContainer.
+ * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna
+ * throw an error.
  */
-fun Completable.addImmediatelyTo(composite: CompositeDisposable): Disposable =
+fun Completable.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
     .subscribe()
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
- * Immediately subscribes completable and adds to a CompositeDisposable.
+ * Immediately subscribes completable and adds to a DisposableContainer.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
-fun Completable.addSuccessTo(composite: CompositeDisposable, lambda: () -> Unit): Disposable =
+fun Completable.addSuccessTo(composite: DisposableContainer, lambda: () -> Unit): Disposable =
   this
     .subscribe(lambda, { /* Mute. */ })
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
  * Switches this stream to subscribe on UI thread.
@@ -107,25 +107,37 @@ fun Completable.observeOnComputation(): Completable =
 
 //endregion
 
+//region Disposable
+
+/**
+ * Adds given disposable to disposable container.
+ */
+fun Disposable.addTo(composite: DisposableContainer): Disposable =
+  apply { composite.add(this) }
+
+//endregion
+
 //region Maybe
 
 /**
- * Immediately subscribes maybe and adds to a CompositeDisposable.
- * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
+ * Immediately subscribes maybe and adds to a DisposableContainer.
+ * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna
+ * throw an error.
  */
-fun <T : Any> Maybe<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
+fun <T : Any> Maybe<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
     .subscribe()
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
- * Immediately subscribes maybe and adds to a CompositeDisposable.
+ * Immediately subscribes maybe and adds to a DisposableContainer.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
-fun <T : Any> Maybe<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
+fun <T : Any> Maybe<T>.addSuccessTo(
+  composite: DisposableContainer, lambda: (result: T) -> Unit): Disposable =
   this
     .subscribe(lambda, { /* Mute. */ })
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
  * Switches this stream to subscribe on UI thread.
@@ -168,22 +180,24 @@ fun <T : Any> Maybe<T>.observeOnComputation(): Maybe<T> =
 //region Single
 
 /**
- * Immediately subscribes single and adds to a CompositeDisposable.
- * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
+ * Immediately subscribes single and adds to a DisposableContainer.
+ * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna
+ * throw an error.
  */
-fun <T : Any> Single<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
+fun <T : Any> Single<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
     .subscribe()
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
- * Immediately subscribes single and adds to a CompositeDisposable.
+ * Immediately subscribes single and adds to a DisposableContainer.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
-fun <T : Any> Single<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
+fun <T : Any> Single<T>.addSuccessTo(
+  composite: DisposableContainer, lambda: (result: T) -> Unit): Disposable =
   this
     .subscribe(lambda, { /* Mute. */ })
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
  * Switches this stream to subscribe on UI thread.
@@ -226,22 +240,24 @@ fun <T : Any> Single<T>.observeOnComputation(): Single<T> =
 //region Observable
 
 /**
- * Immediately subscribes observable and adds to a CompositeDisposable.
- * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
+ * Immediately subscribes observable and adds to a DisposableContainer.
+ * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw
+ * an error.
  */
-fun <T : Any> Observable<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
+fun <T : Any> Observable<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
     .subscribe()
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
- * Immediately subscribes observable and adds to a CompositeDisposable.
+ * Immediately subscribes observable and adds to a DisposableContainer.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
-fun <T : Any> Observable<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
+fun <T : Any> Observable<T>.addSuccessTo(
+  composite: DisposableContainer, lambda: (result: T) -> Unit): Disposable =
   this
     .subscribe(lambda, { /* Mute. */ })
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
  * Switches this stream to subscribe on UI thread.
@@ -284,22 +300,24 @@ fun <T : Any> Observable<T>.observeOnComputation(): Observable<T> =
 //region Flowable
 
 /**
- * Immediately subscribes flowable and adds to a CompositeDisposable.
- * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw an error.
+ * Immediately subscribes flowable and adds to a DisposableContainer.
+ * NOTE: In case of error (and missing doOnComplete() and doOnError() methods) it is gonna throw
+ * an error.
  */
-fun <T : Any> Flowable<T>.addImmediatelyTo(composite: CompositeDisposable): Disposable =
+fun <T : Any> Flowable<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
     .subscribe()
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
- * Immediately subscribes flowable and adds to a CompositeDisposable.
+ * Immediately subscribes flowable and adds to a DisposableContainer.
  * NOTE: In case of any errors - they will be ommitted silently.
  */
-fun <T : Any> Flowable<T>.addSuccessTo(composite: CompositeDisposable, lambda: (result: T) -> Unit): Disposable =
+fun <T : Any> Flowable<T>.addSuccessTo(
+  composite: DisposableContainer, lambda: (result: T) -> Unit): Disposable =
   this
     .subscribe(lambda, { /* Mute. */ })
-    .addTo(composite)
+    .apply { composite.add(this) }
 
 /**
  * Switches this stream to subscribe on UI thread.
@@ -344,7 +362,8 @@ fun <T : Any> Flowable<T>.observeOnComputation(): Flowable<T> =
 /**
  * Throttles subject emissions using provided window duration and unit.
  */
-fun <T : Any> Subject<T>.throttled(windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<T> =
+fun <T : Any> Subject<T>.throttled(
+  windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<T> =
   this
     .throttleFirst(windowDuration, unit)
 
@@ -355,7 +374,8 @@ fun <T : Any> Subject<T>.throttled(windowDuration: Long = 500L, unit: TimeUnit =
 /**
  * Throttles clicks on given view using provided window duration and unit.
  */
-fun View.throttledClicks(windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<Unit> =
+fun View.throttledClicks(
+  windowDuration: Long = 500L, unit: TimeUnit = MILLISECONDS): Observable<Unit> =
   this
     .clicks()
     .throttleFirst(windowDuration, unit)

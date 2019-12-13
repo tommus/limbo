@@ -44,7 +44,6 @@ dependencies {
   api deps.rx.android
   api deps.rx.binding
   api deps.rx.java
-  api deps.rx.kotlin
 
   //endregion
 }
