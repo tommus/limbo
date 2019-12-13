@@ -1,5 +1,9 @@
 ### Change Log
 
+### Limbo 2.1.1 *(2019-12-13)*
+
+  * (limbo-utility) add mixin interface definitions for MapStruct.
+
 ### Limbo 2.1.0 *(2019-11-29)*
 
   * (limbo-disposable) new library added;
