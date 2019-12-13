@@ -126,7 +126,7 @@ abstract class LimboPageDto<Dto> {
 /**
  * Class that is supposed to be extended to keep pagination-related metadata
  * (such as number of total elements, current page, page size, etc.). It should
- * be a part of domain layer (it
+ * be a part of domain layer.
  */
 abstract class LimboPageMetadata
 
