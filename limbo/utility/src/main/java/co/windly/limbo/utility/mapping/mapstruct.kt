@@ -114,11 +114,20 @@ interface EntityToModelMapper<Entity, Model> {
 
 //region Pagination
 
+/**
+ * Class that is supposed to be extended to provide specific pagination-related
+ * information. It should be a part of network layer.
+ */
 abstract class LimboPageDto<Dto> {
 
   abstract fun retrieveContent(): List<Dto>
 }
 
+/**
+ * Class that is supposed to be extended to keep pagination-related metadata
+ * (such as number of total elements, current page, page size, etc.). It should
+ * be a part of domain layer (it
+ */
 abstract class LimboPageMetadata
 
 /**

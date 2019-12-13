@@ -2,7 +2,12 @@
 
 ### Limbo 2.1.1 *(2019-12-13)*
 
-  * (limbo-utility) add mixin interface definitions for MapStruct.
+  * (limbo) Update Kotlin JDK8 (1.3.61);
+  * (limbo) Update Gradle Wrapper (6.0.1);
+  * (limbo) Update RxBinding (3.0.0);
+  * (limbo) Update RxJava (2.2.15);
+  * (limbo-utility) add mixin interface definitions for MapStruct;
+  * (limbo-recyclerview) Update RecyclerView (1.1.0).
 
 ### Limbo 2.1.0 *(2019-11-29)*
 
