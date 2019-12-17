@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
 import co.windly.limbo.LimboPresenter
-import co.windly.limbo.disposable.LifecycleCompositeDisposable
-import co.windly.limbo.disposable.lifecycleDestroyCompositeDisposable
 import co.windly.limbo.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegateImpl
 import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>> :
@@ -22,8 +21,8 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
 
   //region Reactive
 
-  override val disposables: LifecycleCompositeDisposable
-    by lifecycleDestroyCompositeDisposable()
+  override val disposables: CompositeDisposable
+    by lazy { CompositeDisposable() }
 
   override fun addDisposable(disposable: Disposable): Boolean =
     disposables.add(disposable)
@@ -95,15 +94,8 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   }
 
   override fun onDestroy() {
-
-    // Clear presenter-bound disposables.
-    presenter.clearDisposables()
-
-    // Inform delegate that fragment is being destroy'ed.
-    mvpDelegate.onDestroy()
-
-    // Continue destroy'ing fragment.
     super.onDestroy()
+    mvpDelegate.onDestroy()
   }
 
   override fun onPause() {
@@ -142,8 +134,16 @@ abstract class LimboDialogFragment<V : LimboFragmentView, P : LimboPresenter<V>>
   }
 
   override fun onDetach() {
-    mvpDelegate.onDetach()
+
+    // Clear presenter-bound disposables.
+    presenter.clearDisposables()
+
+    //Clear view-bound disposables.
+    clearDisposables()
+
     super.onDetach()
+
+    mvpDelegate.onDetach()
   }
 
   override fun onSaveInstanceState(outState: Bundle) {

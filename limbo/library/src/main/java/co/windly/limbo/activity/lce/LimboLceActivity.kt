@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import co.windly.limbo.LimboPresenter
-import co.windly.limbo.disposable.LifecycleCompositeDisposable
-import co.windly.limbo.disposable.lifecycleDestroyCompositeDisposable
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceActivity
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : LimboPresenter<V>> :
@@ -14,8 +13,8 @@ abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : L
 
   //region Reactive
 
-  override val disposables: LifecycleCompositeDisposable
-    by lifecycleDestroyCompositeDisposable()
+  override val disposables: CompositeDisposable
+    by lazy { CompositeDisposable() }
 
   override fun addDisposable(disposable: Disposable): Boolean =
     disposables.add(disposable)
@@ -46,6 +45,9 @@ abstract class LimboLceActivity<CV : View, M, V : LimboLceActivityView<M>, P : L
 
     // Clear presenter-bound disposables.
     getPresenter().clearDisposables()
+
+    // Clear view-bound disposables.
+    clearDisposables()
 
     // Continue destroy'ing activity.
     super.onDestroy()

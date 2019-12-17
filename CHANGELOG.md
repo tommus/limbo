@@ -1,20 +1,24 @@
 ### Change Log
 
+### Limbo 2.3.0 *(2019-12-17)*
+
+  * (limbo) Revert disposable to be implemented as composite dispoable for backward compatibility.
+
 ### Limbo 2.2.0 *(2019-12-13)*
 
   * (limbo) Update Kotlin JDK8 (1.3.61);
   * (limbo) Update Gradle Wrapper (6.0.1);
   * (limbo) Update RxBinding (3.0.0);
   * (limbo) Update RxJava (2.2.15);
-  * (limbo-utility) add extension method that allows to add disposable to disposable container;
-  * (limbo-utility) add mixin interface definitions for MapStruct;
   * (limbo-recyclerview) Update RecyclerView (1.1.0).
+  * (limbo-utility) Add extension method that allows to add disposable to disposable container;
+  * (limbo-utility) Add mixin interface definitions for MapStruct;
 
 ### Limbo 2.1.0 *(2019-11-29)*
 
-  * (limbo-disposable) new library added;
-  * (limbo) update lifecycle owners to use lifecycle composite disposable from (limbo-disposable);
-  * remove view-bound service sample.
+  * (limbo) Update lifecycle owners to use lifecycle composite disposable from (limbo-disposable);
+  * (limbo-disposable) New library added;
+  * (samples) Remove view-bound service sample.
 
 ### Limbo 2.0.2 *(2019-11-19)*
 
