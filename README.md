@@ -20,8 +20,8 @@ Optionally, you can add one of utility packages to your project:
 ```groovy
 dependencies {
     implementation "co.windly:limbo-disposable:2.3.0"
-    implementation "co.windly:limbo-utility:2.3.0"
-    implementation "co.windly:limbo-utility:2.3.0"
+    implementation "co.windly:limbo-recyclerview:2.3.0"
+    implementation "co.windly:limbo-utility:2.3.1"
 }
 ```
 
