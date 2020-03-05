@@ -45,7 +45,6 @@ allprojects {
 
 subprojects { project ->
   group = GROUP
-  version = VERSION_NAME
 }
 
 //endregion
