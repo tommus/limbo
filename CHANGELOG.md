@@ -1,8 +1,13 @@
 ### Change Log
 
+### Limbo 2.3.1 *(2020-03-05)*
+
+  * (limbo-utility) Add HttpCode definition;
+  * (limbo-utility) Add commonly used network-related exceptions;
+
 ### Limbo 2.3.0 *(2019-12-17)*
 
-  * (limbo) Revert disposable to be implemented as composite dispoable for backward compatibility.
+  * (limbo) Revert disposable to be implemented as composite disposable for backward compatibility.
 
 ### Limbo 2.2.0 *(2019-12-13)*
 
@@ -10,9 +15,9 @@
   * (limbo) Update Gradle Wrapper (6.0.1);
   * (limbo) Update RxBinding (3.0.0);
   * (limbo) Update RxJava (2.2.15);
-  * (limbo-recyclerview) Update RecyclerView (1.1.0).
+  * (limbo-recyclerview) Update RecyclerView (1.1.0);
   * (limbo-utility) Add extension method that allows to add disposable to disposable container;
-  * (limbo-utility) Add mixin interface definitions for MapStruct;
+  * (limbo-utility) Add mixin interface definitions for MapStruct.
 
 ### Limbo 2.1.0 *(2019-11-29)*
 
