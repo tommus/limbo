@@ -1,9 +1,13 @@
 ### Change Log
 
-### Limbo 2.3.1 *(2020-03-05)*
+### Limbo Utility 2.3.2 *(2020-03-05)*
 
-  * (limbo-utility) Add HttpCode definition;
-  * (limbo-utility) Add commonly used network-related exceptions;
+  * Add unknown exception definition.
+
+### Limbo Utility 2.3.1 *(2020-03-05)*
+
+  * Add HttpCode definition;
+  * Add commonly used network-related exceptions.
 
 ### Limbo 2.3.0 *(2019-12-17)*
 
