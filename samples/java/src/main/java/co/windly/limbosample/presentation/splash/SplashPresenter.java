@@ -1,7 +1,7 @@
 package co.windly.limbosample.presentation.splash;
 
 import androidx.annotation.NonNull;
-import co.windly.limbo.presenter.queue.LimboQueuePresenter;
+import co.windly.limbo.mvp.presenter.queue.LimboQueuePresenter;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

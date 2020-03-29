@@ -36,6 +36,7 @@ dependencies {
   //region AndroidX
 
   implementation deps.androidx.core
+  api deps.androidx.lifecycle_livedata
 
   //endregion
 
