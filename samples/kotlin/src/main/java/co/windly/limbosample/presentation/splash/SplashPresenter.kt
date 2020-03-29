@@ -1,6 +1,6 @@
 package co.windly.limbosample.presentation.splash
 
-import co.windly.limbo.presenter.queue.LimboQueuePresenter
+import co.windly.limbo.mvp.presenter.queue.LimboQueuePresenter
 import co.windly.limbo.utility.reactive.addTo
 import co.windly.limbo.utility.reactive.observeOnUi
 import co.windly.limbo.utility.reactive.subscribeOnComputation

@@ -1,6 +1,6 @@
 package co.windly.limbosample.presentation.main.root.settings;
 
-import co.windly.limbo.presenter.queue.LimboQueuePresenter;
+import co.windly.limbo.mvp.presenter.queue.LimboQueuePresenter;
 import javax.inject.Inject;
 
 class SettingsPresenter extends LimboQueuePresenter<SettingsView> {

@@ -1,9 +1,9 @@
 package co.windly.limbosample.presentation.base.fragment.base
 
 import android.content.Context
-import co.windly.limbo.fragment.base.LimboFragment
-import co.windly.limbo.fragment.base.LimboFragmentView
-import co.windly.limbo.presenter.queue.LimboQueuePresenter
+import co.windly.limbo.mvp.fragment.base.LimboFragment
+import co.windly.limbo.mvp.fragment.base.LimboFragmentView
+import co.windly.limbo.mvp.presenter.queue.LimboQueuePresenter
 import dagger.Lazy
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
