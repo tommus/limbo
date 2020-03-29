@@ -1,5 +1,10 @@
 ### Change Log
 
+### Limbo 2.4.0 *(2020-03.29)*
+
+  * (mvp) Dependency renamed to `co.windly.limbo:mvp` without any changes;
+  * Update Gradle Wrapper (6.3).
+
 ### Limbo Utility 2.3.2 *(2020-03-05)*
 
   * Add unknown exception definition.
@@ -16,12 +21,12 @@
 ### Limbo 2.2.0 *(2019-12-13)*
 
   * (limbo) Update Kotlin JDK8 (1.3.61);
-  * (limbo) Update Gradle Wrapper (6.0.1);
   * (limbo) Update RxBinding (3.0.0);
   * (limbo) Update RxJava (2.2.15);
   * (limbo-recyclerview) Update RecyclerView (1.1.0);
   * (limbo-utility) Add extension method that allows to add disposable to disposable container;
-  * (limbo-utility) Add mixin interface definitions for MapStruct.
+  * (limbo-utility) Add mixin interface definitions for MapStruct;
+  * Update Gradle Wrapper (6.0.1).
 
 ### Limbo 2.1.0 *(2019-11-29)*
 

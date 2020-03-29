@@ -1,9 +1,9 @@
 //region Includes
 
 include ":disposable"
-include ":library"
 include ":java"
 include ":kotlin"
+include ":mvp"
 include ":recyclerview"
 include ":utility"
 
@@ -12,9 +12,9 @@ include ":utility"
 //region Configuration
 
 project(":disposable").projectDir = new File(rootDir, "limbo/disposable")
-project(":library").projectDir = new File(rootDir, "limbo/library")
 project(":java").projectDir = new File(rootDir, "samples/java")
 project(":kotlin").projectDir = new File(rootDir, "samples/kotlin")
+project(":mvp").projectDir = new File(rootDir, "limbo/mvp")
 project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
 project(":utility").projectDir = new File(rootDir, "limbo/utility")
 
