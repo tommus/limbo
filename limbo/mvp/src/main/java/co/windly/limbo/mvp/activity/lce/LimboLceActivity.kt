@@ -1,9 +1,9 @@
-package co.windly.limbo.activity.lce
+package co.windly.limbo.mvp.activity.lce
 
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
-import co.windly.limbo.LimboPresenter
+import co.windly.limbo.mvp.LimboPresenter
 import com.hannesdorfmann.mosby3.mvp.lce.MvpLceActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

@@ -1,4 +1,4 @@
-package co.windly.limbo.fragment.dialog
+package co.windly.limbo.mvp.fragment.dialog
 
 import android.app.Activity
 import android.content.Context
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
-import co.windly.limbo.LimboPresenter
-import co.windly.limbo.fragment.base.LimboFragmentView
+import co.windly.limbo.mvp.LimboPresenter
+import co.windly.limbo.mvp.fragment.base.LimboFragmentView
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegate
 import com.hannesdorfmann.mosby3.mvp.delegate.FragmentMvpDelegateImpl
 import com.hannesdorfmann.mosby3.mvp.delegate.MvpDelegateCallback

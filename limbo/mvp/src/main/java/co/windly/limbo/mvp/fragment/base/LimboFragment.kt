@@ -1,14 +1,16 @@
-package co.windly.limbo.activity.base
+package co.windly.limbo.mvp.fragment.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import co.windly.limbo.LimboPresenter
-import co.windly.limbo.LimboView
-import com.hannesdorfmann.mosby3.mvp.MvpActivity
+import co.windly.limbo.mvp.LimboPresenter
+import com.hannesdorfmann.mosby3.mvp.MvpFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class LimboActivity<V : LimboView, P : LimboPresenter<V>> : MvpActivity<V, P>(), LimboView {
+abstract class LimboFragment<V : LimboFragmentView, P : LimboPresenter<V>> : MvpFragment<V, P>(), LimboFragmentView {
 
   //region Reactive
 
@@ -33,12 +35,9 @@ abstract class LimboActivity<V : LimboView, P : LimboPresenter<V>> : MvpActivity
 
   //region Lifecycle
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-    // Define content view.
-    setContentView(layout)
-  }
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    inflater.inflate(layout, container, false)
 
   override fun onDestroy() {
 
@@ -48,7 +47,7 @@ abstract class LimboActivity<V : LimboView, P : LimboPresenter<V>> : MvpActivity
     // Clear view-bound disposables.
     clearDisposables()
 
-    // Continue destroy'ing activity.
+    // Continue destroy'ing fragment.
     super.onDestroy()
   }
 

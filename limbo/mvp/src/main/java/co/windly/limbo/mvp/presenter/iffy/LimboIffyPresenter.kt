@@ -1,12 +1,12 @@
-package co.windly.limbo.presenter.queue
+package co.windly.limbo.mvp.presenter.iffy
 
-import co.windly.limbo.LimboPresenter
-import co.windly.limbo.LimboView
-import com.hannesdorfmann.mosby3.mvp.MvpQueuingBasePresenter
+import co.windly.limbo.mvp.LimboPresenter
+import co.windly.limbo.mvp.LimboView
+import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class LimboQueuePresenter<V : LimboView> : MvpQueuingBasePresenter<V>(), LimboPresenter<V> {
+abstract class LimboIffyPresenter<V : LimboView> : MvpBasePresenter<V>(), LimboPresenter<V> {
 
   //region Reactive
 

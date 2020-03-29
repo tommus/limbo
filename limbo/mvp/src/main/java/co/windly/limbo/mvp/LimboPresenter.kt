@@ -1,4 +1,4 @@
-package co.windly.limbo
+package co.windly.limbo.mvp
 
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter
 import io.reactivex.disposables.CompositeDisposable
