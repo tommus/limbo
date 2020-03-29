@@ -2,6 +2,7 @@
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
 
 //endregion
 
@@ -12,6 +13,14 @@ android {
   //region Compile
 
   compileSdkVersion deps.build_versions.compile_sdk
+
+  //endregion
+
+  //region Data Binding
+
+  dataBinding {
+    enabled = true
+  }
 
   //endregion
 
@@ -35,15 +44,14 @@ dependencies {
 
   //region AndroidX
 
+  implementation deps.androidx.appcompat
   implementation deps.androidx.fragment
 
   //endregion
 
-  //region Architecture
+  //region Dependency Injection
 
-  api deps.mosby.mvp
-  api deps.mosby.mvp_lce
-  api deps.mosby.mvp_queueing
+  compileOnly deps.dagger.annotation
 
   //endregion
 
@@ -55,7 +63,14 @@ dependencies {
 
   //region Modules
 
-  implementation project(":disposable")
+  implementation project(":utility")
+
+  //endregion
+
+  //region Navigation
+
+  implementation deps.androidx.navigation_fragment
+  implementation deps.androidx.navigation_fragment_ktx
 
   //endregion
 }
