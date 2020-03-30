@@ -1,25 +1,39 @@
-//region Includes
-
+//region Limbo Disposable
 include ":disposable"
-include ":java"
-include ":kotlin"
-include ":mvp"
-include ":mvvm"
-include ":mvvm-dagger"
-include ":recyclerview"
-include ":utility"
-
+project(":disposable").projectDir = new File(rootDir, "limbo/disposable")
 //endregion
 
-//region Configuration
-
-project(":disposable").projectDir = new File(rootDir, "limbo/disposable")
-project(":java").projectDir = new File(rootDir, "samples/java")
-project(":kotlin").projectDir = new File(rootDir, "samples/kotlin")
+//region Limbo MVP
+include ":mvp"
 project(":mvp").projectDir = new File(rootDir, "limbo/mvp")
-project(":mvvm").projectDir = new File(rootDir, "limbo/mvvm")
-project(":mvvm-dagger").projectDir = new File(rootDir, "limbo/mvvm-dagger")
-project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
-project(":utility").projectDir = new File(rootDir, "limbo/utility")
+//endregion
 
+//region Java MVP Example
+include ":example-mvp-java"
+project(":example-mvp-java").projectDir = new File(rootDir, "examples/mvp-java")
+//endregion
+
+//region Kotlin MVP Example
+include ":example-mvp-kotlin"
+project(":example-mvp-kotlin").projectDir = new File(rootDir, "examples/mvp-kotlin")
+//endregion
+
+//region Limbo MVVM
+include ":mvvm"
+project(":mvvm").projectDir = new File(rootDir, "limbo/mvvm")
+//endregion
+
+//region Limbo MVVM Dagger
+include ":mvvm-dagger"
+project(":mvvm-dagger").projectDir = new File(rootDir, "limbo/mvvm-dagger")
+//endregion
+
+//region Limbo RecyclerView
+include ":recyclerview"
+project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
+//endregion
+
+//region Limbo Utility
+include ":utility"
+project(":utility").projectDir = new File(rootDir, "limbo/utility")
 //endregion

@@ -5,6 +5,12 @@ ext.deps = deps
 
 //region Versions
 
+def build_versions = [:]
+build_versions.compile_sdk = 29
+build_versions.min_sdk = 19
+build_versions.target_sdk = 29
+deps.build_versions = build_versions
+
 def versions = [:]
 versions.android_gradle_plugin = "3.6.1"
 versions.androidx_appcompat = "1.1.0"
@@ -62,12 +68,6 @@ build.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_
 build.butter_knife_plugin = "com.jakewharton:butterknife-gradle-plugin:$versions.butter_knife"
 build.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.build = build
-
-def build_versions = [:]
-build_versions.compile_sdk = 29
-build_versions.min_sdk = 19
-build_versions.target_sdk = 29
-deps.build_versions = build_versions
 
 //endregion
 
