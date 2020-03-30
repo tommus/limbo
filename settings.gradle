@@ -5,6 +5,7 @@ include ":java"
 include ":kotlin"
 include ":mvp"
 include ":mvvm"
+include ":mvvm-dagger"
 include ":recyclerview"
 include ":utility"
 
@@ -17,6 +18,7 @@ project(":java").projectDir = new File(rootDir, "samples/java")
 project(":kotlin").projectDir = new File(rootDir, "samples/kotlin")
 project(":mvp").projectDir = new File(rootDir, "limbo/mvp")
 project(":mvvm").projectDir = new File(rootDir, "limbo/mvvm")
+project(":mvvm-dagger").projectDir = new File(rootDir, "limbo/mvvm-dagger")
 project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
 project(":utility").projectDir = new File(rootDir, "limbo/utility")
 
