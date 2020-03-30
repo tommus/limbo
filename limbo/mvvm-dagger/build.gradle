@@ -2,7 +2,6 @@
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-apply plugin: "kotlin-kapt"
 
 //endregion
 
@@ -13,14 +12,6 @@ android {
   //region Compile
 
   compileSdkVersion deps.build_versions.compile_sdk
-
-  //endregion
-
-  //region Data Binding
-
-  dataBinding {
-    enabled = true
-  }
 
   //endregion
 
