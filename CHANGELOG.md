@@ -1,5 +1,15 @@
 ### Change Log
 
+### Limbo 1.4.3 *(2020-03-30)*
+
+* Update FragmentationX (1.0.2);
+  * Update Gradle Wrapper (6.3);
+  * Update Android Gradle Plugin (3.6.1);
+  * Update Dagger (2.27);
+  * Update Kotlin (1.3.71);
+  * Update Material (1.1.0);
+  * Update RxJava (2.2.19).
+
 ### Limbo 1.4.2 *(2019-07-30)*
 
   * Add common colors and dimens to utility;
@@ -11,7 +21,7 @@
   * Update Android Gradle Plugin (3.4.2);
   * Update Dagger (2.2.4);
   * Reimplement dependency injection in samples to no longer use deprecated builders;
-  * Update Fragmentation (1.0.1);
+  * Update FragmentationXs (1.0.1);
   * Update Permissions Dispatcher (4.5.0);
   * Update RxBinding (3.0.0);
   * Update RxJava (2.2.10);
