@@ -1,6 +1,10 @@
 ### Change Log
 
-### Version 2.4.0 *(2020-03.29)*
+### Version 3.0.0 *(2020-03-30)*
+
+  * Added `limbo-mvvm-degger` module.
+
+### Version 2.4.0 *(2020-03-29)*
 
   * Added `limbo-mvvm` module;
   * Old `limbo` module moved to `limbo-mvp`;
