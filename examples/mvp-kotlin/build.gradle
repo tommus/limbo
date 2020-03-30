@@ -23,8 +23,8 @@ android {
     applicationId "co.windly.limbosample"
     minSdkVersion deps.build_versions.min_sdk
     targetSdkVersion deps.build_versions.target_sdk
-    versionCode LIMBO_VERSION_CODE
-    versionName LIMBO_VERSION
+    versionCode = 1
+    versionName = "2.4.1-SNAPSHOT"
   }
 
   //endregion

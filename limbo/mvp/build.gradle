@@ -20,8 +20,6 @@ android {
   defaultConfig {
     minSdkVersion deps.build_versions.min_sdk
     targetSdkVersion deps.build_versions.target_sdk
-    versionCode LIMBO_VERSION_CODE
-    versionName LIMBO_VERSION
   }
 
   //endregion

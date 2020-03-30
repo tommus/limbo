@@ -2,13 +2,6 @@
 
 buildscript {
 
-  //region Versioning
-
-  ext.LIMBO_VERSION = "2.4.0-SNAPSHOT"
-  ext.LIMBO_VERSION_CODE = 17
-
-  //endregion
-
   //region Repositories
 
   repositories {
