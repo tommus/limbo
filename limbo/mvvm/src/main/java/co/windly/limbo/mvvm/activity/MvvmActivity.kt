@@ -73,6 +73,9 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
     binding =
       DataBindingUtil.setContentView(this, layoutResId)
 
+    // Attach lifecycle owner.
+    binding.lifecycleOwner = this
+
     // Initialize binding.
     bindView(binding)
   }
