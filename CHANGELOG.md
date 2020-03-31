@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version 3.0.2 *(2020-03-31)*
+
+  * Configure `MvvmActivity` as `lifecycleOwner`.
+
 ### Version 3.0.1 *(2020-03-31)*
 
   * Fix missing call to `bindView()` in `MvvmActivity`.
