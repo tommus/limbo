@@ -72,6 +72,9 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
     // Configure layout.
     binding =
       DataBindingUtil.setContentView(this, layoutResId)
+
+    // Initialize binding.
+    bindView(binding)
   }
 
   override fun onDestroy() {
