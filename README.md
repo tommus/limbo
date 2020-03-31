@@ -26,7 +26,7 @@ For Model-View-ViewModel application, use the following dependecy:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.0.0"
+    implementation "co.windly:limbo-mvvm:3.0.1"
     implementation "co.windly:limbo-mvvm-dagger:3.0.0"
 }
 ```

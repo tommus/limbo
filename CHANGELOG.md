@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version 3.0.1 *(2020-03-31)*
+
+  * Fix missing call to `bindView()` in `MvvmActivity`.
+
 ### Version 3.0.0 *(2020-03-30)*
 
   * Added `limbo-mvvm-dagger` module.
