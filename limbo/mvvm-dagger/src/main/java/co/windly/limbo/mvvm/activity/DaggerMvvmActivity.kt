@@ -25,10 +25,12 @@ abstract class DaggerMvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel
   //region Lifecycle
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
 
     // Inject dependencies.
     AndroidInjection.inject(this)
+
+    // Continue initialization.
+    super.onCreate(savedInstanceState)
   }
 
   //endregion
