@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<template
+    format="5"
+    revision="3"
+    name="Limbo MVVM Fragment"
+    description="Creates a new Limbo MVVM fragment with accompanied view-model, trait and Dagger's module."
+    minApi="7"
+    minBuildApi="8">
+
+    <!-- region Category -->
+
+    <category value="Limbo" />
+    
+    <execute file="recipe.xml.ftl" />
+
+    <formfactor value="Mobile" />
+    
+    <globals file="globals.xml.ftl" />
+
+    <!-- endregion -->
+
+    <!-- region Common -->
+
+    <parameter
+        id="prefix"
+        name="Prefix for fragment, view-model, trait and module."
+        type="string"
+        constraints="class|nonempty|unique"
+        default="Blank"
+        help="The prefix for the fragment, view-model trait and Dagger's module." />
+
+    <!-- endregion -->
+
+    <!-- region Fragment -->
+
+    <parameter
+        id="fragmentClassName"
+        name="Fragment Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="LimboFragment"
+		suggest="${prefix}Fragment"
+        help="Name of the fragment." />
+		
+    <!-- endregion -->
+
+    <!-- region View-Model -->
+
+	<parameter
+		id="viewModelClassName"
+		name="ViewModel Name"
+		type="string"
+		constraints="class|nonempty|unique"
+		suggest="${prefix}ViewModel"
+		default="LimboViewModel"
+		help="Name of the view-model." />
+		
+    <!-- endregion -->
+
+    <!-- region Trait -->
+
+    <!-- TODO: Boolean as trait should be optional. -->
+
+	<parameter
+	    id="traitClassName"
+	    name="Trait Name"
+	    type="string"
+		constraints="class|nonempty|unique"
+	    default="BlankTrait"
+		suggest="${prefix}Trait"
+	    help="The name of the trait to create" />
+
+    <!-- endregion -->
+
+    <!-- region Dagger's Module -->
+
+    <!-- TODO: Boolean as module should be optional. -->
+
+	<parameter
+		id="moduleClassName"
+		name="Dagger Module Name"
+		type="string"
+		constraints="class|nonempty|unique"
+		suggest="${prefix}Module"
+		default="LimboModule"
+		help="Name of the Dagger's module." />
+		
+    <!-- endregion -->
+
+    <!-- region Layout -->
+
+    <parameter
+        id="includeLayout"
+        name="Create layout XML?"
+        type="boolean"
+        default="true"
+        help="Generate a layout XML for the fragment" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="fragment_blank"
+        visibility="includeLayout"
+        suggest="fragment_${classToResource(fragmentClassName)}"
+        help="The name of the layout to create" />
+
+    <!-- endregion -->-->
+
+</template>
