@@ -1,5 +1,12 @@
 ### Change Log
 
+### Version 3.0.1 *(2020-05-05)*
+
+  * Added `MvvmDialogFragment` and `DaggerMvvmDialogFragment`;
+  * Update Android Gradle Plugin (3.6.3);
+  * Update AndroidX Navigation (2.2.2);
+  * Update Kotlin JDK8 (1.3.72);
+
 ### Version 3.0.0 *(2020-03-30)*
 
   * Added `limbo-mvvm-dagger` module.
