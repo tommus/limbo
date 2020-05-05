@@ -18,7 +18,7 @@ For Model-View-Presenter application, use the following dependency:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvp:2.4.0"
+    implementation "co.windly:limbo-mvp:3.0.3"
 }
 ```
 
@@ -26,8 +26,8 @@ For Model-View-ViewModel application, use the following dependecy:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.0.2"
-    implementation "co.windly:limbo-mvvm-dagger:3.0.0"
+    implementation "co.windly:limbo-mvvm:3.0.3"
+    implementation "co.windly:limbo-mvvm-dagger:3.0.3"
 }
 ```
 
@@ -35,9 +35,9 @@ Optionally, you can add one of utility packages:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-disposable:2.4.0"
-    implementation "co.windly:limbo-recyclerview:2.4.0"
-    implementation "co.windly:limbo-utility:2.4.1"
+    implementation "co.windly:limbo-disposable:3.0.3"
+    implementation "co.windly:limbo-recyclerview:3.0.3"
+    implementation "co.windly:limbo-utility:3.0.3"
 }
 ```
 

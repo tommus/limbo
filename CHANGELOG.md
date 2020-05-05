@@ -1,5 +1,12 @@
 ### Change Log
 
+### Version 3.0.3 *(2020-05-05)*
+
+  * Added `MvvmDialogFragment` and `DaggerMvvmDialogFragment`;
+  * Update Android Gradle Plugin (3.6.3);
+  * Update AndroidX Navigation (2.2.2);
+  * Update Kotlin JDK8 (1.3.72);
+
 ### Version 3.0.2 *(2020-03-31)*
 
   * Configure `MvvmActivity` as `lifecycleOwner`.
