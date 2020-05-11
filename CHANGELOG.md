@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version `limbo-utility` 3.0.4 *(2020-05-11)*
+
+  * Extend mapper methods to support various types of pagination;
+
 ### Version 3.0.3 *(2020-05-05)*
 
   * Added `MvvmDialogFragment` and `DaggerMvvmDialogFragment`;
