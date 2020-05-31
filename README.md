@@ -36,8 +36,8 @@ Optionally, you can add one of utility packages:
 ```groovy
 dependencies {
     implementation "co.windly:limbo-disposable:3.0.3"
-    implementation "co.windly:limbo-recyclerview:3.0.3"
-    implementation "co.windly:limbo-utility:3.0.3"
+    implementation "co.windly:limbo-recyclerview:3.0.4"
+    implementation "co.windly:limbo-utility:3.0.4"
 }
 ```
 

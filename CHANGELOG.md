@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version `limbo-recyclerview` 3.0.4 *(2020-05-31)*
+
+  * Add `ItemPreviewFlipper` that supports previewing multiple layouts using single `RecyclerView`.
+
 ### Version `limbo-utility` 3.0.4 *(2020-05-11)*
 
   * Extend mapper methods to support various types of pagination;
