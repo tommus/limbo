@@ -1,5 +1,11 @@
 ### Change Log
 
+### Version `limbo` 3.0.5 *(2020-06-01)*
+
+  * Update Android Gradle Plugin (4.0.0);
+  * Update AndroidX Core (1.3.0);
+  * Update Dagger (2.28);
+
 ### Version `limbo-recyclerview` 3.0.4 *(2020-05-31)*
 
   * Add `ItemPreviewFlipper` that supports previewing multiple layouts using single `RecyclerView`.
@@ -33,7 +39,7 @@
   * Old `limbo` module moved to `limbo-mvp`;
   * Assigned new package name for `limbo-mvp`; 
   * Update Android Gradle Plugin (3.6.1);
-  * Update AndroidX Code (1.2.0);
+  * Update AndroidX Core (1.2.0);
   * Update AndroidX Fragment (1.2.3);
   * Update AndroidX Lifecycle (2.2.0);
   * Update AndroidX Navigation (2.2.1);

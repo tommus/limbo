@@ -63,11 +63,11 @@ is available.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[apibadge-svg]: https://img.shields.io/badge/API-21%2B-brightgreen.svg?color=97ca00
-[apioverview]: https://developer.android.com/about/versions/android-5.0
+[apibadge-svg]: https://img.shields.io/badge/API-19%2B-brightgreen.svg?color=97ca00
+[apioverview]: https://developer.android.com/about/versions/android-4.4
 [license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
 [license]: http://www.apache.org/licenses/LICENSE-2.0
 [mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo.svg?color=97ca00
-[mavencentral]: https://search.maven.org/artifact/co.windly/limbo
+[mavencentral]: https://search.maven.org/artifact/co.windly/limbo-mvvm
 [travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
-[travisci]: https://travis-ci.org/tommus/limbo
+[travisci]: https://travis-ci.org/tommus/limbo-mvvm
