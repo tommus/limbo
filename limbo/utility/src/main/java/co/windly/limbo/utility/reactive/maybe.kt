@@ -2,9 +2,20 @@ package co.windly.limbo.utility.reactive
 
 import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
 import io.reactivex.schedulers.Schedulers
+
+/**
+ * Immediately subscribes observable and adds to a DisposableContainer.
+ * NOTE: Cares only about errors. All successful emissions will be ignored.
+ */
+fun <T : Any> Maybe<T>.addErrorTo(
+  composite: CompositeDisposable, lambda: (throwable: Throwable) -> Unit): Disposable =
+  this
+    .subscribe({ /* Mute. */ }, lambda)
+    .apply { composite.add(this) }
 
 /**
  * Immediately subscribes maybe and adds to a DisposableContainer.

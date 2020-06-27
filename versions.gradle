@@ -21,6 +21,7 @@ versions.androidx_lifecycle = "2.2.0"
 versions.androidx_lifecycle_extensions = "2.2.0"
 versions.androidx_navigation = "2.2.2"
 versions.androidx_recyclerview = "1.1.0"
+versions.androidx_swiperefreshlayout = "1.1.0"
 versions.butter_knife = "10.2.1"
 versions.dagger = "2.28"
 versions.javax = "1"
@@ -46,8 +47,7 @@ androidx.core = "androidx.core:core:$versions.androidx_core"
 androidx.fragment = "androidx.fragment:fragment:$versions.androidx_fragment"
 androidx.lifecycle_extensions =
     "androidx.lifecycle:lifecycle-extensions:$versions.androidx_lifecycle_extensions"
-androidx.lifecycle_livedata =
-    "androidx.lifecycle:lifecycle-livedata:$versions.androidx_lifecycle"
+androidx.lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata:$versions.androidx_lifecycle"
 androidx.navigation_fragment =
     "androidx.navigation:navigation-fragment:$versions.androidx_navigation"
 androidx.navigation_fragment_ktx =
@@ -57,6 +57,8 @@ androidx.navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.an
 androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.androidx_recyclerview"
 androidx.safe_args =
     "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.androidx_navigation"
+androidx.swiperefreshlayout =
+    "androidx.swiperefreshlayout:swiperefreshlayout:$versions.androidx_swiperefreshlayout"
 deps.androidx = androidx
 
 //endregion
@@ -126,6 +128,8 @@ deps.permissions = permissions
 def rx = [:]
 rx.android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
 rx.binding = "com.jakewharton.rxbinding3:rxbinding:$versions.rx_binding"
+rx.binding_swiperefreshlayout =
+    "com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:$versions.rx_binding"
 rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
 deps.rx = rx
 
