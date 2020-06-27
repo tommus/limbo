@@ -1,21 +1,25 @@
-package co.windly.limbo.mvvm.activity
+package co.windly.limbo.mvvm.fragment
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import co.windly.limbo.mvvm.trait.ActivityNavigationTrait
 import co.windly.limbo.mvvm.trait.ContextTrait
+import co.windly.limbo.mvvm.trait.FragmentNavigationTrait
+import co.windly.limbo.mvvm.trait.FragmentTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : AppCompatActivity(),
-  ActivityNavigationTrait, ContextTrait {
+abstract class MvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel> : DialogFragment(),
+  ContextTrait, FragmentTrait, FragmentNavigationTrait {
 
   //region Disposables
 
@@ -27,10 +31,10 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
 
   //endregion
 
-  //region Ui
+  //region UI
 
   @get:LayoutRes
-  abstract val layoutResId: Int
+  abstract val layoutRes: Int
 
   //endregion
 
@@ -53,13 +57,13 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
 
   //region Trait
 
-  override val activityTrait: Activity
-    get() = this
-
   override val contextTrait: Context
+    get() = requireContext()
+
+  override val fragmentTrait: Fragment
     get() = this
 
-  override val navigationTrait: Activity
+  override val navigationTrait: Fragment
     get() = this
 
   //endregion
@@ -69,15 +73,25 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    // Configure layout.
-    binding =
-      DataBindingUtil.setContentView(this, layoutResId)
+    // Retain instance.
+    retainInstance = true
+  }
+
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    // Inflate binding.
+    binding = DataBindingUtil
+      .inflate(inflater, layoutRes, container, false)
 
     // Attach lifecycle owner.
     binding.lifecycleOwner = this
 
     // Initialize binding.
     bindView(binding)
+
+    // Return bound view.
+    return binding.root
   }
 
   override fun onDestroy() {

@@ -1,16 +1,16 @@
-package co.windly.limbo.mvvm.activity
+package co.windly.limbo.mvvm.fragment
 
-import android.os.Bundle
+import android.content.Context
 import androidx.databinding.ViewDataBinding
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
-import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-abstract class DaggerMvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> :
-  MvvmActivity<Binding, VM>(), HasAndroidInjector {
+abstract class DaggerMvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
+  MvvmDialogFragment<Binding, VM>(), HasAndroidInjector {
 
   //region Injector
 
@@ -24,13 +24,11 @@ abstract class DaggerMvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel
 
   //region Lifecycle
 
-  override fun onCreate(savedInstanceState: Bundle?) {
+  override fun onAttach(context: Context) {
+    super.onAttach(context)
 
     // Inject dependencies.
-    AndroidInjection.inject(this)
-
-    // Continue initialization.
-    super.onCreate(savedInstanceState)
+    AndroidSupportInjection.inject(this)
   }
 
   //endregion

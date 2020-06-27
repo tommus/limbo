@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <eat-comment />
+
+  <!-- region Item Preview Flipper -->
+
+  <declare-styleable name="ItemPreviewFlipperAttrs">
+    <attr name="initialView" format="integer" />
+  </declare-styleable>
+
+  <!-- endregion -->
+
+</resources>

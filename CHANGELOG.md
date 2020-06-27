@@ -1,5 +1,34 @@
 ### Change Log
 
+### Version `limbo` 3.0.5 *(2020-06-01)*
+
+  * Update Android Gradle Plugin (4.0.0);
+  * Update AndroidX Core (1.3.0);
+  * Update Dagger (2.28);
+
+### Version `limbo-recyclerview` 3.0.4 *(2020-05-31)*
+
+  * Add `ItemPreviewFlipper` that supports previewing multiple layouts using single `RecyclerView`.
+
+### Version `limbo-utility` 3.0.4 *(2020-05-11)*
+
+  * Extend mapper methods to support various types of pagination;
+
+### Version 3.0.3 *(2020-05-05)*
+
+  * Added `MvvmDialogFragment` and `DaggerMvvmDialogFragment`;
+  * Update Android Gradle Plugin (3.6.3);
+  * Update AndroidX Navigation (2.2.2);
+  * Update Kotlin JDK8 (1.3.72);
+
+### Version 3.0.2 *(2020-03-31)*
+
+  * Configure `MvvmActivity` as `lifecycleOwner`.
+
+### Version 3.0.1 *(2020-03-31)*
+
+  * Fix missing call to `bindView()` in `MvvmActivity`.
+
 ### Version 3.0.0 *(2020-03-30)*
 
   * Added `limbo-mvvm-dagger` module.
@@ -10,7 +39,7 @@
   * Old `limbo` module moved to `limbo-mvp`;
   * Assigned new package name for `limbo-mvp`; 
   * Update Android Gradle Plugin (3.6.1);
-  * Update AndroidX Code (1.2.0);
+  * Update AndroidX Core (1.2.0);
   * Update AndroidX Fragment (1.2.3);
   * Update AndroidX Lifecycle (2.2.0);
   * Update AndroidX Navigation (2.2.1);

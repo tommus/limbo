@@ -18,7 +18,7 @@ For Model-View-Presenter application, use the following dependency:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvp:2.4.0"
+    implementation "co.windly:limbo-mvp:3.0.5"
 }
 ```
 
@@ -26,8 +26,8 @@ For Model-View-ViewModel application, use the following dependecy:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.0.0"
-    implementation "co.windly:limbo-mvvm-dagger:3.0.0"
+    implementation "co.windly:limbo-mvvm:3.0.5"
+    implementation "co.windly:limbo-mvvm-dagger:3.0.5"
 }
 ```
 
@@ -35,9 +35,9 @@ Optionally, you can add one of utility packages:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-disposable:2.4.0"
-    implementation "co.windly:limbo-recyclerview:2.4.0"
-    implementation "co.windly:limbo-utility:2.4.1"
+    implementation "co.windly:limbo-disposable:3.0.5"
+    implementation "co.windly:limbo-recyclerview:3.0.5"
+    implementation "co.windly:limbo-utility:3.0.5"
 }
 ```
 
@@ -63,11 +63,11 @@ is available.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[apibadge-svg]: https://img.shields.io/badge/API-21%2B-brightgreen.svg?color=97ca00
-[apioverview]: https://developer.android.com/about/versions/android-5.0
+[apibadge-svg]: https://img.shields.io/badge/API-19%2B-brightgreen.svg?color=97ca00
+[apioverview]: https://developer.android.com/about/versions/android-4.4
 [license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
 [license]: http://www.apache.org/licenses/LICENSE-2.0
 [mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo.svg?color=97ca00
-[mavencentral]: https://search.maven.org/artifact/co.windly/limbo
+[mavencentral]: https://search.maven.org/artifact/co.windly/limbo-mvvm
 [travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
-[travisci]: https://travis-ci.org/tommus/limbo
+[travisci]: https://travis-ci.org/tommus/limbo-mvvm
