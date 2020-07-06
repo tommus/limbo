@@ -1,5 +1,51 @@
 package co.windly.limbo.utility.primitives
 
+//region Double
+
+/**
+ * The zeroed Double.
+ */
+val Double.Companion.ZERO: Double
+  get() = 0.0
+
+/**
+ * A handy method that allows to check if given Double is equal to zero.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Double.isZero(): Boolean =
+  this == Double.ZERO
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Double) or zero if given value is
+ * null.
+ */
+fun Double?.orZero(): Double =
+  this ?: Double.ZERO
+
+/**
+ * An Double that is equal to one.
+ */
+val Double.Companion.ONE: Double
+  get() = 1.0
+
+/**
+ * A handy method that allows to check if given Double is equal to one.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Double.isOne(): Boolean =
+  this == Double.ONE
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Double) or one if given value is
+ * null.
+ */
+fun Double?.orOne(): Double =
+  this ?: Double.ONE
+
+//endregion
+
 //region Float
 
 /**
