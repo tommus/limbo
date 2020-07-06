@@ -2,6 +2,7 @@
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
 
 //endregion
 
@@ -12,6 +13,14 @@ android {
   //region Compile
 
   compileSdkVersion deps.build_versions.compile_sdk
+
+  //endregion
+
+  //region Data Binding
+
+  dataBinding {
+    enabled = true
+  }
 
   //endregion
 
@@ -34,12 +43,25 @@ dependencies {
   //region AndroidX
 
   implementation deps.androidx.recyclerview
+  implementation deps.androidx.swiperefreshlayout
 
   //endregion
 
   //region Kotlin
 
   implementation deps.kotlin.stdlib_jdk8
+
+  //endregion
+
+  //region Modules
+
+  implementation project(":utility")
+
+  //endregion
+
+  //region Reactive Extensions
+
+  implementation deps.rx.binding_swiperefreshlayout
 
   //endregion
 }

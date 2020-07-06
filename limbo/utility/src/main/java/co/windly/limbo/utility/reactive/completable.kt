@@ -3,9 +3,20 @@ package co.windly.limbo.utility.reactive
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
 import io.reactivex.schedulers.Schedulers
+
+/**
+ * Immediately subscribes observable and adds to a DisposableContainer.
+ * NOTE: Cares only about errors. All successful emissions will be ignored.
+ */
+fun Completable.addErrorTo(
+  composite: CompositeDisposable, lambda: (throwable: Throwable) -> Unit): Disposable =
+  this
+    .subscribe({ /* Mute. */ }, lambda)
+    .apply { composite.add(this) }
 
 /**
  * Immediately subscribes completable and adds to a DisposableContainer.
