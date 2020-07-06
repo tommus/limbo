@@ -230,6 +230,52 @@ fun Long?.orOne(): Long =
 
 //endregion
 
+//region Short
+
+/**
+ * The zeroed Short.
+ */
+val Short.Companion.ZERO: Short
+  get() = 0
+
+/**
+ * A handy method that allows to check if given Short is equal to zero.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Short.isZero(): Boolean =
+  this == Short.ZERO
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Short) or zero if given value is
+ * null.
+ */
+fun Short?.orZero(): Short =
+  this ?: Short.ZERO
+
+/**
+ * An Short that is equal to one.
+ */
+val Short.Companion.ONE: Short
+  get() = 1
+
+/**
+ * A handy method that allows to check if given Short is equal to one.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Short.isOne(): Boolean =
+  this == Short.ONE
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Short) or one if given value is
+ * null.
+ */
+fun Short?.orOne(): Short =
+  this ?: Short.ONE
+
+//endregion
+
 //region String
 
 /**
