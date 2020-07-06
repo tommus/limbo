@@ -1,5 +1,51 @@
 package co.windly.limbo.utility.primitives
 
+//region Byte
+
+/**
+ * The zeroed Byte.
+ */
+val Byte.Companion.ZERO: Byte
+  get() = 0
+
+/**
+ * A handy method that allows to check if given Byte is equal to zero.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Byte.isZero(): Boolean =
+  this == Byte.ZERO
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Byte) or zero if given value is
+ * null.
+ */
+fun Byte?.orZero(): Byte =
+  this ?: Byte.ZERO
+
+/**
+ * An Byte that is equal to one.
+ */
+val Byte.Companion.ONE: Byte
+  get() = 1
+
+/**
+ * A handy method that allows to check if given Byte is equal to one.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Byte.isOne(): Boolean =
+  this == Byte.ONE
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Byte) or one if given value is
+ * null.
+ */
+fun Byte?.orOne(): Byte =
+  this ?: Byte.ONE
+
+//endregion
+
 //region Double
 
 /**
