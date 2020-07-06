@@ -1,5 +1,25 @@
 package co.windly.limbo.utility.primitives
 
+//region Boolean
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Boolean) or false if given value is
+ * null.
+ */
+fun Boolean?.orFalse(): Boolean =
+  this ?: false
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Boolean) or true if given value is
+ * null.
+ */
+fun Boolean?.orTrue(): Boolean =
+  this ?: true
+
+//endregion
+
 //region Byte
 
 /**
