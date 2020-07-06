@@ -1,5 +1,13 @@
 ### Change Log
 
+### Version `limbo-utility` 3.0.6 *(2020-07-06)*
+
+  * Add extensions and shortcut functions for primitive types.
+
+### Version `limbo-recyclerview` 3.0.6 *(2020-07-06)*
+
+  * Add functional interface for swipe refresh data binding.
+
 ### Version `limbo` 3.0.5 *(2020-06-01)*
 
   * Update Android Gradle Plugin (4.0.0);
