@@ -183,3 +183,31 @@ fun Long?.orOne(): Long =
   this ?: Long.ONE
 
 //endregion
+
+//region String
+
+/**
+ * A String for carriage return CR ("\r").
+ */
+val String.Companion.CR: String
+  get() = "\r"
+
+/**
+ * The empty String "".
+ */
+val String.Companion.EMPTY: String
+  get() = ""
+
+/**
+ * A String for linefeed LF ("\n").
+ */
+val String.Companion.LF: String
+  get() = "\n"
+
+/**
+ * A String for a space character.
+ */
+val String.Companion.SPACE: String
+  get() = " "
+
+//endregion
