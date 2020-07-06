@@ -1,5 +1,51 @@
 package co.windly.limbo.utility.primitives
 
+//region Float
+
+/**
+ * The zeroed Float.
+ */
+val Float.Companion.ZERO: Float
+  get() = 0f
+
+/**
+ * A handy method that allows to check if given Float is equal to zero.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Float.isZero(): Boolean =
+  this == Float.ZERO
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Float) or zero if given value is
+ * null.
+ */
+fun Float?.orZero(): Float =
+  this ?: Float.ZERO
+
+/**
+ * An Float that is equal to one.
+ */
+val Float.Companion.ONE: Float
+  get() = 1f
+
+/**
+ * A handy method that allows to check if given Float is equal to one.
+ * Useful especially for lambda operations or higher level functions.
+ */
+fun Float.isOne(): Boolean =
+  this == Float.ONE
+
+/**
+ * A null-safe shortcut elvis-alike method that returns the
+ * identity value (for non-null Float) or one if given value is
+ * null.
+ */
+fun Float?.orOne(): Float =
+  this ?: Float.ONE
+
+//endregion
+
 //region Int
 
 /**
