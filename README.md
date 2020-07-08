@@ -67,7 +67,7 @@ is available.
 [apioverview]: https://developer.android.com/about/versions/android-4.4
 [license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
 [license]: http://www.apache.org/licenses/LICENSE-2.0
-[mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo.svg?color=97ca00
+[mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo-mvvm.svg?color=97ca00
 [mavencentral]: https://search.maven.org/artifact/co.windly/limbo-mvvm
 [travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
 [travisci]: https://travis-ci.org/tommus/limbo-mvvm
