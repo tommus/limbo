@@ -100,6 +100,12 @@ class EvenSpaceDecoration(spacing: Int) : SpaceDecoration(spacing, spacing, spac
   //endregion
 }
 
+/**
+ * Allows to define even spacing to all sides of the item by
+ * providing single value or dimension resource.
+ */
+fun RecyclerView.addEventSpaceDecoration(@DimenRes spacingResId: Int = R.dimen.size_p4) =
+  addItemDecoration(EvenSpaceDecoration(context, spacingResId))
 
 //endregion
 
@@ -123,8 +129,8 @@ class HorizontalSpaceDecoration(spacing: Int) : SpaceDecoration(spacing, 0, spac
  * Allows to define horizontal spacing to the item by providing single
  * value or dimension resource.
  */
-fun RecyclerView.addHorizontalSpaceDecoration(@DimenRes size: Int = R.dimen.size_p4) =
-  addItemDecoration(HorizontalSpaceDecoration(context, size))
+fun RecyclerView.addHorizontalSpaceDecoration(@DimenRes spacingResId: Int = R.dimen.size_p4) =
+  addItemDecoration(HorizontalSpaceDecoration(context, spacingResId))
 
 //endregion
 
@@ -205,7 +211,7 @@ class VerticalSpaceDecoration(spacing: Int) : SpaceDecoration(0, spacing, 0, spa
  * Allows to define vertical spacing to the item by providing single
  * value or dimension resource.
  */
-fun RecyclerView.addVerticalSpaceDecoration(@DimenRes size: Int = R.dimen.size_p4) =
-  addItemDecoration(VerticalSpaceDecoration(context, size))
+fun RecyclerView.addVerticalSpaceDecoration(@DimenRes spacingResId: Int = R.dimen.size_p4) =
+  addItemDecoration(VerticalSpaceDecoration(context, spacingResId))
 
 //endregion
