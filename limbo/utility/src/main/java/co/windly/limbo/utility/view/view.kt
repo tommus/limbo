@@ -2,12 +2,15 @@
 
 package co.windly.limbo.utility.view
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.res.ResourcesCompat
+import co.windly.limbo.utility.primitives.ZERO
 
 //region Color
 
@@ -26,6 +29,25 @@ inline fun View.color(@ColorRes resId: Int): Int =
  */
 inline fun View.drawable(@DrawableRes resId: Int): Drawable? =
   ResourcesCompat.getDrawable(resources, resId, context.theme)
+
+//endregion
+
+//region Soft Input
+
+/**
+ * Explicitly requests for the current input method's soft
+ * input area should be shown to the user.
+ */
+fun View.showSoftInput() {
+
+  // Retrieve an access to the input method manager.
+  val manager =
+    context.getSystemService(Context.INPUT_METHOD_SERVICE)
+      as InputMethodManager
+
+  // Show soft input.
+  manager.showSoftInput(this, Int.ZERO)
+}
 
 //endregion
 
