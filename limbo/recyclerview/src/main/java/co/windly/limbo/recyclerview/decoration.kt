@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.recyclerview.widget.RecyclerView.State
+import co.windly.limbo.utility.primitives.ZERO
 
 //region Divider
 
@@ -37,11 +38,28 @@ fun RecyclerView.addDividerDecorationWithInsets(
       ?: throw IllegalArgumentException(
         "Cannot load drawable resource for divider.")
 
-  // Define divider insets.
-  val insetLeft = resources.getDimensionPixelSize(leftInsetRes)
-  val insetTop = resources.getDimensionPixelSize(topInsetRes)
-  val insetRight = resources.getDimensionPixelSize(rightInsetRes)
-  val insetBottom = resources.getDimensionPixelSize(bottomInsetRes)
+  // Load left inset.
+  val insetLeft = when (leftInsetRes == Int.ZERO) {
+    true -> Int.ZERO
+    false -> resources.getDimensionPixelSize(leftInsetRes)
+  }
+
+  // Load top inset.
+  val insetTop = when (topInsetRes == Int.ZERO) {
+    true -> Int.ZERO
+    false -> resources.getDimensionPixelSize(topInsetRes)
+  }
+
+  // Load right inset.
+  val insetRight = when (rightInsetRes == Int.ZERO) {
+    true -> Int.ZERO
+    false -> resources.getDimensionPixelSize(rightInsetRes)
+  }
+
+  val insetBottom = when (bottomInsetRes == Int.ZERO) {
+    true -> Int.ZERO
+    false -> resources.getDimensionPixelSize(bottomInsetRes)
+  }
 
   // Configure divider drawable insets.
   val insetDivider = InsetDrawable(
