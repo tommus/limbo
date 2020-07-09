@@ -119,7 +119,7 @@ class EvenSpaceDecoration(spacing: Int) : SpaceDecoration(spacing, spacing, spac
  * Allows to define even spacing to all sides of the item by
  * providing single value or dimension resource.
  */
-fun RecyclerView.addEventSpaceDecoration(@DimenRes spacingResId: Int = R.dimen.size_p4) =
+fun RecyclerView.addEvenSpaceDecoration(@DimenRes spacingResId: Int = R.dimen.size_p4) =
   addItemDecoration(EvenSpaceDecoration(context, spacingResId))
 
 //endregion
