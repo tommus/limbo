@@ -9,6 +9,7 @@
   <color name="black">#000000</color>
   <color name="blackAlpha10">#1A000000</color>
   <color name="blackAlpha20">#33000000</color>
+  <color name="blackAlpha26">#42000000</color>
   <color name="blackAlpha30">#4D000000</color>
   <color name="blackAlpha40">#66000000</color>
   <color name="blackAlpha50">#80000000</color>
@@ -25,6 +26,7 @@
   <color name="white">#FFFFFF</color>
   <color name="whiteAlpha10">#1AFFFFFF</color>
   <color name="whiteAlpha20">#33FFFFFF</color>
+  <color name="whiteAlpha26">#42FFFFFF</color>
   <color name="whiteAlpha30">#4DFFFFFF</color>
   <color name="whiteAlpha40">#66FFFFFF</color>
   <color name="whiteAlpha50">#80FFFFFF</color>
