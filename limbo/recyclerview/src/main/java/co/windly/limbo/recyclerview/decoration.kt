@@ -7,11 +7,11 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.recyclerview.widget.RecyclerView.State
+import co.windly.limbo.utility.content.drawable
 import co.windly.limbo.utility.primitives.ZERO
 
 //region Divider
@@ -33,10 +33,7 @@ fun RecyclerView.addDividerDecorationWithInsets(
     DividerItemDecoration(context, LinearLayout.VERTICAL)
 
   // Load divider drawable.
-  val divider =
-    ContextCompat.getDrawable(context, dividerRes)
-      ?: throw IllegalArgumentException(
-        "Cannot load drawable resource for divider.")
+  val divider = context.drawable(dividerRes)
 
   // Load left inset.
   val insetLeft = when (leftInsetRes == Int.ZERO) {
