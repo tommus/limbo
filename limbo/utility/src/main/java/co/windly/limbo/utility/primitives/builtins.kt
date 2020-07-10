@@ -1,6 +1,21 @@
 package co.windly.limbo.utility.primitives
 
+import android.os.Build.VERSION_CODES
+import androidx.annotation.RequiresApi
+import co.windly.limbo.utility.asOptional
+import java.util.Optional
+
 //region Boolean
+
+/**
+ * Wraps nullable Boolean as optional value.
+ *
+ * NOTE: Keep in mind you should avoid such Schrödinger's Boolean
+ * value. Whenever you need to represent a given state in more than
+ * two (obvious) alternatives - consider using enum or sealed class.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Boolean?.asOptional(): Optional<Boolean> = asOptional()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -29,11 +44,25 @@ val Byte.Companion.ZERO: Byte
   get() = 0
 
 /**
+ * Wraps nullable Byte as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Byte?.asOptional(): Optional<Byte> = asOptional()
+
+/**
  * A handy method that allows to check if given Byte is equal to zero.
  * Useful especially for lambda operations or higher level functions.
  */
 fun Byte.isZero(): Boolean =
   this == Byte.ZERO
+
+/**
+ * A handy method that allows to check if given Byte is not equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Byte.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -75,11 +104,26 @@ val Double.Companion.ZERO: Double
   get() = 0.0
 
 /**
- * A handy method that allows to check if given Double is equal to zero.
- * Useful especially for lambda operations or higher level functions.
+ * Wraps nullable Double as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Double?.asOptional(): Optional<Double> = asOptional()
+
+/**
+ * A handy method that allows to check if given Double is equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
  */
 fun Double.isZero(): Boolean =
   this == Double.ZERO
+
+/**
+ * A handy method that allows to check if given Double is not equal
+ * to zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Double.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -96,8 +140,9 @@ val Double.Companion.ONE: Double
   get() = 1.0
 
 /**
- * A handy method that allows to check if given Double is equal to one.
- * Useful especially for lambda operations or higher level functions.
+ * A handy method that allows to check if given Double is equal to
+ * one. Useful especially for lambda operations or higher level
+ * functions.
  */
 fun Double.isOne(): Boolean =
   this == Double.ONE
@@ -121,11 +166,25 @@ val Float.Companion.ZERO: Float
   get() = 0f
 
 /**
+ * Wraps nullable Float as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Float?.asOptional(): Optional<Float> = asOptional()
+
+/**
  * A handy method that allows to check if given Float is equal to zero.
  * Useful especially for lambda operations or higher level functions.
  */
 fun Float.isZero(): Boolean =
   this == Float.ZERO
+
+/**
+ * A handy method that allows to check if given Float is not equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Float.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -167,11 +226,25 @@ val Int.Companion.ZERO: Int
   get() = 0
 
 /**
+ * Wraps nullable Int as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Int?.asOptional(): Optional<Int> = asOptional()
+
+/**
  * A handy method that allows to check if given Int is equal to zero.
  * Useful especially for lambda operations or higher level functions.
  */
 fun Int.isZero(): Boolean =
   this == Int.ZERO
+
+/**
+ * A handy method that allows to check if given Int is not equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Int.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -213,11 +286,25 @@ val Long.Companion.ZERO: Long
   get() = 0L
 
 /**
+ * Wraps nullable Long as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Long?.asOptional(): Optional<Long> = asOptional()
+
+/**
  * A handy method that allows to check if given Long is equal to zero.
  * Useful especially for lambda operations or higher level functions.
  */
 fun Long.isZero(): Boolean =
   this == Long.ZERO
+
+/**
+ * A handy method that allows to check if given Long is not equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Long.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -259,11 +346,25 @@ val Short.Companion.ZERO: Short
   get() = 0
 
 /**
+ * Wraps nullable Short as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun Short?.asOptional(): Optional<Short> = asOptional()
+
+/**
  * A handy method that allows to check if given Short is equal to zero.
  * Useful especially for lambda operations or higher level functions.
  */
 fun Short.isZero(): Boolean =
   this == Short.ZERO
+
+/**
+ * A handy method that allows to check if given Short is not equal to
+ * zero. Useful especially for lambda operations or higher level
+ * functions.
+ */
+fun Short.isNotZero(): Boolean =
+  isZero().not()
 
 /**
  * A null-safe shortcut elvis-alike method that returns the
@@ -297,6 +398,12 @@ fun Short?.orOne(): Short =
 //endregion
 
 //region String
+
+/**
+ * Wraps nullable String as optional value.
+ */
+@RequiresApi(VERSION_CODES.N)
+fun String?.asOptional(): Optional<String> = asOptional()
 
 /**
  * A String for carriage return CR ("\r").
