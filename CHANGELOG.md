@@ -1,5 +1,21 @@
 ### Change Log
 
+### Version `limbo-mvvm` 3.1.1 *(2020-07-14)* 
+
+  * Add lifecycle component;
+  * Rework the way throttled and long click callbacks are bound.
+
+### Version `limbo-recyclerview` 3.0.8 *(2020-07-14)*
+
+  * Add divider and space decoration extensions;
+  * Add data binding extension for binding swipe refresh callback.
+
+### Version `limbo-utility` 3.0.8 *(2020-07-14)*
+
+  * Add soft input extensions for activity and view;
+  * Add resources extensions for context;
+  * Add primitive type extensions for various builtin classes.
+
 ### Version `limbo-utility` 3.0.6 *(2020-07-06)*
 
   * Add extensions and shortcut functions for primitive types.

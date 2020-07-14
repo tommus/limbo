@@ -26,7 +26,7 @@ For Model-View-ViewModel application, use the following dependecy:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.0.5"
+    implementation "co.windly:limbo-mvvm:3.1.1"
     implementation "co.windly:limbo-mvvm-dagger:3.0.5"
 }
 ```
@@ -36,8 +36,8 @@ Optionally, you can add one of utility packages:
 ```groovy
 dependencies {
     implementation "co.windly:limbo-disposable:3.0.5"
-    implementation "co.windly:limbo-recyclerview:3.0.6"
-    implementation "co.windly:limbo-utility:3.0.6"
+    implementation "co.windly:limbo-recyclerview:3.0.8"
+    implementation "co.windly:limbo-utility:3.0.8"
 }
 ```
 
