@@ -16,10 +16,12 @@ android {
 
   //endregion
 
-  //region Data Binding
+  //region Build Configuration
 
-  dataBinding {
-    enabled = true
+  buildFeatures {
+    buildConfig = false
+    dataBinding = true
+    resValues = false
   }
 
   //endregion
@@ -61,6 +63,7 @@ dependencies {
 
   //region Modules
 
+  implementation project(":disposable")
   implementation project(":utility")
 
   //endregion
