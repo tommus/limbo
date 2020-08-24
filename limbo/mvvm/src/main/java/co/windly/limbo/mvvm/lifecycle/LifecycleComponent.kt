@@ -10,7 +10,7 @@ import co.windly.limbo.utility.reactive.addSuccessTo
 import co.windly.limbo.utility.reactive.throttledClicks
 import com.jakewharton.rxbinding3.view.longClicks
 
-class LifecycleComponent(lifecycle: Lifecycle) : DataBindingComponent,
+open class LifecycleComponent(lifecycle: Lifecycle) : DataBindingComponent,
   LifecycleCompositeDisposable(lifecycle, Lifecycle.Event.ON_DESTROY) {
 
   //region Click
