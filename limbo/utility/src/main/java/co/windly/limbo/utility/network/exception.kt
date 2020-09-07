@@ -1,11 +1,13 @@
 package co.windly.limbo.utility.network
 
+import java.io.IOException
+
 //region General
 
 /**
  * Should be used as a base class for all network errors.
  */
-abstract class NetworkException : RuntimeException {
+abstract class NetworkException : IOException {
   constructor() : super()
   constructor(message: String?) : super(message)
   constructor(cause: Throwable?) : super(cause)
