@@ -7,12 +7,10 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModelProvider
 import co.windly.limbo.mvvm.trait.ActivityNavigationTrait
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
 
 abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : AppCompatActivity(),
   ActivityNavigationTrait, ContextTrait {
@@ -35,9 +33,6 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
   //endregion
 
   //region View Model
-
-  @Inject
-  lateinit var factory: ViewModelProvider.Factory
 
   abstract val viewModel: VM
 
