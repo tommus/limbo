@@ -9,13 +9,11 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.trait.FragmentNavigationTrait
 import co.windly.limbo.mvvm.trait.FragmentTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
 
 abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> : Fragment(),
   ContextTrait, FragmentTrait, FragmentNavigationTrait {
@@ -38,9 +36,6 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> : Fr
   //endregion
 
   //region View Model
-
-  @Inject
-  lateinit var factory: ViewModelProvider.Factory
 
   abstract val viewModel: VM
 
