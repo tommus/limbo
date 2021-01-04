@@ -6,14 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import co.windly.limbo.mvvm.lifecycle.LifecycleComponent
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.trait.FragmentNavigationTrait
 import co.windly.limbo.mvvm.trait.FragmentTrait
@@ -56,9 +53,6 @@ abstract class MvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel
 
   abstract fun bindView(binding: Binding)
 
-  protected open fun provideDataBindingComponent(lifecycle: Lifecycle): DataBindingComponent =
-    LifecycleComponent(lifecycle)
-
   //endregion
 
   //region Trait
@@ -86,13 +80,9 @@ abstract class MvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-    // Create data binding component.
-    val component =
-      provideDataBindingComponent(lifecycle)
-
     // Inflate binding.
     binding = DataBindingUtil.inflate(
-      inflater, layoutRes, container, false, component)
+      inflater, layoutRes, container, false)
 
     // Attach lifecycle owner.
     binding.lifecycleOwner = this

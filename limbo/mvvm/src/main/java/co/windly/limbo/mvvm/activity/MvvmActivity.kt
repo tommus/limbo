@@ -5,12 +5,9 @@ import android.content.Context
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import co.windly.limbo.mvvm.lifecycle.LifecycleComponent
 import co.windly.limbo.mvvm.trait.ActivityNavigationTrait
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
@@ -52,9 +49,6 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
 
   abstract fun bindView(binding: Binding)
 
-  protected open fun provideDataBindingComponent(lifecycle: Lifecycle): DataBindingComponent =
-    LifecycleComponent(lifecycle)
-
   //endregion
 
   //region Trait
@@ -75,13 +69,9 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : Ap
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    // Create data binding component.
-    val component =
-      provideDataBindingComponent(lifecycle)
-
     // Configure layout.
-    binding = DataBindingUtil
-      .setContentView(this, layoutResId, component)
+    binding =
+      DataBindingUtil.setContentView(this, layoutResId)
 
     // Attach lifecycle owner.
     binding.lifecycleOwner = this

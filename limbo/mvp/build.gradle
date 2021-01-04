@@ -9,6 +9,14 @@ apply plugin: "kotlin-android"
 
 android {
 
+  //region Build Configuration
+
+  buildFeatures {
+    buildConfig = false
+  }
+
+  //endregion
+
   //region Compile
 
   compileSdkVersion deps.build_versions.compile_sdk

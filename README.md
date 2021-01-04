@@ -22,7 +22,15 @@ dependencies {
 }
 ```
 
-For Model-View-ViewModel application, use the following dependecy:
+For Model-View-ViewModel application (with Hilt), use the following dependency:
+
+```groovy
+dependencies {
+    implementation "co.windly:limbo-mvvm:4.0.0"
+}
+```
+
+For Model-View-ViewModel application (with Dagger), use the following dependencies:
 
 ```groovy
 dependencies {
@@ -35,9 +43,9 @@ Optionally, you can add one of utility packages:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-disposable:3.0.5"
+    implementation "co.windly:limbo-disposable:3.1.0"
     implementation "co.windly:limbo-recyclerview:3.0.8"
-    implementation "co.windly:limbo-utility:3.0.8"
+    implementation "co.windly:limbo-utility:3.1.1"
 }
 ```
 
@@ -49,7 +57,7 @@ is available.
 
 ## License
 
-    Copyright 2020 Tomasz Dzieniak, Adrian Zalewski
+    Copyright 2021 Tomasz Dzieniak, Adrian Zalewski
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

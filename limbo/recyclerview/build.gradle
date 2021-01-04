@@ -10,17 +10,18 @@ apply plugin: "kotlin-kapt"
 
 android {
 
-  //region Compile
+  //region Build Configuration
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  buildFeatures {
+    buildConfig = false
+    dataBinding = true
+  }
 
   //endregion
 
-  //region Data Binding
+  //region Compile
 
-  dataBinding {
-    enabled = true
-  }
+  compileSdkVersion deps.build_versions.compile_sdk
 
   //endregion
 

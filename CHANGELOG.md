@@ -1,5 +1,24 @@
 ### Change Log
 
+### Version `limbo-mvvm` 4.0.0 *(2021-01-04)*
+
+  * Compatibility update for Dagger Hilt.
+
+### Version `limbo-utility` 3.1.1 *(2021-01-04)*
+
+  * Update network exception to be coroutine error handler compatible.
+
+### Version `limbo-mvvm` 3.1.2 *(2020-07-29)*
+
+  * `LifecycleComponent` now relies on `LifecycleCompositeDisposable`;
+  * Update Gradle Wrapper (6.5.1);
+  * Update AndroidX Navigation (2.3.0);
+  * Update Dagger (2.28.3).
+
+### Version `limbo-disposables` 3.0.6 *(2020-07-29)*
+
+  * Open `LifecycleCompositeDisposable` class for inheritance.
+
 ### Version `limbo-mvvm` 3.1.1 *(2020-07-14)* 
 
   * Add lifecycle component;

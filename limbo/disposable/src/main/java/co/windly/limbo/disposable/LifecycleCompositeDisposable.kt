@@ -12,11 +12,11 @@ import io.reactivex.internal.disposables.DisposableContainer
  * A composite disposable that observes the lifecycle of a lifecycle owner and disposes
  * a reactive streams when a certain lifecycle event state is reached.
  */
-class LifecycleCompositeDisposable(
-  private val lifecycle: Lifecycle,
-  private val disposeOn: Event,
-  private val composite: CompositeDisposable = CompositeDisposable()
-) : Disposable by composite, DisposableContainer by composite, LifecycleEventObserver {
+open class LifecycleCompositeDisposable(
+  protected val lifecycle: Lifecycle,
+  protected val disposeOn: Event,
+  protected val disposables: CompositeDisposable = CompositeDisposable()
+) : Disposable by disposables, DisposableContainer by disposables, LifecycleEventObserver {
 
   //region Initialization
 
@@ -24,8 +24,15 @@ class LifecycleCompositeDisposable(
 
     // Add a lifecycle observer for (at least) initialized lifecycle owner.
     if (lifecycle.currentState >= Lifecycle.State.INITIALIZED) {
-      lifecycle.addObserver(this)
+      registerLifecycleObserver()
     }
+  }
+
+  /**
+   * Adds this object as lifecycle observer.
+   */
+  private fun registerLifecycleObserver() {
+    lifecycle.addObserver(this)
   }
 
   //endregion
@@ -37,28 +44,28 @@ class LifecycleCompositeDisposable(
    * container has been disposed.
    */
   override fun add(disposable: Disposable): Boolean =
-    composite.add(disposable)
+    disposables.add(disposable)
 
   /**
    * Atomically adds the given array of disposables to the container or
    * disposes them all if the container has been disposed.
    */
   fun addAll(vararg disposables: Disposable): Boolean =
-    composite.addAll(*disposables)
+    this.disposables.addAll(*disposables)
 
   /**
    * Atomically clears the container, then disposes all the previously
    * contained disposables.
    */
   fun clear() =
-    composite.clear()
+    disposables.clear()
 
   /**
    * Removes (but does not dispose) the given disposable if it is part of this
    * container.
    */
   override fun delete(disposable: Disposable): Boolean =
-    composite.delete(disposable)
+    disposables.delete(disposable)
 
   /**
    * Disposes all the previously contained disposables.
@@ -69,7 +76,7 @@ class LifecycleCompositeDisposable(
     lifecycle.removeObserver(this)
 
     // Dispose composite container.
-    composite.dispose()
+    disposables.dispose()
   }
 
   /**
@@ -77,20 +84,20 @@ class LifecycleCompositeDisposable(
    * already disposed.
    */
   override fun isDisposed(): Boolean =
-    composite.isDisposed
+    disposables.isDisposed
 
   /**
    * Removes and disposes the given disposable if it is part of this
    * container.
    */
   override fun remove(disposable: Disposable): Boolean =
-    composite.remove(disposable)
+    disposables.remove(disposable)
 
   /**
    * Returns the number of currently held disposables.
    */
   val size: Int
-    get() = composite.size()
+    get() = disposables.size()
 
   //endregion
 

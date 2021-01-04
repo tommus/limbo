@@ -9,6 +9,16 @@ apply plugin: "kotlin-android"
 
 android {
 
+  //region Build Configuration
+
+  buildFeatures {
+    buildConfig = false
+    dataBinding = true
+    resValues = false
+  }
+
+  //endregion
+
   //region Compile
 
   compileSdkVersion deps.build_versions.compile_sdk
