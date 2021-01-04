@@ -1,6 +1,6 @@
 ### Change Log
 
-### Version `limbo-mvvm` 4.0.0 *(2021-01-04)*
+### Version `limbo-mvvm` 4.0.1 *(2021-01-04)*
 
   * Compatibility update for Dagger Hilt.
 
