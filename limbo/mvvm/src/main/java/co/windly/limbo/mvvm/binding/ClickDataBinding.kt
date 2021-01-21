@@ -11,11 +11,11 @@ interface ClickDataBinding {
    * clicks will be throttled using 1000 milliseconds window.
    */
   @BindingAdapter(
-    requireAll = false,
+    requireAll = true,
     value = ["onThrottledClick", "throttleWindow"]
   )
   fun setOnThrottledClick(
-    view: View, onThrottledClick: OnClickListener, throttleWindow: Long = 1_000L)
+    view: View, onThrottledClick: OnClickListener, throttleWindow: Long)
 
   /**
    * Allows to register a long click listener to any view.
