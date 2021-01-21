@@ -11,7 +11,7 @@ interface ClickDataBinding {
    * clicks will be throttled using 1000 milliseconds window.
    */
   @BindingAdapter(
-    requireAll = true,
+    requireAll = false,
     value = ["onThrottledClick", "throttleWindow"]
   )
   fun setOnThrottledClick(
