@@ -64,13 +64,6 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> : Fr
 
   //region Lifecycle
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-    // Retain instance.
-    retainInstance = true
-  }
-
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
