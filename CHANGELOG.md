@@ -1,5 +1,10 @@
 ### Change Log
 
+### Version `limbo-mvvm` 4.1.1 *(2021-02-12)*
+
+  * MvvmFragment will no longer retain instance;
+  * MvvmDialogFragment will use Hilt's view model factory.
+
 ### Version `limbo-mvvm` 4.0.2 *(2021-01-04)*
 
   * Compatibility update for Dagger Hilt.

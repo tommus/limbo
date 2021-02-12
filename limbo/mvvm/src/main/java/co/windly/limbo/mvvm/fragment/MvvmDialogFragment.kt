@@ -10,13 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.trait.FragmentNavigationTrait
 import co.windly.limbo.mvvm.trait.FragmentTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
 
 abstract class MvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel> : DialogFragment(),
   ContextTrait, FragmentTrait, FragmentNavigationTrait {
@@ -39,9 +37,6 @@ abstract class MvvmDialogFragment<Binding : ViewDataBinding, VM : LimboViewModel
   //endregion
 
   //region View Model
-
-  @Inject
-  lateinit var factory: ViewModelProvider.Factory
 
   abstract val viewModel: VM
 
