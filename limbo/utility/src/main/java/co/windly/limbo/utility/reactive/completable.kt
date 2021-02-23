@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
 fun Completable.addErrorTo(
   composite: CompositeDisposable, lambda: (throwable: Throwable) -> Unit): Disposable =
   this
-    .subscribe({ /* Mute. */ }, lambda)
+    .subscribe({ /* No-op. */ }, lambda)
     .apply { composite.add(this) }
 
 /**
@@ -25,12 +25,15 @@ fun Completable.addErrorTo(
  */
 fun Completable.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
-    .subscribe()
+    .subscribe(
+      { /* No-op. */ },
+      { /* Rethrow exception making for better stacktrace. */ throw it }
+    )
     .apply { composite.add(this) }
 
 /**
  * Immediately subscribes completable and adds to a DisposableContainer.
- * NOTE: In case of any errors - they will be ommitted silently.
+ * NOTE: In case of any errors - they will be omitted silently.
  */
 fun Completable.addSuccessTo(composite: DisposableContainer, lambda: () -> Unit): Disposable =
   this

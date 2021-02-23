@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 fun <T : Any> Flowable<T>.addErrorTo(
   composite: CompositeDisposable, lambda: (throwable: Throwable) -> Unit): Disposable =
   this
-    .subscribe({ /* Mute. */ }, lambda)
+    .subscribe({ /* No-op. */ }, lambda)
     .apply { composite.add(this) }
 
 /**
@@ -24,7 +24,10 @@ fun <T : Any> Flowable<T>.addErrorTo(
  */
 fun <T : Any> Flowable<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
-    .subscribe()
+    .subscribe(
+      { /* No-op. */ },
+      { /* Rethrow exception making for better stacktrace. */ throw it }
+    )
     .apply { composite.add(this) }
 
 /**
