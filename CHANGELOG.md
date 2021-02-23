@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version `limbo-mvvm` 4.2.0 *(2021-02-23)*
+
+  * FragmentTrait will not provide an option to return/observe results.
+
 ### Version `limbo-mvvm` 4.1.1 *(2021-02-12)*
 
   * MvvmFragment will no longer retain instance;

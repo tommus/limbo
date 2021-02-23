@@ -26,7 +26,7 @@ For Model-View-ViewModel application (with Hilt), use the following dependency:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:4.1.1"
+    implementation "co.windly:limbo-mvvm:4.2.0"
 }
 ```
 
