@@ -3,8 +3,12 @@ package co.windly.limbo.mvvm.trait
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.Event.ON_RESUME
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavDirections
@@ -101,6 +105,67 @@ interface FragmentNavigationTrait : FragmentTrait {
 
   fun navigateUp() =
     findNavController().navigateUp()
+
+  //endregion
+
+  //region Result
+
+  /**
+   * Observes a result delivered by target destination of this destination
+   * (fragment or dialog fragment).
+   */
+  fun <Result : Parcelable> FragmentNavigationTrait.observeResult(
+    key: String,
+    onResult: (Result) -> Unit
+  ) {
+
+    // Access current back stack entry.
+    val entry = findNavController().currentBackStackEntry
+
+    // Register observer aware of event's lifecycle.
+    val observer = LifecycleEventObserver { _, event ->
+
+      // Care only for resumed events.
+      if (event == ON_RESUME) {
+
+        // Retrieve result.
+        val result =
+          entry
+            ?.savedStateHandle
+            ?.remove<Result>(key)
+            ?: return@LifecycleEventObserver
+
+        // Process result.
+        onResult.invoke(result)
+      }
+    }
+
+    // Add event observer.
+    entry?.lifecycle?.addObserver(observer)
+
+    // Register observer keeping track of view's lifecycle.
+    fragmentTrait.viewLifecycleOwner.lifecycle
+      .addObserver(LifecycleEventObserver { _, event ->
+
+        // Remove observer when view destroyed.
+        if (event == Lifecycle.Event.ON_DESTROY) {
+          entry?.lifecycle?.removeObserver(observer)
+        }
+      })
+  }
+
+  /**
+   * Sets a result that will be delivered to the previous destination
+   * (fragment or dialog fragment).
+   */
+  fun <Result : Parcelable> setResult(key: String, result: Result) {
+
+    // Access previous back stack entry.
+    val entry = findNavController().previousBackStackEntry
+
+    // Set the result.
+    entry?.savedStateHandle?.set(key, result)
+  }
 
   //endregion
 }

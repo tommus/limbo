@@ -1,5 +1,7 @@
 package co.windly.limbo.utility.reactive
 
+import androidx.lifecycle.MutableLiveData
+import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -14,7 +16,7 @@ import io.reactivex.schedulers.Schedulers
 fun <T : Any> Single<T>.addErrorTo(
   composite: CompositeDisposable, lambda: (throwable: Throwable) -> Unit): Disposable =
   this
-    .subscribe({ /* Mute. */ }, lambda)
+    .subscribe({ /* No-op. */ }, lambda)
     .apply { composite.add(this) }
 
 /**
@@ -24,7 +26,10 @@ fun <T : Any> Single<T>.addErrorTo(
  */
 fun <T : Any> Single<T>.addImmediatelyTo(composite: DisposableContainer): Disposable =
   this
-    .subscribe()
+    .subscribe(
+      { /* No-op. */ },
+      { /* Rethrow exception making for better stacktrace. */ throw it }
+    )
     .apply { composite.add(this) }
 
 /**
@@ -72,3 +77,19 @@ fun <T : Any> Single<T>.observeOnIo(): Single<T> =
  */
 fun <T : Any> Single<T>.observeOnComputation(): Single<T> =
   this.observeOn(Schedulers.computation())
+
+/**
+ * Emits to the given live data values true/false respectively on
+ * subscribe/finally events.
+ */
+fun <T: Any> Single<T>.notifyProgressUsing(emitter: MutableLiveData<Boolean>) =
+  doOnSubscribe { emitter.postValue(true) }
+    .doFinally { emitter.postValue(false) }
+
+/**
+ * Emits to the given live data values true/false respectively on
+ * subscribe/finally events.
+ */
+fun <T: Any> Single<T>.onProgressChange(emitter: MutableLiveData<Boolean>) =
+  doOnSubscribe { emitter.postValue(true) }
+    .doFinally { emitter.postValue(false) }

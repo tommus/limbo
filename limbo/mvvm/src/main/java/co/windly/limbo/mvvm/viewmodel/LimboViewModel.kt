@@ -18,12 +18,10 @@ open class LimboViewModel : ViewModel() {
   //region Lifecycle
 
   override fun onCleared() {
+    super.onCleared()
 
     // Clear disposables.
     clearDisposables()
-
-    // Proceed with View Model clearing.
-    super.onCleared()
   }
 
   //endregion
