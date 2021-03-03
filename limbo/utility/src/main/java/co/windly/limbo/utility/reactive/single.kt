@@ -87,9 +87,8 @@ fun <T: Any> Single<T>.notifyProgressUsing(emitter: MutableLiveData<Boolean>) =
     .doFinally { emitter.postValue(false) }
 
 /**
- * Emits to the given live data values true/false respectively on
- * subscribe/finally events.
+ * Calls given lambda passing true/false respectively on subscribe/finally events.
  */
-fun <T: Any> Single<T>.onProgressChange(emitter: MutableLiveData<Boolean>) =
-  doOnSubscribe { emitter.postValue(true) }
-    .doFinally { emitter.postValue(false) }
+fun <T: Any> Single<T>.onProgressChange(lambda: (inProgress: Boolean) -> Unit) =
+  doOnSubscribe { lambda.invoke(true) }
+    .doFinally { lambda.invoke(false) }
