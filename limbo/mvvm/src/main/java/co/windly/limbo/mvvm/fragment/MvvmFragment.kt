@@ -99,9 +99,13 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
     return binding.root
   }
 
+  override fun onDestroyView() {
+    _binding = null
+    super.onDestroyView()
+  }
+
   override fun onDestroy() {
     super.onDestroy()
-    _binding = null
     clearDisposables()
   }
 }

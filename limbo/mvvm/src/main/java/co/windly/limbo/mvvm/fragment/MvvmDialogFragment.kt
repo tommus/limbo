@@ -100,9 +100,13 @@ abstract class MvvmDialogFragment<
     return binding.root
   }
 
+  override fun onDestroyView() {
+    _binding = null
+    super.onDestroyView()
+  }
+
   override fun onDestroy() {
     super.onDestroy()
-    _binding = null
     clearDisposables()
   }
 }
