@@ -11,76 +11,93 @@ import co.windly.limbo.mvvm.trait.ActivityNavigationTrait
 import co.windly.limbo.mvvm.trait.ContextTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.WeakReference
 
-abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> : AppCompatActivity(),
-  ActivityNavigationTrait, ContextTrait {
+abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> :
+  AppCompatActivity(), ActivityNavigationTrait, ContextTrait {
 
-  //region Disposables
+  /**
+   * Holds activity-bound disposables and offers O(1) add and removal
+   * complexity.
+   */
+  protected open val disposables = CompositeDisposable()
 
-  protected open val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
-
-  protected open fun clearDisposables() =
+  /**
+   * Clears activity-bound disposables.
+   */
+  protected open fun clearDisposables() {
     disposables.clear()
+  }
 
-  //endregion
-
-  //region Ui
-
+  /**
+   * Denotes a resource that should be inflated as activity's layout.
+   */
   @get:LayoutRes
   abstract val layoutResId: Int
 
-  //endregion
-
-  //region View Model
-
+  /**
+   * A reference to view model associated with activity.
+   */
   abstract val viewModel: VM
 
-  //endregion
+  /**
+   * A view binding associated with given activity.
+   */
+  private var _binding: Binding? = null
 
-  //region Binding
+  /**
+   * Allows to access a biding associated with given activity.
+   */
+  protected val binding: Binding
+    get() = _binding ?: throw IllegalStateException(
+      "Binding is not available at this moment of component lifecycle.")
 
-  protected open lateinit var binding: Binding
-
+  /**
+   * Called at the end of onCreate(). Can be used to set data bindings.
+   */
   abstract fun bindView(binding: Binding)
 
-  //endregion
+  /**
+   * Holds a weak reference to the activity.
+   * <p>
+   * A part of activity trait interface to help trait activity-dependant
+   * features.
+   */
+  override val activityTrait: WeakReference<Activity>
+    get() = WeakReference(this)
 
-  //region Trait
+  /**
+   * Holds a weak reference to the context.
+   * <p>
+   * A part of context trait interface to help trait context-dependant features.
+   */
+  override val contextTrait: WeakReference<Context>
+    get() = WeakReference(this)
 
-  override val activityTrait: Activity
-    get() = this
+  /**
+   * Holds a weak reference to the activity.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
+  override val navigationTrait: WeakReference<Activity>
+    get() = WeakReference(this)
 
-  override val contextTrait: Context
-    get() = this
-
-  override val navigationTrait: Activity
-    get() = this
-
-  //endregion
-
-  //region Lifecycle
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    // Configure layout.
-    binding =
+    _binding =
       DataBindingUtil.setContentView(this, layoutResId)
 
-    // Attach lifecycle owner.
     binding.lifecycleOwner = this
 
-    // Initialize binding.
     bindView(binding)
   }
 
   override fun onDestroy() {
     super.onDestroy()
-
-    // Clear disposables.
+    _binding = null
     clearDisposables()
   }
-
-  //endregion
 }

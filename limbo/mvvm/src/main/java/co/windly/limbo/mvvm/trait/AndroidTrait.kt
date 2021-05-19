@@ -3,18 +3,19 @@ package co.windly.limbo.mvvm.trait
 import android.app.Activity
 import android.content.Context
 import androidx.fragment.app.Fragment
+import java.lang.ref.WeakReference
 
 interface ActivityTrait {
 
-  val activityTrait: Activity
+  val activityTrait: WeakReference<Activity>
 }
 
 interface ContextTrait {
 
-  val contextTrait: Context
+  val contextTrait: WeakReference<Context>
 }
 
 interface FragmentTrait {
 
-  val fragmentTrait: Fragment
+  val fragmentTrait: WeakReference<Fragment>
 }

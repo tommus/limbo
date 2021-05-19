@@ -5,24 +5,21 @@ import io.reactivex.disposables.CompositeDisposable
 
 open class LimboViewModel : ViewModel() {
 
-  //region Disposables
+  /**
+   * Holds view model-bound disposables and offers O(1) add and removal
+   * complexity.
+   */
+  protected val disposables = CompositeDisposable()
 
-  protected val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
-
-  protected open fun clearDisposables() =
+  /**
+   * Clears fragment-bound disposables.
+   */
+  protected open fun clearDisposables() {
     disposables.clear()
-
-  //endregion
-
-  //region Lifecycle
+  }
 
   override fun onCleared() {
     super.onCleared()
-
-    // Clear disposables.
     clearDisposables()
   }
-
-  //endregion
 }
