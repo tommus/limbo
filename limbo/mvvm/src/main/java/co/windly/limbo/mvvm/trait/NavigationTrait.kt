@@ -19,6 +19,12 @@ import java.lang.ref.WeakReference
 
 interface ActivityNavigationTrait : ActivityTrait {
 
+  /**
+   * Holds a weak reference to the activity.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
   val navigationTrait: WeakReference<Activity>
 
   /**
@@ -33,6 +39,12 @@ interface FragmentNavigationTrait : FragmentTrait {
 
   //region Trait
 
+  /**
+   * Holds a weak reference to the fragment.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
   val navigationTrait: WeakReference<Fragment>
 
   //endregion
