@@ -14,79 +14,101 @@ import co.windly.limbo.mvvm.trait.FragmentNavigationTrait
 import co.windly.limbo.mvvm.trait.FragmentTrait
 import co.windly.limbo.mvvm.viewmodel.LimboViewModel
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.WeakReference
 
-abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> : Fragment(),
-  ContextTrait, FragmentTrait, FragmentNavigationTrait {
+abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
+  Fragment(), ContextTrait, FragmentTrait, FragmentNavigationTrait {
 
-  //region Disposables
+  /**
+   * Holds fragment-bound disposables and offers O(1) add and removal
+   * complexity.
+   */
+  protected open val disposables = CompositeDisposable()
 
-  protected open val disposables: CompositeDisposable
-    by lazy { CompositeDisposable() }
-
-  protected open fun clearDisposables() =
+  /**
+   * Clears fragment-bound disposables.
+   */
+  protected open fun clearDisposables() {
     disposables.clear()
+  }
 
-  //endregion
-
-  //region UI
-
+  /**
+   * Denotes a resource that should be inflated as fragment's layout.
+   */
   @get:LayoutRes
   abstract val layoutRes: Int
 
-  //endregion
-
-  //region View Model
-
+  /**
+   * A reference to view model associated with fragment.
+   */
   abstract val viewModel: VM
 
-  //endregion
+  /**
+   * A view binding associated with given fragment.
+   */
+  private var _binding: Binding? = null
 
-  //region Binding
+  /**
+   * Allows to access a biding associated with given fragment.
+   */
+  protected val binding: Binding
+    get() = _binding ?: throw IllegalStateException(
+      "Binding is not available at this moment of component lifecycle."
+    )
 
-  protected open lateinit var binding: Binding
-
+  /**
+   * Called at the end of onCreateView(). Can be used to set data bindings.
+   */
   abstract fun bindView(binding: Binding)
 
-  //endregion
+  /**
+   * Holds a weak reference to the context.
+   * <p>
+   * A part of context trait interface to help trait context-dependant features.
+   */
+  override val contextTrait: WeakReference<Context>
+    get() = WeakReference(requireContext())
 
-  //region Trait
+  /**
+   * Holds a weak reference to the fragment.
+   * <p>
+   * A part of fragment trait interface to help trait activity-dependant
+   * features.
+   */
+  override val fragmentTrait: WeakReference<Fragment>
+    get() = WeakReference(this)
 
-  override val contextTrait: Context
-    get() = requireContext()
-
-  override val fragmentTrait: Fragment
-    get() = this
-
-  override val navigationTrait: Fragment
-    get() = this
-
-  //endregion
-
-  //region Lifecycle
+  /**
+   * Holds a weak reference to the activity.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
+  override val navigationTrait: WeakReference<Fragment>
+    get() = WeakReference(this)
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
 
-    // Inflate binding.
-    binding = DataBindingUtil.inflate(
-      inflater, layoutRes, container, false)
+    _binding = DataBindingUtil.inflate(
+      inflater, layoutRes, container, false
+    )
 
-    // Attach lifecycle owner.
-    binding.lifecycleOwner = this
-
-    // Initialize binding.
+    binding.lifecycleOwner = this.viewLifecycleOwner
     bindView(binding)
 
-    // Return bound view.
     return binding.root
+  }
+
+  override fun onDestroyView() {
+    _binding = null
+    super.onDestroyView()
   }
 
   override fun onDestroy() {
     super.onDestroy()
-
-    // Clear disposables.
     clearDisposables()
   }
-
-  //endregion
 }

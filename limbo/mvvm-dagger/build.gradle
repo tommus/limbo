@@ -1,15 +1,8 @@
-//region Startup Plugins
-
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-
-//endregion
-
-//region Android
+apply plugin: "kotlin-kapt"
 
 android {
-
-  //region Build Configuration
 
   buildFeatures {
     buildConfig = false
@@ -17,55 +10,23 @@ android {
     resValues = false
   }
 
-  //endregion
-
-  //region Compile
-
   compileSdkVersion deps.build_versions.compile_sdk
-
-  //endregion
-
-  //region Default Configuration
 
   defaultConfig {
     minSdkVersion deps.build_versions.min_sdk
     targetSdkVersion deps.build_versions.target_sdk
   }
-
-  //endregion
 }
 
-//endregion
-
-//region Dependencies
-
 dependencies {
-
-  //region Dependency Injection
 
   api deps.dagger.android
   api deps.dagger.android_support
   compileOnly deps.dagger.annotation
 
-  //endregion
-
-  //region Kotlin
-
   implementation deps.kotlin.stdlib_jdk8
 
-  //endregion
-
-  //region Modules
-
   implementation project(":mvvm")
-
-  //endregion
 }
 
-//endregion
-
-//region Publication
-
 apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
-
-//endregion

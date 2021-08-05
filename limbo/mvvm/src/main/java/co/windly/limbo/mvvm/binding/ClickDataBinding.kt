@@ -15,7 +15,8 @@ interface ClickDataBinding {
     value = ["onThrottledClick", "throttleWindow"]
   )
   fun setOnThrottledClick(
-    view: View, onThrottledClick: OnClickListener, throttleWindow: Long)
+    view: View, onThrottledClick: OnClickListener, throttleWindow: Long
+  )
 
   /**
    * Allows to register a long click listener to any view.

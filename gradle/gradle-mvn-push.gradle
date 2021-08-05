@@ -1,14 +1,8 @@
 apply plugin: "maven"
 apply plugin: "signing"
 
-//region Publisher
-
 version = VERSION_NAME
 group = GROUP
-
-//endregion
-
-//region Helpers
 
 @SuppressWarnings("GrMethodMayBeStatic")
 def isReleaseBuild() {
@@ -17,12 +11,12 @@ def isReleaseBuild() {
 
 def getReleaseRepositoryUrl() {
   return hasProperty("RELEASE_REPOSITORY_URL") ? RELEASE_REPOSITORY_URL :
-      "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
 }
 
 def getSnapshotRepositoryUrl() {
   return hasProperty("SNAPSHOT_REPOSITORY_URL") ? SNAPSHOT_REPOSITORY_URL :
-      "https://oss.sonatype.org/content/repositories/snapshots/"
+    "https://oss.sonatype.org/content/repositories/snapshots/"
 }
 
 def getRepositoryUsername() {
@@ -33,13 +27,7 @@ def getRepositoryPassword() {
   return hasProperty("SONATYPE_NEXUS_PASSWORD") ? SONATYPE_NEXUS_PASSWORD : ""
 }
 
-//endregion
-
-//region Evaluation
-
 afterEvaluate { project ->
-
-  //region Upload Archives
 
   uploadArchives {
     repositories {
@@ -88,23 +76,13 @@ afterEvaluate { project ->
     }
   }
 
-  //endregion
-
-  //region Signing
-
   signing {
     required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
   }
 
-  //endregion
-
-  //region Tasks
-
   if (project.getPlugins().hasPlugin("com.android.application") || project.getPlugins().
-      hasPlugin("com.android.library")) {
-
-    //region Task - Install
+    hasPlugin("com.android.library")) {
 
     task install(type: Upload, dependsOn: assemble) {
       repositories.mavenInstaller {
@@ -144,38 +122,22 @@ afterEvaluate { project ->
       }
     }
 
-    //endregion
-
-    //region Task - Android Java Documentation
-
     task androidJavadocs(type: Javadoc) {
       source = android.sourceSets.main.java.source
       classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
       failOnError false
     }
 
-    //endregion
-
-    //region Task - Package Android Java Documentation
-
     task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-      classifier = "javadoc"
+      archiveClassifier.set("javadoc")
       from androidJavadocs.destinationDir
     }
 
-    //endregion
-
-    //region Task - Android Java Jar
-
     task androidSourcesJar(type: Jar) {
-      classifier = "sources"
+      archiveClassifier.set("sources")
       from android.sourceSets.main.java.source
     }
-
-    //endregion
   } else {
-
-    //region Task - Install
 
     install {
       repositories.mavenInstaller {
@@ -213,30 +175,16 @@ afterEvaluate { project ->
       }
     }
 
-    //endregion
-
-    //region Task - Package Android Java Documentation
-
     task javadocJar(type: Jar, dependsOn: javadoc) {
-      classifier = "javadoc"
+      archiveClassifier.set("javadoc")
       from javadoc.destinationDir
     }
 
-    //endregion
-
-    //region Task - Java Jar
-
     task sourcesJar(type: Jar, dependsOn: classes) {
-      classifier = "sources"
+      archiveClassifier.set("sources")
       from sourceSets.main.allSource
     }
-
-    //endregion
   }
-
-  //endregion
-
-  //region Misc
 
   if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
@@ -246,13 +194,9 @@ afterEvaluate { project ->
     }
   }
 
-  //endregion
-
-  //region Artifacts
-
   artifacts {
     if (project.getPlugins().hasPlugin("com.android.application") || project.getPlugins().
-        hasPlugin("com.android.library")) {
+      hasPlugin("com.android.library")) {
       archives androidSourcesJar
       archives androidJavadocsJar
     } else {
@@ -260,8 +204,4 @@ afterEvaluate { project ->
       archives javadocJar
     }
   }
-
-  //endregion
 }
-
-//endregion
