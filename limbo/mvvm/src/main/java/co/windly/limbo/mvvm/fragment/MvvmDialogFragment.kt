@@ -94,7 +94,7 @@ abstract class MvvmDialogFragment<
     _binding = DataBindingUtil.inflate(
       inflater, layoutRes, container, false)
 
-    binding.lifecycleOwner = this
+    binding.lifecycleOwner = viewLifecycleOwner
     bindView(binding)
 
     return binding.root

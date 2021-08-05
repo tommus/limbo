@@ -53,7 +53,8 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
    */
   protected val binding: Binding
     get() = _binding ?: throw IllegalStateException(
-      "Binding is not available at this moment of component lifecycle.")
+      "Binding is not available at this moment of component lifecycle."
+    )
 
   /**
    * Called at the end of onCreateView(). Can be used to set data bindings.
@@ -88,12 +89,14 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
-    savedInstanceState: Bundle?): View? {
+    savedInstanceState: Bundle?
+  ): View? {
 
     _binding = DataBindingUtil.inflate(
-      inflater, layoutRes, container, false)
+      inflater, layoutRes, container, false
+    )
 
-    binding.lifecycleOwner = this
+    binding.lifecycleOwner = this.viewLifecycleOwner
     bindView(binding)
 
     return binding.root

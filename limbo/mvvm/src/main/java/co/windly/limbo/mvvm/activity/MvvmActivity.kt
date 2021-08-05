@@ -50,7 +50,8 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> :
    */
   protected val binding: Binding
     get() = _binding ?: throw IllegalStateException(
-      "Binding is not available at this moment of component lifecycle.")
+      "Binding is not available at this moment of component lifecycle."
+    )
 
   /**
    * Called at the end of onCreate(). Can be used to set data bindings.
@@ -82,7 +83,6 @@ abstract class MvvmActivity<Binding : ViewDataBinding, VM : LimboViewModel> :
    */
   override val navigationTrait: WeakReference<Activity>
     get() = WeakReference(this)
-
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
