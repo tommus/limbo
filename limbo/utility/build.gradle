@@ -16,14 +16,11 @@ android {
 }
 
 dependencies {
-
   implementation deps.androidx.core
   api deps.androidx.lifecycle_livedata
-
   api deps.rx.android
   api deps.rx.binding
   api deps.rx.java
 }
 
-
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+apply from: rootProject.file("scripts/publish.gradle")

@@ -18,15 +18,11 @@ android {
 }
 
 dependencies {
-
   implementation deps.androidx.recyclerview
   implementation deps.androidx.swiperefreshlayout
-
   implementation deps.kotlin.stdlib_jdk8
-
   implementation project(":utility")
-
   implementation deps.rx.binding_swiperefreshlayout
 }
 
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+apply from: rootProject.file("scripts/publish.gradle")

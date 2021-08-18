@@ -1,5 +1,12 @@
 ### Change Log
 
+### Version `limbo-utlity` 3.2.2 *(2021-08-18)*
+
+  * Update Gradle Wrapper (7.2);
+  * Update Android Gradle Plugin (7.0.0);
+  * Replace deprecated `maven` plugin with `maven-publish`;
+  * Fix javadoc generation (switch to Dokka).
+
 ### Version `limbo-mvvm` 4.2.0 *(2021-02-23)*
 
   * FragmentTrait will not provide an option to return/observe results.
