@@ -1,0 +1,168 @@
+apply plugin: "maven-publish"
+apply plugin: "signing"
+apply plugin: "org.jetbrains.dokka"
+
+version = VERSION_NAME
+group = GROUP
+
+afterEvaluate { project ->
+
+  publishing {
+    publications {
+      release(MavenPublication) {
+
+        groupId = GROUP
+        artifactId = POM_ARTIFACT_ID
+        version = VERSION_NAME
+
+        if (project.plugins.findPlugin("com.android.library")) {
+          from components.release
+        } else {
+          from components.java
+        }
+
+        artifact sourcesJar
+        artifact javadocJar
+
+        pom {
+          name = POM_NAME
+          packaging = POM_PACKAGING
+          description = POM_DESCRIPTION
+          url = POM_URL
+
+          developers {
+            developer {
+              id = POM_DEVELOPER_ID
+              name = POM_DEVELOPER_NAME
+            }
+          }
+
+          licenses {
+            license {
+              name = POM_LICENCE_NAME
+              url = POM_LICENCE_URL
+              distribution = POM_LICENCE_DIST
+            }
+          }
+
+          scm {
+            url = POM_SCM_URL
+            connection = POM_SCM_CONNECTION
+            developerConnection = POM_SCM_DEV_CONNECTION
+          }
+        }
+      }
+    }
+
+    repositories {
+      maven {
+        url = isReleaseBuild() ? releaseRepoUrl() : snapshotRepoUrl()
+        credentials {
+          username = repoUsername()
+          password = repoPassword()
+        }
+      }
+    }
+  }
+
+  tasks.withType(Sign) {
+    onlyIf { isReleaseBuild() }
+  }
+
+  signing {
+    sign publishing.publications
+  }
+
+  artifacts {
+    archives sourcesJar
+    archives javadocJar
+  }
+}
+
+/**
+ * A task that generates .aar or .jar file for publishing.
+ * <p>
+ * In case if the "com.android.library" plugin is applied for given module
+ * it's assumed the module should ba packaged as .aar archive.
+ * <p>
+ * Otherwise, all the sources will be packaged as .jar file. */
+task sourcesJar(type: Jar) {
+  archiveClassifier.set("sources")
+  if (project.plugins.findPlugin("com.android.library")) {
+    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
+  } else {
+    from sourceSets.main.java.srcDirs
+    from sourceSets.main.kotlin.srcDirs
+  }
+}
+
+/**
+ * A task that generates documentation .jar packaged along with the library
+ * files. */
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
+  archiveClassifier.set("javadoc")
+  from dokkaJavadoc.outputDirectory
+}
+
+/**
+ * Configures Dokka documentation generator:
+ * - hides all the inherited members. */
+tasks.withType(dokkaHtmlPartial.getClass()).configureEach {
+  pluginsMapConfiguration.
+    set(["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""])
+}
+
+/**
+ * Determines the build flavor, either snapshot or release. */
+private boolean isReleaseBuild() {
+  return !VERSION_NAME.contains("SNAPSHOT")
+}
+
+/**
+ * Provides release flavor repository url.
+ * <p>
+ * Data loading order of precedence:
+ * - Project local Gradle property called "RELEASE_REPOSITORY_URL", if set;
+ * - Gradle installation property called "RELEASE_REPOSITORY_URL", if set;
+ * - hardcoded value to Maven Central release repository otherwise. */
+private String releaseRepoUrl() {
+  return hasProperty("RELEASE_REPOSITORY_URL") ? RELEASE_REPOSITORY_URL :
+    "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+}
+
+/**
+ * Provides snapshot flavor repository url.
+ * <p>
+ * Data loading order of precedence:
+ * - Project local Gradle property called "RELEASE_REPOSITORY_URL", if set;
+ * - Gradle installation property called "SNAPSHOT_REPOSITORY_URL", if set;
+ * - hardcoded value to Maven Central snapshot repository otherwise. */
+private String snapshotRepoUrl() {
+  return hasProperty("SNAPSHOT_REPOSITORY_URL") ? SNAPSHOT_REPOSITORY_URL :
+    "https://oss.sonatype.org/content/repositories/snapshots/"
+}
+
+/**
+ * Provides username that will be used to sign into Maven Central during the
+ * publication.
+ * <p>
+ * Data loading order of precedence:
+ * - Project local Gradle property called "SONATYPE_NEXUS_USERNAME", if set;
+ * - Gradle installation property called "SONATYPE_NEXUS_USERNAME", if set;
+ * - hardcoded empty string (which always is incorrect). */
+private String repoUsername() {
+  return hasProperty("SONATYPE_NEXUS_USERNAME") ? SONATYPE_NEXUS_USERNAME : ""
+}
+
+/**
+ * Provides password that will be used to sign into Maven Central during the
+ * publication.
+ * <p>
+ * Data loading order of precedence:
+ * - Project local Gradle property called "SONATYPE_NEXUS_PASSWORD", if set;
+ * - Gradle installation property called "SONATYPE_NEXUS_PASSWORD", if set;
+ * - hardcoded empty string (which always is incorrect). */
+private String repoPassword() {
+  return hasProperty("SONATYPE_NEXUS_PASSWORD") ? SONATYPE_NEXUS_PASSWORD : ""
+}

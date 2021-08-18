@@ -96,7 +96,7 @@ abstract class MvvmFragment<Binding : ViewDataBinding, VM : LimboViewModel> :
       inflater, layoutRes, container, false
     )
 
-    binding.lifecycleOwner = this.viewLifecycleOwner
+    binding.lifecycleOwner = viewLifecycleOwner
     bindView(binding)
 
     return binding.root

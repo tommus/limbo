@@ -17,12 +17,9 @@ android {
 }
 
 dependencies {
-
   implementation deps.androidx.lifecycle_extensions
-
   implementation deps.kotlin.stdlib_jdk8
-
   api deps.rx.java
 }
 
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+apply from: rootProject.file("scripts/publish.gradle")
