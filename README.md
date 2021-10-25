@@ -4,7 +4,6 @@
 A collection of libraries that empowers Android development using one of two
 architectural patterns:
 
-- Model-View-Presenter - based on Mosby library,
 - Model-View-ViewModel - with no additional dependencies.
 
 It is strongly recommended to design the application using single activity,
@@ -13,16 +12,6 @@ but it's not required.
 ### Usage
 
 ### Add dependencies
-
-For Model-View-Presenter application, use the following dependency:
-
-```groovy
-dependencies {
-    implementation "co.windly:limbo-mvp:3.0.5"
-}
-```
-
-For Model-View-ViewModel application (with Hilt), use the following dependency:
 
 ```groovy
 dependencies {
@@ -45,7 +34,7 @@ Optionally, you can add one of utility packages:
 dependencies {
     implementation "co.windly:limbo-disposable:3.1.0"
     implementation "co.windly:limbo-recyclerview:3.2.0"
-    implementation "co.windly:limbo-utility:3.2.0"
+    implementation "co.windly:limbo-utility:3.2.2"
 }
 ```
 

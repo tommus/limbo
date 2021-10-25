@@ -1,68 +1,25 @@
-//region Startup Plugins
-
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
-//endregion
-
-//region Android
-
 android {
-
-  //region Build Configuration
 
   buildFeatures {
     buildConfig = false
     resValues = false
   }
 
-  //endregion
-
-  //region Compile
-
   compileSdkVersion deps.build_versions.compile_sdk
-
-  //endregion
-
-  //region Default Configuration
 
   defaultConfig {
     minSdkVersion deps.build_versions.min_sdk
     targetSdkVersion deps.build_versions.target_sdk
   }
-
-  //endregion
 }
-
-//endregion
-
-//region Dependencies
 
 dependencies {
-
-  //region AndroidX
-
   implementation deps.androidx.lifecycle_extensions
-
-  //endregion
-
-  //region Kotlin
-
   implementation deps.kotlin.stdlib_jdk8
-
-  //endregion
-
-  //region Reactive Extensions
-
   api deps.rx.java
-
-  //endregion
 }
 
-//endregion
-
-//region Publication
-
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
-
-//endregion
+apply from: rootProject.file("scripts/publish.gradle")

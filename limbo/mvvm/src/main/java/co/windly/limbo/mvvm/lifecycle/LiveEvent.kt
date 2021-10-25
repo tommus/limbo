@@ -60,7 +60,7 @@ open class LiveEvent<T> : MediatorLiveData<T>() {
   override fun removeObserver(observer: Observer<in T>) {
 
     // Remove the observer. If previously added to observers.
-    if (observers.remove(observer)) {
+    if (observers.remove<Observer<in T>>(observer)) {
       super.removeObserver(observer)
       return
     }

@@ -15,15 +15,23 @@ import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.findNavController
+import java.lang.ref.WeakReference
 
 interface ActivityNavigationTrait : ActivityTrait {
 
-  val navigationTrait: Activity
+  /**
+   * Holds a weak reference to the activity.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
+  val navigationTrait: WeakReference<Activity>
 
+  /**
+   * Navigate up in a view hierarchy.
+   */
   fun navigateUp() {
-
-    // Navigate up in a view hierarchy.
-    activityTrait.onBackPressed()
+    activityTrait.get()?.onBackPressed()
   }
 }
 
@@ -31,80 +39,86 @@ interface FragmentNavigationTrait : FragmentTrait {
 
   //region Trait
 
-  val navigationTrait: Fragment
+  /**
+   * Holds a weak reference to the fragment.
+   * <p>
+   * A part of navigation trait interface to simplify navigation controller
+   * implementation.
+   */
+  val navigationTrait: WeakReference<Fragment>
 
   //endregion
 
   //region Navigation Controller
 
-  fun findNavController(): NavController =
-    navigationTrait.findNavController()
+  fun findNavController(): NavController? =
+    navigationTrait.get()?.findNavController()
 
   //endregion
 
   //region Resource Destination
 
   fun navigate(@IdRes resId: Int) =
-    findNavController().navigate(resId)
+    findNavController()?.navigate(resId)
 
   fun navigate(@IdRes resId: Int, args: Bundle?) =
-    findNavController().navigate(resId, args)
+    findNavController()?.navigate(resId, args)
 
   fun navigate(@IdRes resId: Int, args: Bundle?, navOptions: NavOptions?) =
-    findNavController().navigate(resId, args, navOptions)
+    findNavController()?.navigate(resId, args, navOptions)
 
   fun navigate(
     @IdRes resId: Int, args: Bundle?, navOptions: NavOptions?, navigatorExtras: Navigator.Extras?) =
-    findNavController().navigate(resId, args, navOptions, navigatorExtras)
+    findNavController()?.navigate(resId, args, navOptions, navigatorExtras)
 
   //endregion
 
   //region Deep Link
 
   fun navigate(deepLink: Uri) =
-    findNavController().navigate(deepLink)
+    findNavController()?.navigate(deepLink)
 
   fun navigate(deepLink: Uri, navOptions: NavOptions?) =
-    findNavController().navigate(deepLink, navOptions)
+    findNavController()?.navigate(deepLink, navOptions)
 
   fun navigate(deepLink: Uri, navOptions: NavOptions?, navigatorExtras: Navigator.Extras?) =
-    findNavController().navigate(deepLink, navOptions, navigatorExtras)
+    findNavController()?.navigate(deepLink, navOptions, navigatorExtras)
 
   fun navigate(request: NavDeepLinkRequest) =
-    findNavController().navigate(request)
+    findNavController()?.navigate(request)
 
   fun navigate(request: NavDeepLinkRequest, navOptions: NavOptions?) =
-    findNavController().navigate(request, navOptions)
+    findNavController()?.navigate(request, navOptions)
 
   fun navigate(
     request: NavDeepLinkRequest, navOptions: NavOptions?, navigatorExtras: Navigator.Extras?) =
-    findNavController().navigate(request, navOptions, navigatorExtras)
+    findNavController()?.navigate(request, navOptions, navigatorExtras)
 
   //endregion
 
   //region Destination
 
   fun navigate(directions: NavDirections) =
-    findNavController().navigate(directions)
+    findNavController()?.navigate(directions)
 
   fun navigate(directions: NavDirections, navOptions: NavOptions?) =
-    findNavController().navigate(directions, navOptions)
+    findNavController()?.navigate(directions, navOptions)
 
   fun navigate(directions: NavDirections, navigatorExtras: Navigator.Extras) =
-    findNavController().navigate(directions, navigatorExtras)
+    findNavController()?.navigate(directions, navigatorExtras)
 
   //endregion
 
   //region Back
 
   fun popBackStack() =
-    findNavController().popBackStack()
+    findNavController()?.popBackStack()
 
   fun popBackStack(@IdRes destinationId: Int, inclusive: Boolean = false) =
-    findNavController().popBackStack(destinationId, inclusive)
+    findNavController()?.popBackStack(destinationId, inclusive)
 
   fun navigateUp() =
-    findNavController().navigateUp()
+    findNavController()?.navigateUp()
 
   //endregion
 
@@ -120,7 +134,7 @@ interface FragmentNavigationTrait : FragmentTrait {
   ) {
 
     // Access current back stack entry.
-    val entry = findNavController().currentBackStackEntry
+    val entry = findNavController()?.currentBackStackEntry
 
     // Register observer aware of event's lifecycle.
     val observer = LifecycleEventObserver { _, event ->
@@ -144,8 +158,8 @@ interface FragmentNavigationTrait : FragmentTrait {
     entry?.lifecycle?.addObserver(observer)
 
     // Register observer keeping track of view's lifecycle.
-    fragmentTrait.viewLifecycleOwner.lifecycle
-      .addObserver(LifecycleEventObserver { _, event ->
+    fragmentTrait.get()?.viewLifecycleOwner?.lifecycle
+      ?.addObserver(LifecycleEventObserver { _, event ->
 
         // Remove observer when view destroyed.
         if (event == Lifecycle.Event.ON_DESTROY) {
@@ -161,7 +175,7 @@ interface FragmentNavigationTrait : FragmentTrait {
   fun <Result : Parcelable> setResult(key: String, result: Result) {
 
     // Access previous back stack entry.
-    val entry = findNavController().previousBackStackEntry
+    val entry = findNavController()?.previousBackStackEntry
 
     // Set the result.
     entry?.savedStateHandle?.set(key, result)
