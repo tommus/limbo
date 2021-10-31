@@ -38,12 +38,6 @@ dependencies {
 }
 ```
 
-## Samples
-
-Please do not hesitate to check `samples` directory for simple examples how to
-use `Limbo` in Java and Kotlin projects. For the time being, only MVP example
-is available.
-
 ## License
 
     Copyright 2021 Tomasz Dzieniak, Adrian Zalewski
