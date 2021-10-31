@@ -1,0 +1,29 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+
+android {
+
+  buildFeatures {
+    buildConfig = false
+    dataBinding = true
+    resValues = false
+  }
+
+  compileSdkVersion deps.build_versions.compile_sdk
+
+  defaultConfig {
+    minSdkVersion deps.build_versions.min_sdk
+    targetSdkVersion deps.build_versions.target_sdk
+  }
+}
+
+dependencies {
+  api deps.dagger.android
+  api deps.dagger.android_support
+  compileOnly deps.dagger.annotation
+  implementation deps.kotlin.stdlib_jdk8
+  implementation project(':limbo-mvvm')
+}
+
+apply from: rootProject.file("scripts/publish.gradle")
