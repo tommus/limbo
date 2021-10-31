@@ -15,7 +15,7 @@ but it's not required.
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:4.2.0"
+    implementation "co.windly:limbo-mvvm:5.0.0-SNAPSHOT"
 }
 ```
 
@@ -23,8 +23,8 @@ For Model-View-ViewModel application (with Dagger), use the following dependenci
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.1.1"
-    implementation "co.windly:limbo-mvvm-dagger:3.0.5"
+    implementation "co.windly:limbo-mvvm:5.0.0-SNAPSHOT"
+    implementation "co.windly:limbo-mvvm-dagger:5.0.0-SNAPSHOT"
 }
 ```
 
@@ -32,9 +32,9 @@ Optionally, you can add one of utility packages:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-disposable:3.1.0"
-    implementation "co.windly:limbo-recyclerview:3.2.0"
-    implementation "co.windly:limbo-utility:3.2.2"
+    implementation "co.windly:limbo-disposable:5.0.0-SNAPSHOT"
+    implementation "co.windly:limbo-recyclerview:5.0.0-SNAPSHOT"
+    implementation "co.windly:limbo-utility:5.0.0-SNAPSHOT"
 }
 ```
 
