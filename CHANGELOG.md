@@ -1,5 +1,9 @@
 ### Change Log
 
+### Version `limbo-utility' 5.0.0 *(2023-01-21)*
+
+  * Update RxJava (3.1.2);
+
 ### Version `limbo-utlity` 3.2.2 *(2021-08-18)*
 
   * Update Gradle Wrapper (7.2);

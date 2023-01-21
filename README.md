@@ -34,7 +34,7 @@ Optionally, you can add one of utility packages:
 dependencies {
     implementation "dev.windly:limbo-disposable:5.0.0-SNAPSHOT"
     implementation "dev.windly:limbo-recyclerview:5.0.0-SNAPSHOT"
-    implementation "dev.windly:limbo-utility:5.0.0-SNAPSHOT"
+    implementation "dev.windly:limbo-utility:5.0.0"
 }
 ```
 
