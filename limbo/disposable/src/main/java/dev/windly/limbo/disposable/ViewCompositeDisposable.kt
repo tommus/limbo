@@ -85,7 +85,7 @@ class ViewCompositeDisposable(
   /**
    * Called when the view is attached to a window.
    */
-  override fun onViewAttachedToWindow(view: View?) =
+  override fun onViewAttachedToWindow(view: View) =
     Unit
 
   /**
@@ -93,6 +93,6 @@ class ViewCompositeDisposable(
    *
    * It disposes all the previously contained disposables.
    */
-  override fun onViewDetachedFromWindow(view: View?) =
+  override fun onViewDetachedFromWindow(view: View) =
     dispose()
 }

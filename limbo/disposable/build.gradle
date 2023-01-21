@@ -1,25 +1,26 @@
 apply plugin: "com.android.library"
+apply plugin: "com.vanniktech.maven.publish"
 apply plugin: "kotlin-android"
 
 android {
+
+  namespace "dev.windly.limbo.disposable"
 
   buildFeatures {
     buildConfig = false
     resValues = false
   }
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  compileSdkVersion 33
 
   defaultConfig {
-    minSdkVersion deps.build_versions.min_sdk
-    targetSdkVersion deps.build_versions.target_sdk
+    minSdkVersion 24
+    targetSdkVersion 33
   }
 }
 
 dependencies {
-  implementation deps.androidx.lifecycle_extensions
-  implementation deps.kotlin.stdlib_jdk8
-  api deps.rx.java
+  implementation libs.androidx.lifecycle.extensions
+  implementation libs.kotlin.stdlib
+  api libs.rx.java
 }
-
-apply from: rootProject.file("scripts/publish.gradle")

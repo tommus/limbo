@@ -1,8 +1,11 @@
 apply plugin: "com.android.library"
+apply plugin: "com.vanniktech.maven.publish"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
 android {
+
+  namespace "dev.windly.limbo.mvvm.dagger"
 
   buildFeatures {
     buildConfig = false
@@ -10,20 +13,18 @@ android {
     resValues = false
   }
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  compileSdkVersion 33
 
   defaultConfig {
-    minSdkVersion deps.build_versions.min_sdk
-    targetSdkVersion deps.build_versions.target_sdk
+    minSdkVersion 24
+    targetSdkVersion 33
   }
 }
 
 dependencies {
   implementation project(':limbo:mvvm')
-  api deps.dagger.android
-  api deps.dagger.android_support
-  compileOnly deps.dagger.annotation
-  implementation deps.kotlin.stdlib_jdk8
+  api libs.dagger.android
+  api libs.dagger.android.support
+  compileOnly libs.javax
+  implementation libs.kotlin.stdlib
 }
-
-apply from: rootProject.file("scripts/publish.gradle")

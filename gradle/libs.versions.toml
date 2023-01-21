@@ -1,0 +1,38 @@
+[versions]
+androidx_navigation = "2.5.3"
+dagger = "2.44.2"
+kotlin = "1.8.0"
+rxbinding = "4.0.0"
+
+[plugins]
+dokka = { id = "org.jetbrains.dokka", version = "1.7.20" }
+kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.23.2" }
+
+[libraries]
+android_plugin = { module = "com.android.tools.build:gradle", version = "7.4.0" }
+androidx_appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.0" }
+androidx_constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
+androidx_core = { module = "androidx.core:core", version = "1.9.0" }
+androidx_navigation_fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "androidx_navigation" }
+androidx_navigation_fragment_ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx_navigation" }
+androidx_navigation_plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx_navigation" }
+androidx_navigation_ui = { module = "androidx.navigation:navigation-ui", version.ref = "androidx_navigation" }
+androidx_navigation_ui_ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx_navigation" }
+androidx_navigation_safe_args_plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx_navigation" }
+androidx_fragment = { module = "androidx.fragment:fragment", version = "1.5.5" }
+androidx_lifecycle_extensions = { module = "androidx.lifecycle:lifecycle-extensions", version = "2.2.0" }
+androidx_lifecycle_livedata = { module = "androidx.lifecycle:lifecycle-livedata", version = "2.5.1" }
+androidx_recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.2.1" }
+androidx_swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.1.0" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger_android = { module = "com.google.dagger:dagger-android", version.ref = "dagger" }
+dagger_android_processor = { module = "com.google.dagger:dagger-android-processor", version.ref = "dagger" }
+dagger_android_support = { module = "com.google.dagger:dagger-android-support", version.ref = "dagger" }
+dagger_compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+javax = { module = "javax.inject:javax.inject", version = "1" }
+kotlin_stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+rx_android = { module = "io.reactivex.rxjava3:rxandroid", version = "3.0.2" }
+rx_binding = { module = "com.jakewharton.rxbinding4:rxbinding", version.ref = "rxbinding" }
+rx_binding_swiperefreshlayout = { module = "com.jakewharton.rxbinding4:rxbinding-swiperefreshlayout", version.ref = "rxbinding" }
+rx_java = { module = "io.reactivex.rxjava3:rxjava", version = "3.1.6" }

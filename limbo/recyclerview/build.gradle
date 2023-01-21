@@ -1,28 +1,29 @@
 apply plugin: "com.android.library"
+apply plugin: "com.vanniktech.maven.publish"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
 android {
+
+  namespace "dev.windly.limbo.recyclerview"
 
   buildFeatures {
     buildConfig = false
     dataBinding = true
   }
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  compileSdkVersion 33
 
   defaultConfig {
-    minSdkVersion deps.build_versions.min_sdk
-    targetSdkVersion deps.build_versions.target_sdk
+    minSdkVersion 24
+    targetSdkVersion 33
   }
 }
 
 dependencies {
   implementation project(':limbo:utility')
-  implementation deps.androidx.recyclerview
-  implementation deps.androidx.swiperefreshlayout
-  implementation deps.kotlin.stdlib_jdk8
-  implementation deps.rx.binding_swiperefreshlayout
+  implementation libs.androidx.recyclerview
+  implementation libs.androidx.swiperefreshlayout
+  implementation libs.kotlin.stdlib
+  implementation libs.rx.binding.swiperefreshlayout
 }
-
-apply from: rootProject.file("scripts/publish.gradle")
