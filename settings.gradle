@@ -1,3 +1,5 @@
+rootProject.name = 'limbo-root'
+
 include ':limbo:disposable'
 include ':limbo:mapstruct'
 include ':limbo:mvvm'
