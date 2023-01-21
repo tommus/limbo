@@ -4,7 +4,7 @@ apply plugin: "kotlin-kapt"
 
 android {
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  namespace "dev.windly.limbo.mvvm"
 
   buildFeatures {
     buildConfig = false
@@ -12,21 +12,21 @@ android {
     resValues = false
   }
 
+  compileSdkVersion 33
+
   defaultConfig {
-    minSdkVersion deps.build_versions.min_sdk
-    targetSdkVersion deps.build_versions.target_sdk
+    minSdkVersion 24
+    targetSdkVersion 33
   }
 }
 
 dependencies {
   implementation project(':limbo:disposable')
   implementation project(':limbo:utility')
-  implementation deps.androidx.appcompat
-  implementation deps.androidx.fragment
-  compileOnly deps.dagger.annotation
-  implementation deps.kotlin.stdlib_jdk8
-  implementation deps.androidx.navigation_fragment
-  implementation deps.androidx.navigation_fragment_ktx
+  implementation libs.androidx.appcompat
+  implementation libs.androidx.fragment
+  compileOnly libs.javax
+  implementation libs.kotlin.stdlib
+  implementation libs.androidx.navigation.fragment
+  implementation libs.androidx.navigation.fragment.ktx
 }
-
-apply from: rootProject.file("scripts/publish.gradle")

@@ -3,24 +3,24 @@ apply plugin: "kotlin-android"
 
 android {
 
+  namespace "dev.windly.limbo.utility"
+
   buildFeatures {
     buildConfig = false
   }
 
-  compileSdkVersion deps.build_versions.compile_sdk
+  compileSdkVersion 33
 
   defaultConfig {
-    minSdkVersion deps.build_versions.min_sdk
-    targetSdkVersion deps.build_versions.target_sdk
+    minSdkVersion 24
+    targetSdkVersion 33
   }
 }
 
 dependencies {
-  implementation deps.androidx.core
-  api deps.androidx.lifecycle_livedata
-  api deps.rx.android
-  api deps.rx.binding
-  api deps.rx.java
+  implementation libs.androidx.core
+  api libs.androidx.lifecycle.livedata
+  api libs.rx.android
+  api libs.rx.binding
+  api libs.rx.java
 }
-
-apply from: rootProject.file("scripts/publish.gradle")
