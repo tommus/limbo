@@ -1,46 +1,57 @@
-# Limbo
-[![Maven Central][mavenbadge-svg]][mavencentral] [![Travis (.org) branch][travisci-svg]][travisci] [![API][apibadge-svg]][apioverview] [![GitHub][license-svg]][license]
+Limbo
+=====
 
-A collection of libraries that empowers Android development using one of two
-architectural patterns:
+[![Maven Central][mavenbadge-svg]][mavencentral]
+[![Travis (.org) branch][travisci-svg]][travisci]
+[![API][apibadge-svg]][apioverview]
+[![GitHub][license-svg]][license]
 
-- Model-View-ViewModel - with no additional dependencies.
+A collection of tools that boosts the Android development.
 
-It is strongly recommended to design the application using single activity,
-but it's not required.
+[apibadge-svg]: https://img.shields.io/badge/API-19%2B-brightgreen.svg?color=97ca00
 
-### Usage
+[apioverview]: https://developer.android.com/about/versions/android-4.4
 
-### Add dependencies
+[license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
 
-```groovy
-dependencies {
-    implementation "dev.windly:limbo-mvvm:5.0.0-SNAPSHOT"
-}
-```
+[license]: http://www.apache.org/licenses/LICENSE-2.0
 
-For Model-View-ViewModel application (with Dagger), use the following dependencies:
+[mavenbadge-svg]: https://img.shields.io/maven-central/v/dev.windly/limbo-mvvm.svg?color=97ca00
 
-```groovy
-dependencies {
-    implementation "dev.windly:limbo-mvvm:5.0.0-SNAPSHOT"
-    implementation "dev.windly:limbo-mvvm-dagger:5.0.0-SNAPSHOT"
-}
-```
+[mavencentral]: https://search.maven.org/artifact/dev.windly/limbo-mvvm
 
-Optionally, you can add one of utility packages:
+[travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
 
-```groovy
-dependencies {
-    implementation "dev.windly:limbo-disposable:5.0.0-SNAPSHOT"
-    implementation "dev.windly:limbo-recyclerview:5.0.0-SNAPSHOT"
-    implementation "dev.windly:limbo-utility:5.0.0"
-}
-```
+[travisci]: https://travis-ci.org/tommus/limbo-mvvm
+
+Download
+--------
+
+In order to download one of the limbo extensions, check the readme files in
+project subdirectories.
+
+- [dev.windly:limbo-disposable][1]
+- [dev.windly:limbo-mapstruct][2]
+- [dev.windly:limbo-mvvm-dagger][3]
+- [dev.windly:limbo-mvvm][4]
+- [dev.windly:limbo-recyclerview][5]
+- [dev.windly:limbo-utility][6]
+
+[1]: https://github.com/tommus/limbo/tree/main/limbo/disposable
+
+[2]: https://github.com/tommus/limbo/tree/main/limbo/mapstruct
+
+[3]: https://github.com/tommus/limbo/tree/main/limbo/mvvm-dagger
+
+[4]: https://github.com/tommus/limbo/tree/main/limbo/mvvm
+
+[5]: https://github.com/tommus/limbo/tree/main/limbo/recyclerview
+
+[6]: https://github.com/tommus/limbo/tree/main/limbo/utility
 
 ## License
 
-    Copyright 2021 Tomasz Dzieniak, Adrian Zalewski
+    Copyright 2023 Tomasz Dzieniak
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -53,12 +64,3 @@ dependencies {
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-[apibadge-svg]: https://img.shields.io/badge/API-19%2B-brightgreen.svg?color=97ca00
-[apioverview]: https://developer.android.com/about/versions/android-4.4
-[license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
-[license]: http://www.apache.org/licenses/LICENSE-2.0
-[mavenbadge-svg]: https://img.shields.io/maven-central/v/dev.windly/limbo-mvvm.svg?color=97ca00
-[mavencentral]: https://search.maven.org/artifact/dev.windly/limbo-mvvm
-[travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
-[travisci]: https://travis-ci.org/tommus/limbo-mvvm
