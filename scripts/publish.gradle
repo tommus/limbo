@@ -128,7 +128,7 @@ private boolean isReleaseBuild() {
  * - hardcoded value to Maven Central release repository otherwise. */
 private String releaseRepoUrl() {
   return hasProperty("RELEASE_REPOSITORY_URL") ? RELEASE_REPOSITORY_URL :
-    "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
 }
 
 /**
@@ -140,7 +140,7 @@ private String releaseRepoUrl() {
  * - hardcoded value to Maven Central snapshot repository otherwise. */
 private String snapshotRepoUrl() {
   return hasProperty("SNAPSHOT_REPOSITORY_URL") ? SNAPSHOT_REPOSITORY_URL :
-    "https://oss.sonatype.org/content/repositories/snapshots/"
+    "https://s01.oss.sonatype.org/content/repositories/snapshots/"
 }
 
 /**

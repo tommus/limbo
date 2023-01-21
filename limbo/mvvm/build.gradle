@@ -19,12 +19,12 @@ android {
 }
 
 dependencies {
+  implementation project(':limbo:disposable')
+  implementation project(':limbo:utility')
   implementation deps.androidx.appcompat
   implementation deps.androidx.fragment
   compileOnly deps.dagger.annotation
   implementation deps.kotlin.stdlib_jdk8
-  implementation project(":disposable")
-  implementation project(":utility")
   implementation deps.androidx.navigation_fragment
   implementation deps.androidx.navigation_fragment_ktx
 }

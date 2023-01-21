@@ -15,7 +15,7 @@ but it's not required.
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:4.2.0"
+    implementation "dev.windly:limbo-mvvm:5.0.0-SNAPSHOT"
 }
 ```
 
@@ -23,8 +23,8 @@ For Model-View-ViewModel application (with Dagger), use the following dependenci
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-mvvm:3.1.1"
-    implementation "co.windly:limbo-mvvm-dagger:3.0.5"
+    implementation "dev.windly:limbo-mvvm:5.0.0-SNAPSHOT"
+    implementation "dev.windly:limbo-mvvm-dagger:5.0.0-SNAPSHOT"
 }
 ```
 
@@ -32,17 +32,11 @@ Optionally, you can add one of utility packages:
 
 ```groovy
 dependencies {
-    implementation "co.windly:limbo-disposable:3.1.0"
-    implementation "co.windly:limbo-recyclerview:3.2.0"
-    implementation "co.windly:limbo-utility:3.2.2"
+    implementation "dev.windly:limbo-disposable:5.0.0-SNAPSHOT"
+    implementation "dev.windly:limbo-recyclerview:5.0.0-SNAPSHOT"
+    implementation "dev.windly:limbo-utility:5.0.0"
 }
 ```
-
-## Samples
-
-Please do not hesitate to check `samples` directory for simple examples how to
-use `Limbo` in Java and Kotlin projects. For the time being, only MVP example
-is available.
 
 ## License
 
@@ -64,7 +58,7 @@ is available.
 [apioverview]: https://developer.android.com/about/versions/android-4.4
 [license-svg]: https://img.shields.io/github/license/tommus/limbo.svg?color=97ca00
 [license]: http://www.apache.org/licenses/LICENSE-2.0
-[mavenbadge-svg]: https://img.shields.io/maven-central/v/co.windly/limbo-mvvm.svg?color=97ca00
-[mavencentral]: https://search.maven.org/artifact/co.windly/limbo-mvvm
+[mavenbadge-svg]: https://img.shields.io/maven-central/v/dev.windly/limbo-mvvm.svg?color=97ca00
+[mavencentral]: https://search.maven.org/artifact/dev.windly/limbo-mvvm
 [travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
 [travisci]: https://travis-ci.org/tommus/limbo-mvvm
