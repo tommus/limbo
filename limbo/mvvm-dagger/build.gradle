@@ -19,11 +19,11 @@ android {
 }
 
 dependencies {
+  implementation project(':limbo:mvvm')
   api deps.dagger.android
   api deps.dagger.android_support
   compileOnly deps.dagger.annotation
   implementation deps.kotlin.stdlib_jdk8
-  implementation project(":mvvm")
 }
 
 apply from: rootProject.file("scripts/publish.gradle")

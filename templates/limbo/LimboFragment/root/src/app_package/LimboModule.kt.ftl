@@ -1,7 +1,7 @@
 package ${packageName}
 
 import androidx.lifecycle.ViewModel
-import co.windly.limbo.dagger.ViewModelKey
+import ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

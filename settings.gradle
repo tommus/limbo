@@ -1,14 +1,5 @@
-include ":disposable"
-project(":disposable").projectDir = new File(rootDir, "limbo/disposable")
-
-include ":mvvm"
-project(":mvvm").projectDir = new File(rootDir, "limbo/mvvm")
-
-include ":mvvm-dagger"
-project(":mvvm-dagger").projectDir = new File(rootDir, "limbo/mvvm-dagger")
-
-include ":recyclerview"
-project(":recyclerview").projectDir = new File(rootDir, "limbo/recyclerview")
-
-include ":utility"
-project(":utility").projectDir = new File(rootDir, "limbo/utility")
+include ':limbo:disposable'
+include ':limbo:mvvm'
+include ':limbo:mvvm-dagger'
+include ':limbo:recyclerview'
+include ':limbo:utility'
