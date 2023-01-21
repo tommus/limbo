@@ -1,4 +1,7 @@
+rootProject.name = 'limbo-root'
+
 include ':limbo:disposable'
+include ':limbo:mapstruct'
 include ':limbo:mvvm'
 include ':limbo:mvvm-dagger'
 include ':limbo:recyclerview'
