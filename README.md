@@ -20,10 +20,6 @@ A collection of tools that boosts the Android development.
 
 [mavencentral]: https://search.maven.org/artifact/dev.windly/limbo-mvvm
 
-[travisci-svg]: https://img.shields.io/travis/tommus/limbo/master.svg?color=97ca00
-
-[travisci]: https://travis-ci.org/tommus/limbo-mvvm
-
 Download
 --------
 
