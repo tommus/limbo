@@ -1,4 +1,4 @@
-name: build
+name: publish to Maven Central
 
 on:
   push:
