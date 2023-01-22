@@ -1,4 +1,4 @@
-rootProject.name = 'limbo-root'
+rootProject.name = 'limbo'
 
 include ':limbo:disposable'
 include ':limbo:mapstruct'
