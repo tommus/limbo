@@ -2,7 +2,6 @@ Limbo
 =====
 
 [![Maven Central][mavenbadge-svg]][mavencentral]
-[![Travis (.org) branch][travisci-svg]][travisci]
 [![API][apibadge-svg]][apioverview]
 [![GitHub][license-svg]][license]
 
